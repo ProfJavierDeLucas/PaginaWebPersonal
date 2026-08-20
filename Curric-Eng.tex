@@ -1,0 +1,973 @@
+%
+\documentclass[12pt,reqno]{amsbook}
+\usepackage{calc}
+\usepackage[framemethod=tikz,xcolor=true]{mdframed}
+%\newmdenv[%
+\usepackage{times}
+%\usepackage{amsthm}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsthm}
+%\usepackage{polski}
+%\usepackage[utf8]{inputenc}
+%\usepackage{newtxtext,newtxmath} % optional, e.g., if you want Times Roman font family
+%\usepackage{etoolbox}
+
+\newmdenv[%
+    leftmargin=0.5cm,
+    backgroundcolor=yellow!10,%
+    roundcorner=5pt,%
+    tikzsetting={draw=red, line width=2.0pt}%
+    ]{SpecialText}%
+
+
+%\newcommand*{\Format}[1]{\makebox[\widthof{$xyz$}][r]{$#1$}}%
+%\newcommand*{\PhantomLet}{\mbox{\hphantom{Let }}}%
+%\makeatletter
+%\patchcmd{\@thm}{\thm@headfont{\scshape}}{\thm@headfont{\scshape\bfseries}}{}{}
+%\patchcmd{\@thm}{\thm@notefont{\fontseries\mddefault\upshape}}{}{}{}
+%\makeatother
+ %\usepackage[polish]{babel}
+%\usepackage{setspace}
+\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{dsfont} 
+\usepackage{graphicx,xcolor}
+\hyphenpenalty=10000            % nie dziel wyrazów zbyt często
+\clubpenalty=10000                      % kara za sierotki
+\widowpenalty=10000                     % nie pozostawiaj wdów
+\brokenpenalty=10000            % nie dziel wyrazów między stronami
+\exhyphenpenalty=999999         % nie dziel słów z myślnikiem
+\righthyphenmin=3                       % dziel minimum 3 litery
+
+\tolerance=4500
+\pretolerance=250
+\hfuzz=1.5pt
+\hbadness=1450
+
+%\sloppy                                                % umacnia pozycję prawego marginesu
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-5cm}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-5cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\topmargin -1.25cm
+\footskip 1.4cm
+%
+%%\linespread{1.3}
+%\newtheorem{proposition}{Stwierdzenie}[section]
+%\newtheorem{theorem}[proposition]{Twierdzenie}
+%\newtheorem{lemma}[proposition]{Lemat}
+%\theoremstyle{remark}
+%\newtheorem{definition}[proposition]{Definicja}
+%\newtheorem{remark}[proposition]{Uwaga}
+%\newtheorem{example}[proposition]{Przykład}
+%\newtheorem{corollary}[proposition]{Wniosek}
+%
+%
+%
+%
+%\newcommand{\GG}{\mathbb{G}}
+%\newcommand{\XX}{\mathbb{X}}
+%\newcommand{\YY}{\mathbb{Y}}
+%\newcommand{\HH}{\mathbb{H}}
+%\newcommand{\id}{\mathrm{id}}
+%\newcommand{\op}{{\scriptscriptstyle\mathrm{op}}}
+%\DeclareMathOperator{\Linf}{L^\infty\!\!\;}
+%\DeclareMathOperator{\Ltwo}{L^2\!\!\;}
+%\DeclareMathOperator{\Mor}{Mor}
+%\DeclareMathOperator{\C}{C}
+%\DeclareMathOperator{\W}{W}
+%\DeclareMathOperator{\B}{B}
+%\DeclareMathOperator{\M}{M}
+%\DeclareMathOperator{\Aut}{Aut}
+%\newcommand{\I}{\mathds{1}}
+%\DeclareMathOperator{\vN}{vN}
+%\newcommand{\vtens}{\,\bar{\otimes}\,}
+%\newcommand{\WW}{{\mathds{V}\!\!\text{\reflectbox{$\mathds{V}$}}}}
+%\newcommand{\Ww}{\mathds{W}}
+%\newcommand{\wW}{\text{\reflectbox{$\Ww$}}\:\!}
+%\newcommand{\ww}{\mathrm{W}}
+\begin{document}
+
+\begin{center}
+{\large\textbf{List of scientific publications, professional creative works, and information about educational achievements, scientific cooperation, and popularization of science}}
+\vspace{0.25cm}
+
+{\large\textbf{ dr. hab. Javier de Lucas Araujo, prof. UW}}
+\end{center}
+\vskip 0.5cm
+
+{\Large \textbf{ }}
+\vspace{1cm}
+%\showthe\font
+\begin{tabular}{ll}
+        \textbf{Name and surname} & Javier de Lucas Araujo\\
+        \textbf{Date and place of birth} & September, 2nd, 1981, Talavera de la Reina (TOLEDO), Spain.\\
+        \textbf{Address} &Department of Mathematical Methods in Physics\\& Faculty of Physics, University of Warsaw\\& Pasteura 5, 02-093, Warsaw, Poland\\
+        \textbf{E-mail} &javier.de.lucas@fuw.edu.pl\\
+        \textbf{Website}& www.fuw.edu.pl/$\sim$delucas
+\end{tabular}\\
+\vspace{1cm}
+
+{\Large \textbf{Scientific degrees}}
+\vspace{1cm}
+\begin{itemize}
+	
+        \item[1.] {\bf Simons-CRM Professor}: From September 7 till December 22nd 2023 I was a Simons professor at the Center de Recherchers Mathematiques of the University of Montreal.
+        \item[2.] {\bf Professorship at the University of Warsaw}: From 1 April 2022 I became an associate professor (profesor uczelni UW) at the Faculty of Physics of the University of Warsaw.
+        \item[3.] \textbf {Polish Habilitation:} I obtained my accreditation as a `{\it doktor habilitowany}'\footnote{This term refers to researchers who have passed the  official tenure examination 'Polska habilitacja' that allows Polish researchers to supervise PhD students and ensures the right to acquire a permanent position in academia.} from the Komisja Centralna Spraw Tytu\l \'ow i Stopni (Central Agency for the assessment of titles and degres) on December 18th, 2017. Discipline: Physics.
+        \item[4.] \textbf {Profesor contratado doctor:} I obtained my accreditation as a `{\it Profesor contratado doctor}'\footnote{This term refers to researchers who have passed an official tenure examination that allows Spanish researchers to supervise PhD students and to acquire a permanent position in academia.} from the ANECA (Agencia Nacional de Evaluaci\'on de la Calidad y Acreditaci\'on, National Agency for the Evaluation of Excellence and Accreditation) in 2012.  Discipline: Applied Mathematics.
+        \item[5.] \textbf {PhD in Physics:} I defended my PhD thesis `{\it Lie systems and applications to Quantum Mechanics}', written under the supervision of prof. J.F. Cari\~nena Marzo, in the Faculty of Sciences of the University of Zaragoza (Spain) on October 23rd, 2009. My PhD dissertation obtained the highest distinction (SOBRESALIENTE CUM LAUDE), and I was awarded with the {\it Special Prize for Doctoral Theses of the University of Zaragoza} in 2011\footnote{The University of Saragossa offers yearly one or two such prizes for all exact and natural science faculties.}.
+        \item [6.] \textbf{MSc in Physics}. Faculty of Physics, University of Salamanca, 2004. I was awarded with a grant `{\it Beca de colaboraci\'on}' for the best students of the last year of the degree on Physics in 2004\footnote{The master thesis appeared in the Spanish university system only after the introduction of the Bologna process.}.
+\end{itemize}
+\vspace{1cm}
+
+                {\Large \textbf {Scientific Career}}
+\vspace {1cm}
+\begin {itemize}
+\item [1999--2004] MSc studies, Degree in Physics, University of Salamanca, Salamanca (Spain).
+\item [2004--2006] PhD studies, Department of Mathematics, University of Salamanca, Salamanca (Spain).
+\item [2006--2009] PhD studies,  Department of Theoretical Physics, University of Zaragoza, Zaragoza (Spain).
+\item[2007--2009] Assistant professor, Department of Theoretical Physics, University of Zaragoza, Zaragoza (Spain).
+\item [2009--2012] Postdoc fellowship, Assistant professor, IMPAN, Warsaw (Poland).
+\item[2012--2013] Assistant professor, Faculty of Mathematics and Natural Sciences, School of Exact Sciences, Cardinal Stefan Wyszy\'nski University, Warsaw (Poland).
+\item[2013--2017] Assistant professor, Department of Mathematical Methods in Physics, University of Warsaw (Poland).
+\item[2017--2022] Assistant professor (with Habilitation), Department of Mathematical Methods in Physics, University of Warsaw (Poland).
+\item[2021--2024] University of Warsaw; Scientific Discipline Councils; Discipline Council - Physical Sciences.
+\item[2021--2024] University of Warsaw; Scientific Council of Fields.
+\item[2022--...] Associate professor (Profesor Uczelni UW), Department of Mathematical Methods in Physics, University of Warsaw (Poland).
+\item[2023--2024] Simons-CRM Professor at the Centre de Recherches Math\'ematiques, University of Montreal, (Canada) from 7-IX-2023 till 22-XII-2023
+  \item[2024-2029.]  External Associate Member of the Laboratoire de Physique Mathématique, 
+	Centre de recherches mathématiques, 
+Université de Montréal, Canada.
+
+\end {itemize}
+\setcounter{page}{2}
+
+
+
+\color{blue}
+{\bf \large I. List of publications}\color{black}
+
+
+\noindent
+In the following list of publications, the number of citations and the impact factors (IFs) were given on the basis of  the Web of Knowledge and Journal Citation Reports database. For the papers published up to 2024 I detail the impact factor of the year of publication. In the case of papers published or accepted in 2024/2025 I provide the impact factor for 2024.  I disclosed the total number of citations of each work and, between parenthesis, the number of citations without self-citations.   My Hirsch index is 13. Total citations 486 (without self-citations 230). 
+\begin{enumerate}
+%\item J. de Lucas, T. Frelik, J. Gasset,  \color{blue}Reduction of projective multisymplectic structures, \color{black}  to be sent.
+%\item J. de Lucas, D.  Wysocki,  \color{blue}Deformation of Lie-Hamilton systems via Jacobi structures, \color{black} to be sent.
+
+%\item B.M. Zawora, A. L\'opez-Gordon, M. de Le\'on, J. de Lucas, \color{blue}\color{black}, in progress.
+
+ %\item B.M. Zawora, A. L\'opez-Gordon, J. de Lucas, \color{blue} Dissipation, stability, and contact Hamiltonian systems\color{black}, in progress.
+ 
+%\item J. de Lucas, J. Lange, X. Rivas, C. Sard\'on, \color{blue} Hamilton–Jacobi theory for non-conservative field
+%theories in the k-contact framework,  \color{black} to be submitted, 2025.
+
+%\item J. de Lucas, J. Lange, \color{blue} Projection and reduction of twisted Poisson structures,     \color{black} to be submitted, 2025.
+
+
+%\item J. de Lucas, X. Rivas, M. Zaj\c ac, \color{blue}Stochastic ISI models, \color{black}d.
+
+
+
+%\item J. de Lucas, X. Rivas, T. Sobczak, \color{blue} $k$-contact Lie systems: theory and applications, \color{black} to be submitted, 2025.
+
+%\item L. Campoamor-Stursberg, F.J. Herranz, J. de Lucas, \color{blue} Generalised Lie--Hamilton systems, \color{black} to be submited, 2025. 
+
+\item J. de Lucas, X. Rivas, T. Sobczak, \color{blue} Foundations on  $k$-contact geometry, \color{black} under review in  Inventiones Mathematicae since IX-2024.
+\item L. Colombo, J. de Lucas, X. Rivas, B. Zawora, \color{blue} An energy-momentum method for ordinary differential
+equations with an underlying k-polysymplectic manifold\color{black}, arXiv:2311.15035, under review in  J. Nonlinear Science since XI-2023.
+
+
+ \item A.M. Grundland, J. de Lucas, \color{blue} Quasi-rectifiable Lie algebras
+ for partial differential equations\color{black}, arXiv:2312.05238, under review in Nonlinearity since XII-2023 (after first round of referee reports).
+  \item J. de Lucas, J. Lange, X. Rivas, \color{blue} A symplectic approach to Schr\"odinger equations in the infinite-dimensional unbounded setting\color{black},  AIMS Mathematics, {\bf 9}, 10 (2024).
+ 
+
+
+\item  J. de Lucas, A. Maskalaniec, and B.M. Zawora. \color{blue} A cosymplectic energy-momentum method with applications\color{black}, J. Nonl. Math. Phys., {\bf 31}, 64, (2024).
+
+\item J. de Lucas, X. Gracia, X. Rivas, N. Rom\'an-Roy, \color{blue} On Darboux theorems for geometric structures
+induced by closed forms, \color{black}, RACSAM, Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas {\bf 118}, 131 (2024).
+
+ \item L. Blanco, F. Jim\'enez, J. de Lucas, C. Sard\'on, \color{blue} Geometry preserving numerical methods for physical systems with finite-dimensional Lie algebras\color{black}, J. Nonlinear Science {\bf 34}, 26 (2024).
+
+
+\item J. de Lucas, X. Rivas, S. Vilari\~no, B.M. Zawora, \color{blue} On $k$-polycosymplectic Marsden-Weinstein reductions, \color{black} J. Geom. Phys. {\bf 191}, 104899 (2023).
+
+\item  J. de Lucas, X. Rivas, \color{blue} Contact Lie systems: theory and applications, \color{black} J. Phys. A {\bf 56}, 335203 (2023).
+
+\item  L. Blanco, F. Jim\'enez, J. de Lucas, C. Sard\'on, \color{blue} Geometric numerical methods for Lie systems and their application in optimal control\color{black}, Symmetry {\bf 15}, 1285 (2023).
+\item  J. F. Cari\~nena, J. de Lucas, C. Sard\'on, \color{blue} Quantum quasi-Lie systems: properties and applications, \color{black} EPJP {\bf 138}, 339 (2023).%https://doi.org/10.1140/epjp/s13360-023-03883-9.
+
+\item A.M. Grundland and J. de Lucas, \color{blue} Multiple Riemann wave solutions of the general form
+of quasilinear hyperbolic systems\color{black}, Adv. Diff. Eq. {\bf 28}, 73--112 (2023).
+
+\item O. Esen, J. de Lucas, C. Sard\'on, and M. Zaj\c ac, \color{blue}  Decomposing Euler-Poincare flow on the space of Hamiltonian vector fields\color{black}, Symmetry {\bf 15}, 23 (2022).
+
+
+\item J. F. Cari\~nena, J. de Lucas, D. Wysocki, \color{blue} Stratified Lie systems: Theory and applications,  \color{black} J. Phys. A {\bf 55}, 385206 (2022).
+
+\item C. Gonera, J. Gonera, J. de Lucas,  W. Szczesek, and B.M. Zawora, \color{blue} More on superintegrable models on spaces of constant curvature \color{black}, Regular and Chaotic Dynamics (RCD) {\bf 27}, (2022).
+
+
+\item J. de Lucas,
+X.  Gr\'acia, X. Rivas, N. Roman-Roy, S. Vilari\~no, \color{blue}Reduction and reconstruction of multisymplectic Lie systems\color{black},  J. Phys. A {\bf 55}, 295204 (2022).
+
+                {\item J. de Lucas, B.M. Zawora}, \color{blue}{A time-dependent energy-momentum method}\color{black}, J. Geom. Phys. {\bf 170}, 104364 (2021). IF = 1.249 (2020). (Polish discipline: Mathematics and Physics).
+        
+        {\item J. de Lucas, D. Wysocki}, \color{blue}{Darboux families and the classification of real four-dimensional indecomposable coboundary Lie bialgebras}\color{black}, Symmetry  {\bf 13}, 465 (2021). IF = 2.258 (2020) (Q1 - Mathematics). (Polish discipline: Mathematics) 
+        
+        {\item A. Ballesteros, R. Campoamor-Stursberg, E. Fernandez-Saiz, F.J. Herranz, J. de Lucas}, \color{blue}{Poisson-Hopf deformations of Lie-Hamilton systems revisited: deformed superposition rules and applications to the oscillator algebra}\color{black}, J. Phys. A {\bf 54}, 205202 (2021).  (Polish discipline: Mathematics and Physics)
+
+        {\item J. de Lucas and D. Wysocki}, \color{blue}{A Grassmann and graded approach to coboundary Lie bialgebras, their classification, and Yang-Baxter equations}\color{black}, J. Lie Theory {\bf 2020}, 1161--1194. (Polish discipline: Mathematics)
+{\item J. Lange and J. de Lucas}, \color{blue}{Geometric Models for Lie--Hamilton systems on $\mathbb{R}^2$}\color{black}, Mathematics {\bf 2019}, 7, 1053, (2019). (Polish discipline: Mathematics)
+{\item M.M. Lecanda, X. Gr\`acia, J. de Lucas, and S. Vilari\~no,  \color{blue}{Multisymplectic structures and invariant
+                tensors for Lie systems}\color{black},  J. Phys. A, {\bf 52}, 215201, (2019).  IF = 1.996 (Q1 - 12/55 in Mathematical Physics) citations = 1(0).}  (Polish discipline: Mathematics and Physics)
+        
+{\item J.F. Cari\~nena, J. Grabowski, and J. de Lucas,  \color{blue}{Quasi-Lie Schemes for PDEs}\color{black},  Int. J. Geom. Methods. Mod. Phys. {\bf 16},  1950096 (2019), IF = 1.022 (2015), (Q3 - 35/55 in Physics, Mathematical), citations = 1(0).}  (Polish discipline: Mathematics and Physics)
+
+
+{ \item J. de Lucas, C. Sard\'on, \color{blue}{A Guide to Lie systems with Compatible Geometric Structures}\color{black},  World Scientific, Singapore, 408 pp., 2020. DOI: 10.1142/q0208. ISBN: 978-1-78634-697-1.}
+
+{ \item J.F. Cari\~nena, J. Clemente-Gallardo, J.A. Jover-Galtier, J. de Lucas, \color{blue}{Application of Lie systems to Quantum Mechanics:
+Superposition rules}\color{black},  Proceedings of the ''60 Years Alberto Ibort Fest Classical and Quantum Physics: Geometry, Dynamics and
+Control", Springer, 2019.}   
+
+\item A.M. Grundland and J. de Lucas,\color{blue} {On the geometry of the Clairin theory of conditional symmetries for higher-order systems of PDEs with applications}\color{black}, Diff. Geom. Appl. {\bf 67}, 101557 (2019).
+
+
+{ \item A.M. Grundland and J. de Lucas, \color{blue}{A cohomological approach to immersion formulas via integrable systems}\color{black},  Selecta Mathematica - New Series {\bf 24}, 4749--4780 (2018), IF = 1.248 (Q1 Mathematics - Miscellanea), citations = 1(0).}  (Polish discipline: Mathematics and Physics)
+
+{ \item A. Ballesteros, R. Campoamor-Stursberg, E. Fernandez-Saiz, F.J. Herranz and J. de Lucas, \color{blue}{A unified approach to Poisson--Hopf deformations of Lie--Hamilton systems based on $\mathfrak{sl}(2)$}\color{black},  accepted in ``Springer Proceedings in Mathematics, Statistics" (2018). IF = it is not applicable.}
+
+{ \item A. Ballesteros, R. Campoamor-Stursberg, E. Fernandez-Saiz, F.J. Herranz and J. de Lucas, \color{blue}{Poisson-Hopf algebra deformations of Lie-Hamilton systems}\color{black}, {\it J. Phys. A} {\bf 51}, 065202  (2018), IF = 2.110 (Q1 - 12/55 in Mathematical Physics), citations = 1(0).} (Polish discipline: Mathematics and Physics)
+
+{ \item F.J. Herranz, J. de Lucas, M. Tobolski \color{blue}{Lie-Hamilton systems on curved spaces: A geometrical approach}\color{black},  J. Phys. A {\bf 50},  495201 (2017), IF = 1.865 (Q1 - 12/55 in Mathematical Physics), citations = 1(0).} (Polish discipline: Mathematics and Physics)
+
+{ \item M.M. Lewandowski, J. de Lucas, \color{blue}{Geometric features of Vessiot--Guldberg Lie algebras of conformal and Killing vector fields on $\mathbb{R}^2$}\color{black}, {\it Banach Center Publications} {\bf 113}, 243--262 (2017). IF = it is not applicable, citations = not available.} (Polish discipline: Mathematics)
+
+{ \item A.M. Grundland and J. de Lucas, \color{blue}{A Lie systems approach to the Riccati hierarchy and partial differential equations}\color{black}, {\it J. Differential Equations} {\bf 263}, 299--337 (2017). IF = 1.988 (2016), (Q1 - 13/311 in Mathematics), citations = 1(0).} (Polish discipline: Mathematics)
+
+{ \item P. Garcia-Estevez, F.J. Herranz, J. de Lucas and C. Sard\'on, \color{blue}{Lie symmetries for Lie systems: Applications to systems of ODEs and PDEs}\color{black}, {\it Appl. Math. Comp.} {\bf 273}, 435--452 (2016). IF = 1.738 (2016), (Q1 - 35/255 Mathematics, Applied), citations = 5(3). }  (Polish discipline: Mathematics)
+
+{ \item J. de Lucas, M. Tobolski and S. Vilari\~no, \color{blue}{Geometry of Riccati equations over normed division algebras}\color{black}, {\it J. Math. Anal. Appl.} {\bf 440}, 394--414 (2016). IF = 1.064 (2016), (Q1 - 53/311 in Mathematics), citations = 2(2). } (Polish discipline: Mathematics)
+
+{ \item J.F. Cari\~nena and J. de Lucas, \color{blue}{ Quasi--Lie families, schemes, invariants and their applications to Abel equations}\color{black}, {\it J. Math. Anal. Appl.} {\bf 430}, 648--671 (2015). IF = 1.014 (2015), (Q1 - 25/53 in Physics, Mathematical), citations = 0. } (Polish discipline: Mathematics)
+
+{ \item J.F. Cari\~nena, J. de Lucas and M.F. Ra\~nada, \color{blue} Jacobi multipliers, non-local symmetries, and nonlinear oscillators\color{black}, {\it J. Math. Phys.} {\bf 56},  063505 (2015). IF = 1.234 (2015), (Q2 - 25/53 w Physics, Mathematical), citations = 2(2).} (Polish discipline: Mathematics and Physics)
+
+
+{ \item J. de Lucas  and S. Vilari\~no, \color{blue}{$k$-symplectic Lie systems: theory and applications}\color{black}, {\it J. Differential Equations} {\bf 258} (6), 2221--2255 (2015). IF = 1.821 (2015), (Q1 - 14/312 in Mathematics), citations = 5(2).} (Polish discipline: Mathematics)
+
+{ \item A. Ballesteros, A. Blasco, F.J. Herranz and C. Sard\'on,  \color{blue}{Lie--Hamilton systems on the plane: Properties, classification and applications}\color{black}, {\it J. Differential Equations} {\bf 258}, 2873--2907 (2015). IF =1.821 (2015), (Q1 - 14/312 w Mathematics), citations= 11(6).} (Polish discipline: Mathematics )
+
+{ \item A. Blasco, F.J. Herranz, J. de Lucas and C. Sard\'on, \color{blue}{ Lie--Hamilton systems on the plane: applications and superposition rules}\color{black}, {\it J. Phys. A} {\bf 48}, 345202 (2015). IF = 1.933 (2015), (Q1 - 11/53 in Physics, Mathematical),  citations = 4(0).} (Polish discipline: Mathematics and Physics)
+
+
+{ \item J. de Lucas, M. Tobolski and S. Vilari\~no, \color{blue}{A new application of $k$-symplectic Lie systems}\color{black}, {\it  Int. J. Geom. Methods Mod. Phys.} {\bf 12}, 1550071 (2015). IF = 0.769 (2015), (Q4 - 41/53 in Physics, Mathematical), citations = 2(1).  } (Polish discipline: Mathematics and Physics)
+
+{ \item F.J. Herranz, J. de Lucas and C. Sard\'on, \color{blue}{Jacobi--Lie systems: theory and low dimensional classification}\color {black}\, in: {\sl The 10th AIMS Conference on Dynamical Systems, Differential Equations and Applications}, 2015. Discrete Contin. Dyn. Syst. Series A, 605--614, 2015,  IF = 1.082, citations = 5(0). (Polish discipline: Mathematics) }
+
+{ \item  J.F. Cari\~nena, J. Grabowski, J. de Lucas and C. Sard\'on, \color{blue}Dirac--Lie systems and Schwarzian equations\color{black}, {\it J. Differential Equations} {\bf 257} (7), 2303--2340 (2014). IF = 1.68 (2014), (Q1 - 16/312 w Mathematics), citations = 7(2).} (Polish discipline: Mathematics)
+
+{ \item  A. Ballesteros, J.F. Cari\~nena, F.J. Herranz, J. de Lucas and C. Sard\'on, \color{blue} From constants of motion to superposition rules for Lie--Hamilton systems\color{black}, {\it J. Phys. A: Math. Theor.} {\bf 46}, 285203 (2013). IF =1.687 (2013), (Q2 - 26/78 w Physics, Multidisciplinary), citations = 12(3).} (Polish discipline: Mathematics and Physics)
+
+{ \item  J.F. Cari\~nena, J. de Lucas and C. Sard\'on, \color{blue} Lie--Hamilton systems: theory and applications\color{black}, {\it Int. J. Geom. Methods Mod. Phys.} {\bf 10}, 1350047  (2013). IF = 0.617 (2013), (Q4 - 45/55 w Physics, Mathematical), citations = 9(0).}
+(Polish discipline: Mathematics and Physics)
+
+{ \item  J.F. Cari\~nena, J. de Lucas and P. Guha, \color{blue}A quasi-Lie schemes approach to the Gambier equation\color{black}, {\it SIGMA} {\bf 9}, 026 (2013). IF = 1.299 (2013), (Q2 - 25/55 w Physics, Mathematical), citations = 6(5).} (Polish discipline: Mathematics and Physics)
+
+
+{ \item  J. Grabowski and J. de Lucas, \color{blue}Mixed superposition rules and the Riccati hierarchy\color{black}, {\it J. Differential Equations} {\bf 254}, 179--198 (2013). IF =1.570 (2013), (Q1 - 13/302 w Mathematics), citations = 8(3).} (Polish discipline: Mathematics)
+
+\item J.F. Cariñena, J. de Lucas and M.F. Rañada, \color{blue} Un enfoque geometrico de las ecuaciones diferenciales de Abel de primera y segunda clase,\color{black} {\it Actas del XI Congreso del Dr. Antonio Monteiro 2011}, 63--82 (2012).
+
+
+{ \item J.F. Cari\~nena, J. de Lucas and C. Sard\'on, \color{blue}A new Lie systems approach to second-order Riccati equations\color{black}, {\it Int. J. Geom. Methods Mod. Phys.} {\bf  9}, 1260007 (2012).  IF = 0.951 (2012), (Q3 - 34/55 w Physics, Mathematical), citations = 6(2). }
+(Polish discipline: Mathematics and Physics)
+
+{\item J. de Lucas and C. Sard\'on, \color{blue} On Lie systems and Kummer--Schwarz equations\color{black}, {\it J. Math. Phys.} {\bf 54}, 033505 (2013). IF = 1.176 (2013), (Q3 - 30/55 in Physics, Mathematical), citations = 7(2). } (Polish discipline: Mathematics and Physics)
+%
+%{\it M\'oj wk\l ad w powstanie tej pracy polega\l\, na zaproponowanie i znajdowanie zasady sk\l ada\'n superpozycji dla r\'owna\'n r\'o\.zniczkowych Kummera-Schwarza drugiego i trzeciego rz edu. Wykona\l em obliczenia we wsp\'o\l pracy z C. Sard\'on. Zredagowa\l em ostateczny manuskrypt pracy. My contribution represents the 30\%.}
+
+
+
+{ \item J.F. Cari\~nena, J. de Lucas and J. Grabowski, \color{blue}Superposition rules for higher-order systems and their applications\color{black}, {\it J. Phys. A: Math. Theor.} {\bf 45}, 185202 (2012).  IF = 1.766 (2012), (Q2 - 13/55 w Physics, Mathematical), citations = 16(5).} (Polish discipline: Mathematics and Physics)
+
+% \item  J.F. Cari\~nena, J. de Lucas and M.F. Ra\~nada, Un enfoque geometrico de las ecuaciones diferenciales de Abel de primera y segunda clase, Actas del XI Congreso del Dr. Antonio Monteiro 2011, 63--82 (2012).
+
+%{\bf \item[PH7] J.F. Cari\~nena, J. de Lucas i M.F. Ra\~nada, 
+%\color{blue} Un enfoque geom\'etrico del estudio de las ecuaciones diferenciales de Abel de primera y segunda clase\color{black}, Actas del XI congreso dr. Antonio A.R. Monteiro (2011), 63--82, 2012. IF = nie dotyczy, citations = nie znane. My contribution represents the 30\%.}
+%
+%{\it M\'oj wk\l ad w powstanie tej pracy polega\l\, na charakteryzacj e uk\l ad\'ow Liego r\'owna\'n r\'o\.zniczkowych wy\.zszego rz edu, udowodnienie wszystkich twierdze\'n i propozycja uk\l ad\'ow. Temat pracy zosta\l o proponowane przez prof. Grabowski i opracowali\'smy razem dowody. Zastosowania zosta\l y wykonane we wsp\'o\l pracy z prof. Cari\~nena. By\l em g\'o\l wnym rekatorem pracy, ale prof. Grabowski i prof. Cari\~nena zasugerowali wiele drobnych poprawek. My contribution represents the 60\%.}
+
+
+
+{ \item  J.F. Cari\~nena and J. de Lucas, \color{blue}Superposition rules and second-order Riccati equations\color{black}, {\it J. Geom. Mech. }{\bf 3}, 1--22, (2011).  IF = 0.812, (Q2 - 101/245 w Physics, Mathematical), citations = 24(13).} (Polish discipline: Mathematics and Physics)
+
+{ \item J.F. Cari\~nena and J. de Lucas, \color{blue}Superposition rules and second-order differential equations\color{black}, in AIP Conference Proceedings   {\bf 1360},  127--132 (2011).  IF = it does not apply, citations = 2(0). } 
+%
+
+{ \item P.G. Estevez, M.L. Gandarias and J. de Lucas, \color{blue} Classical Lie symmetries and reductions of a nonisospectral Lax pair \color{black}, {\it J. Nonlinear Math. Phys.} {\bf 18}, 51--60 (2011).  IF = 0.543, (Q4 - 47/55 w Physics, Mathematical), citations = 0.} (Polish discipline: Mathematics and Physics)
+
+{ 
+\item J.F. Cari\~nena and J. de Lucas, \color{blue} Integrability of Lie systems through Riccati equations,\color{black} {\it J. Nonlinear Math. Phys.} 18, 29--54 (2011). IF = 0.543 (2011), (Q4 - 47/55 w Physics, Mathematical), citations = 6(4).} (Polish discipline: Mathematics and Physics)
+
+
+{ 
+\item J.F. Cari\~nena, J. de Lucas and M.F. Ra\~nada, \color{blue} A geometric approach to integrability of Abel differential equations\color{black}, {\it Int. J. Theor. Phys.} {\bf  50}, 2114--2124 (2011). IF = 0.845 (2011), (Q3 - 48/84 w Physics, Multidisciplinary), citations = 8(3).} (Polish discipline: Mathematics and Physics)
+
+{ \item J.F. Cari\~nena and J. de Lucas, \color{blue}Lie systems: theory, generalizations, and applications\color{black}, {\it Dissertationes Math.} {\bf 479}, 1--169, (2011).  IF = 0.214, (Q4 - 279/289 w Mathematics), citations = 46(17).} 
+
+{ \item J.F. Cari\~nena, J. Grabowski and J. de Lucas, \color{blue} Lie families: theory and applications\color{black}, {\it J. Phys. A} {\bf 43}, 305201 (2010). IF =1.641 (2010), (Q2 - 17/54 w Physics, Mathematical), citations = 7(0).} (Polish discipline: Physics and Mathematics)
+
+
+{ \item R. Flores, J. de Lucas and Y. Vorobiev, \color{blue} Phase splitting for periodic Lie systems\color{black}, {\it J. Phys. A.} {\bf 43}, 205208 (2010). IF = 1.641 (2010), (Q2 - 17/54 w Physics, Mathematical), citations = 7(1).} (Polish discipline: Mathematics and Physics)
+
+
+
+%{\bf \item[PH13.] F. Avram, J.F. Cari\~nena i J. de Lucas, \color{blue} A Lie systems approach for the first passage-time of piecewise deterministic processes\color{black}, w: {\sl Modern Trends of Controlled Stochastic Processes: Theory and Applications}, Luniver Press, 2010, pp. 144--160.  My contribution represents the 60\%.%IF = , citations = . Sw\'oj uk\l ad oceniam na 70\%}
+%}
+%
+%\begin{SpecialText}
+%{\it M\'oj wk\l ad w powstanie tej pracy polega\l\, na zastosowanie techniki teorii ca\l kowalno\'sci uk\l ad\'ow Liego w r\'ownaniach stochastycznych pojawiaj acych si e w tzw. passage-time piecewise deterministic processes. By\l em g\l\'ownym autorem pracy od strony 139 do 149. Dyskutowa\l em wyniki z wsp\'o\l autorami i sprawdzi\l em cz e\'s\'c pracy przez nich napisane.}
+%\end{SpecialText}
+
+{
+\item J.F. Cari\~nena, J. de Lucas and M.F. Ra\~nada,
+\color{blue}{ Lie systems and integrability conditions for $t$-dependent frequency harmonics oscillators,} \color{black} {\it Int. J. Geom. Methods Mod. Phys.} {\bf 7}, 289--310 (2010). IF = 1.612, (Q2 - 18/47 w PHYSICS, Mathematical), citations = 5(2).} (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena and J. de Lucas,
+\color{blue}{\it Quantum Lie systems and integrability conditions\color{black}}\color{black}, Int. J. Geom. Meth. Mod. Phys. {\bf 6}, 1235--1252 (2009). IF = 1.612, (Q2 - 18/47 w PHYSICS, Mathematical), citations = 7(3) (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena, P.G.L. Leach and J. de Lucas,
+\color{blue}{\it Quasi-Lie schemes and Emden--Fowler equations} \color{black}, J. Math. Phys. {\bf 50}, 103515 (2009). IF = 1.318, (Q3 - 24/47 w PHYSICS, Mathematical), citations =8(1).  (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena, J. Grabowski and J. de Lucas,
+\color{blue}{\it Quasi-Lie schemes: theory and applications}\color{black}, J. Phys. A {\bf 42}, 335206 (2009). IF = 1.577, (Q2 - 19/47 w PHYSICS, Mathematical), citations = 14(0).  (Polish discipline: Mathematics and Physics)
+
+\item  J.F. Cari\~nena and J. de Lucas,
+\color{blue}{\it Applications of Lie systems in dissipative Milne--Pinney equations}\color{black}, Int. J. Geom. Meth. Modern Phys. {\bf 6}, 683--699 (2009).  IF = 1.612, (Q2 - 18/47 w PHYSICS, Mathematical), citations =19(11). (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena, J. de Lucas and A. Ramos,
+\color{blue}{\it A geometric approach to time evolution operators of Lie quantum systems}\color{black}, Int. J. Theor. Phys. {\bf 48}, 1379--1404 (2009). IF = 0.688, (Q3 - 51/71 w PHYSICS, Multidisciplinary), citations = 8(3). (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena, J. de Lucas and M.F. Ra\~nada,
+\color{blue}{\it Recent Applications of the Theory of Lie Systems in Ermakov Systems}\color{black}, SIGMA {\bf 4}, 031  (2008). IF = 0.789, (Q3 - 35/47 w PHYSICS, Mathematical), citations =32(14). (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena, J. de Lucas and M.F. Ra\~nada,
+\color{blue}{\it Integrability of Lie systems and some of its applications in physics}\color{black}, J. Phys. A {\bf 41}, 304029 (2008). IF = 1.540, (Q2 - 19/47 w PHYSICS, Mathematical), citations =10(3). (Polish discipline: Mathematics and Physics)
+
+\item J.F. Cari\~nena and J. de Lucas,
+\color{blue}{\it A nonlinear superposition rule for solutions of the Milne--Pinney equation, }\color{black} Phys. Lett. A, {\bf 372}, 5385--5389 (2008). IF = 2.174, (Q2 - 22/71 w PHYSICS, Multidisciplinary), citations =23(16). (Polish discipline: Physics)
+
+
+\item J.F. Cari\~nena, J. de Lucas and A. Ramos,
+\color{blue}{\it A geometric approach to integrability conditions for Riccati equations,} \color{black} Electronic Journal of Differential Equations {\bf 122}, 1--14 (2007). IF = 0.417, (Q3 - 205/289 w MATHEMATICS), citations = 12(3). (Polish discipline: Mathematics)
+
+
+
+
+{ \item F. Avram, J.F. Cari\~nena and J. de Lucas, \color{blue} A Lie systems approach for the first passage-time of piecewise deterministic processes\color{black}, w: {\sl Modern Trends of Controlled Stochastic Processes: Theory and Applications}, Luniver Press, 2010, pp. 144--160,} citations = not available.
+
+\item  J.F. Cari\~nena i J. de Lucas,
+\color{blue}{\it Lie systems and integrability conditions of differential equations and some of its applications}\color{black}, in: {\sl Differential Geometry and its applications}, pp 407--417, World Science Publishing, Prague, (2008), citations = not available. (Polish discipline: Mathematics)
+
+
+\item J.F. Cari\~nena, J. de Lucas i M.F. Ra\~nada,
+\color{blue}{\it Nonlinear superpositions and Ermakov systems }\color{black} in: {\sl Differential Geometric Methods in Mechanics and Field Theory: Volume in honour of W. Sarlet}, Academia Press, Gent, 2007, 15--33, citations - not available
+
+
+I was one of the editors of the book: 
+{\sl Geometry of Jets and Fields - in honour of Professor Janusz Grabowski} (eds.
+K. Grabowska, M. J\'o\'zwikowski, J. De Lucas and M. Rotkiewicz), Banach Center Publications {\bf 18}, Vol. 110, Warsaw, 2016.
+\end{enumerate}
+
+%\end{document}
+%\newpage
+\vskip 0.3cm
+{\bf International and national prizes in recognition to scientific or artistic activity}
+
+\begin{itemize}
+	\item 2025 - Nomitation to award in recognition of achievements affecting the development and prestige of the University of Warsaw, University of Warsaw (Final decision in progress).
+	\item 2024 - Nomination to Didactic   Award `Zygmunt Ajduk' in recognition to outstanding exercises classes (Analysis II R), Faculty of Physics, University of Warsaw (Summer Semester).
+        \item 2023 - Individual prize of second degree for research acievements, Faculty of Physics, University of Warsaw.
+        \item 2023 - Simons--CRM Professorship, Centre de Recherches Mathematiques (CRM), University of Montreal, Canada (one of the most reputable research positions at the CRM).
+        \item 2022 - Nomination to Didactic     Award `Zygmunt Ajduk' in recognition to outstanding exercises classes (Analysis III and Special Functions in Mathematical Physics), Faculty of Physics, University of Warsaw (Summer Semester).
+        \item 2021 - Dean Prize of third degree for research achievements.
+        \item 2021 - Dean Prize in commemoration to Rector Stefan Pie\'nkowski and Rector Grzegorz Bia\l kowski for the best researcher in the Faculty of Physics of the University of Warsaw (younger than 40 years old).
+        \item 2020 - UW Rector Prize of second degree in recognition to the publication ``A Guide to Lie Systems with Compatible Geometric Structures", research on the differential geometry properties of differential equations, and didactic achievements, University of Warsaw.
+        \item 2020 - UW Didactic Award 'Zygmunt Ajduk' in reocgnition to outstanding exercises classes (Differential Geometry), Faculty of Physics, University of Warsaw.
+ \item 2019 - Award in recognition of achievements affecting the development and prestige of the University of Warsaw, University of Warsaw.
+        \item 2018 -  Nomination to the best paper prize of the conference ,,10th International Symposium on Quantum theory and symmetries and 12th International Workshop on Lie Theory and Its Applications in Physics"(+70 participants).
+        \item 2017 - Didactic Award of the Dean of the University of Warsaw.
+        \item 2016 - Nomination to Didactic  Award in recognition to outstanding exercises classes (Algebra II R), Faculty of Physics, University of Warsaw (Summer Semester).
+        \item 2016 - Award in recognition of achievements affecting the development and prestige of the University of Warsaw, University of Warsaw.
+        \item 2015 - Individual prize of third degree, Faculty of Physics, University of Warsaw.
+        \item 2014 - Best teacher of the Faculty of Physics,  University of Warsaw (UW Student council).
+        \item 2013 - Didactic Award for outstanding classes and lectures, Summer term, University of Warsaw.
+        \item 2011 - Postdoc fellowship for young researchers, IMPAN.
+        \item 2011 - Special Award for Doctoral Theses, University of Zaragoza, year 2009/2010.
+        \item 2010 - Postdoc fellowship for young researchers, IMPAN.
+        \item 2009 - Postdoc fellowship for young researchers, IMPAN.
+        \item 2006 -  F.P.U.  Fellowship funded by the Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science) for the best students in Spain to accomplish my PhD  thesis project ``Lie systems and applications to Quantum Mechanics''.
+        \item 2005 -   Fellowship funded by the Faculty of Science of the University of Salamanca for the best students in the University of Salamanca starting their PhD.
+        \item 2005 -  F.P.I. Fellowship funded by the Junta de Castilla y Le\'on ( Castilla y Le\'on council) for the best students in the Castilla y Le\'on region starting their PhD.
+        \item 2003 - Fellowship `Beca de colaboraci\'on' funded by the Ministry of Education, Culture and Sport (Spain) and granted by the Faculty of Science of the University of Salamanca for the best (5) students of the Faculty of Physics of the University of Salamanca in the period from 1999 to 2003.
+\end{itemize}
+
+\vskip 0.4cm
+
+
+{\bf Direction of international and national research projects and participation in such projects}
+\vskip 0.5cm
+
+\noindent{\bf Code:} MTM2006-10531\\
+{\bf Title}: Geometric and variational methods in integrability and Control Theory\\
+{\bf Funding organization:} Ministerio de Eduaci\'on y Ciencia (Ministry of Education and Science) \\
+{\bf Principal researcher:} J.F. Cari\~nena Marzo \\
+{\bf Period:} 2007-2009\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code}: MTM2009-11154\\
+{\bf Title}: Geometric methods in integrability and Control Theory\\
+{\bf Funding organization:} Ministerio de Eduaci\'on y Ciencia (Ministry of Education and Science) \\
+{\bf Principal researcher:} J.F. Cari\~nena Marzo \\
+{\bf Period:} 2009--2012\\
+{\bf Type of participation:} Collaborator\\
+
+
+\noindent
+{\bf Code}: E24/1\\
+{\bf Title}: Mathematical Physics and Field Theory\\
+{\bf Funding organization:} Direcci\'on General de Arag\'on (Council of Arag\'on) \\
+{\bf Principal researcher:} Julio Abad , Manuel Fernandez Ra\~nada \\
+{\bf Period:} 2007--2009 and 2009--2011.\\
+{\bf Type of participation:} Collaborator\\
+
+
+\noindent
+{\bf Code}: MTM2006-27467-E\\
+{\bf Title}: Geometry, Mechanics and Control\\
+{\bf Funding organization:} Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science) \\
+{\bf Principal researcher:} Juan Carlos Marrero \\
+{\bf Period:} od 15/01/2007 do 26/04/2009\\
+{\bf Type of participation:} Collaborator\\
+
+
+\noindent
+{\bf Code}: MTM2007-30168-E\\
+{\bf Title}: Geometry, Mechanics and Control\\
+{\bf Funding organization:} Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science)\\
+{\bf Principal researcher}: Juan Carlos Marrero \\
+{\bf Period}: od 20/01/2008 do 20/04/2009\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code}: MTM2008-03606-E\\
+{\bf Title}: Geometry, Mechanics and Control\\
+{\bf Funding organization:} Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science)\\
+{\bf Principal researcher}: Juan Carlos Marrero\\
+{\bf Period:} od 20/01/2009 do 20/04/2010\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code}: MTM2009-08166-E\\
+{\bf Title}: Geometry, Mechanics and Control\\
+{\bf Funding organization:}: Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science)\\
+{\bf Principal Researcher}: Juan Carlos Marrero\\
+{\bf Period}: od 01/02/2010 do 30/04/2011\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code}: MTM2010-12166-E\\
+{\bf Title}: Geometry, Mechanics and Control\\
+{\bf Funding organization:} Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science)\\
+{\bf Principal Researcher}: Juan Carlos Marrero\\
+{\bf Period}: od 01/02/2011 do 30/04/2012\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code:} HARMONIA Nr 2012/04/M/ST1/00523\\
+{\bf Title}: Lie systems: theory, generalizations, and applications\\
+{\bf Funding organization:} National Science Center (Poland)\\
+{\bf Principal researcher:} Prof. dr. hab. J. Grabowski\\
+{\bf Period:} 2012-2015\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code:} MAESTRO Nr DEC-2012/06/A/ST1/00256.\\
+{\bf Title}: Geometria of Jets and Fields\\
+{\bf Funding organization:} National Science Center (Poland)\\
+{\bf Principal researcher:} Prof. dr. hab. J. Grabowski\\
+{\bf Period:} 2012--in progress\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code:} HARMONIA Nr 2016/22/M/ST1/00542.\\
+{\bf Title}: Lie systems and selected topics in Lie theory and differential equations\\
+{\bf Funding organization:} National Science Center (Poland)\\
+{\bf Principal researcher:} Prof. dr. hab. J. Grabowski\\
+{\bf Period:} From 04-04-2017 to 03-04-2017\\
+{\bf Type of participation:} Collaborator\\
+
+\noindent
+{\bf Code:} MINIATURA-5 Nr 2021/05/X/ST1/01797.\\
+{\bf Title}: Energy-momentum methods: properties, generalisations, and applications\\
+{\bf Funding organization:} National Science Center (Poland)\\
+{\bf Principal researcher:} dr hab. Javier de Lucas Araujo\\
+{\bf Period:} From 15-12-2021 to 14-12-2022\\
+
+\noindent
+{\bf Code:} PRELUDIUM Nr 2021/41/N/ST1/02908.\\
+{\bf Title}: A Lie system approach to resolve compartmental epidemic systems\\
+{\bf Funding organisation:} National Science Center (Poland)\\
+{\bf Principal researcher:} dr Marcin Zaj\c a\'c\\
+{\bf Period:} From 01-01-2022 to 31-12-2023\\
+{\bf Type of participation:} Tutor\\
+\vskip 0.5cm
+\noindent
+{\bf Code:} CZ.02.2.69/0.0/0.0/18$-$054/0014696\\
+{\bf Title}: Development of $R\&D$ capacities of the Silesian University of Opava \\
+{\bf Funding organisation:} European Structural and Investment Funds, Operational Programme Research/Ministry of Education Youth and Sports (Czech Republic)\\
+{\bf Principal researcher:} .doc. RNDr. Gabriel Torok\\
+{\bf Period:} From 01-01-2022 to 31-12-2022\\
+{\bf Type of participation:} Collaborator at the University of Warsaw\\
+\vskip 0.5cm
+
+\noindent
+{\bf Code:} IDUB  SP: 501-D111-20-2004310.\\
+{\bf Title}: Redukcje Marsdena-Weinsteina nowoczesnych struktur geometrycznych, formalizmy kontaktowe i zastosowania\\
+{\bf Funding organization:} Iniciative of Excelence, University of Warsaw (Poland)\\
+{\bf Principal researcher:} prof. Javier de Lucas Araujo\\
+{\bf Period:} From 01-08-2022 to 29-02-2024\\
+{\bf Type of participation:} Principal Inverstigator\\
+{\bf Founding:} 12.000 Euro\\
+\vskip 0.5cm
+
+
+{\bf Talks, courses, and seminars}
+
+\begin{enumerate}
+        \item Course: {\it Applications of Lie Systems to Classical Mechanics and Control Theory}, {\bf I meeting of young researchers on Geometry, Mechanics and Control}, Madrid, Spain,  December 19--20, 2006.
+        
+        \item Talk: {\it Recent results on the theory of Lie systems and applications}, {\bf IX Winter meeting on Mechanics, Geometry and Control}, Saragossa, Spain,  January 30--31, 2007.
+        
+        \item Talk: {\it Recent applications of the theory of Lie systems in Ermakov systems},
+        {\bf VIIth International conference on Symmetry in Nonlinear Mathematical Physics}, Kij\'ow, Ukraine, June 24--30, 2007.
+        
+        \item Talk: {\it New geometric approaches in the study of Ermakov systems}, {\bf  XXII International workshop on differential geometric methods in theoretical mechanics}, sierpie\'n, IMPAN Research and conference center in B edlewo,  B\c edlewo, Polska.
+        
+        \item  Invited talk: {\it Fundamentals and applications of Lie systems}, Department Applied Mathematics IV, University of Catalunia, Spain, November  21, 2007.
+        
+        \item Talk:  {\it Integrability of Lie systems and applications}, {\bf II meeting of young researches on Geometry , Mechanics and Control}, Madrid, Spain, December 19, 2007.
+        
+        \item Poster: {\it  Integrability of Lie systems in Classical and Quantum Mechanics}, {\bf I Iberoamerican meeting on Geometry, Mechanics and Control}, University of Santiago de Compostela, Spain, June 23--27, 2008.
+        
+        \item Talk:  {\it Quasi-Lie schemes and applications}, {\bf International Young researchers workshop on on Geometry, Mechanics and Control}, Barcelona, Spain, December 16--18, 2008.
+        
+        \item Talk:  {\it Quasi-Lie schemes and applications}, {\bf XI Winter meeting on Geometry, Mechanics and Control Theory},  University of Saragossa, Spain, January 26--27, 2009.
+        
+\item Talk: {\it Control Lie systems and applications}, {\bf Geometry of constraints and control}, IMPAN, Warsaw, Poland,  October 25--31, 2009.
+
+\item Talk: \!{\it Lie families: theory and applications}, {\bf IV International Summer School on Control, Geometry and Mechanics}, University of Santiago de Compostela, Santiago de Compostela, Spain, July 5--9, 2010.
+
+\item Poster: \!\! {\it Lie systems:\! theory, generalizations, and applications.}, {\bf  IV International Summer School on Control, Geometry and Mechanics}, University of Santiago de Compostela, Santiago de Compostela, Spain, July 5--9, 2010.
+
+\item Poster: \!{\it Superposition rules and second-order Riccati equations}, {\bf XIX International Fall Workshop on Geometry and Physics}, University of Porto, Porto, Portugal, September 6--9, 2010.
+
+
+\item Invited talk: {\it Theory and applications of Lie systems and quasi-Lie schemes}, Faculty of Mathematics, University of Salamanca, Salamanca, Spain, September 22, 2010. 
+
+\item Talk: {\it Geometric structures and superposition rules}, {\bf Centennial congress of the Spanish Royal Mathematical Society R.S.M.E. 2011}, \'Avila, Spain, February 1--5, 2011.
+
+\item Talk: {\it Lie--Hamilton systems: theory and applications}, {\bf 5th International Summer School on Geometry, Mechanics and Control}, La Cristalera, Miraflores de la Sierra, Spain, July  4--8, 2011.
+
+%\item Talk: {\it On a new type of Lie systems on Poisson manifolds}, {\bf 5th Summer School on Geometry, Mechanics and Control}, La Cristalera, Madryt, Spain, 4--8  lipca, 2011.
+
+\item Invited talk: {\it Lie--Hamilton systems}, {\bf Congress of the Mexican Mathematical Society}, University of  San Lu\'\i{}s de Potos\'\i{}, San Lu\'\i{}s de Potos\'\i{}, Mexico, October 9--14, 2011.
+
+\item Invited talk: {\it  Superposition rules and Lie systems}, University of Sonora, Hermosillo, Mexico, October 16, 2011.
+
+\item Invited talk: {\it Superposition rules and Lie systems}, University of Salamanca, Salamanca, Spain, May 15, 2012.
+
+\item Talk: {\it Mixed superposition rules: theory and some applications}, {\bf XXI International Fall Workshop on Geometry and Physics}, University of  Burgos, Burgos, Spain, August 30--September 1, 2012.
+\item Invited talk: {\it Lie-Hamilton Systems: theory and applications}, Faculty of Physics,  University of  Burgos, Burgos, Spain, September 2, 2012.
+
+\item Invited talk: {\it Mixed Superposition rules: theory and applications}, University of  Burgos, Burgos, Spain, October 16, 2012.
+
+\item Talk: {\it Dirac--Lie systems: theory and applications}, {\bf Thematic day on Dirac Structures and Applications}, University of Saragossa, Saragossa, Spain, February 1, 2013 r.
+
+\item Talk: {\it Dirac--Lie systems: theory and applications}, {\bf  I Meeting on Lie systems: theory, generalisations, and applications}, IMPAN, Warsaw, May 20--24, 2013.
+
+\item Invited talk: {\it Dirac--Lie systems: theory and applications}, {\bf  XXIII Meeting on Differential Equations and Applications}, University Jaume I, Castellon, Spain, September 9--13, 2013.
+
+\item  Invited talk: {\it Geometric structures and Lie systems: Theory and applications},  University of Burgos, Burgos, Spain, December 20, 2013.
+
+\item Talk: {\it New trends on Lie systems}, {\bf  II Meeting on Lie systems: theory, generalisations, and applications}, IMPAN, Poland, September 22--27, 2014.
+
+\item Invited talk: {\it Lie-Hamilton systens: theory and applications}, University of \L \'odz, \L\'odz, Poland, May  24, 2015.
+
+\item Talk: {\it Geometry and applications of Lie--Hamilton systems on the plane}, {\bf  III Meeting on Lie systems: theory, generalisations, and applications}, IMPAN, Warsaw, September 21--26, 2015.
+
+\item Invited talk: {\it $k$-symplectic Lie systems: theory and applications}, {\bf III Young researchers conference of the RSME}, University of Murcia, Murcia, Spain, September 7--11, 2015. 
+
+\item  Talk: {\it A Lie systems approach to the Riccati hierarchy and PDEs}, {\bf 50th Sophus Lie Seminar}, IMPAN Research and conference center in Bedlewo, Bedlewo, Poland, September 26--October 1, 2016.
+
+\item Invited talk: {\it Applications of Lie systems to Bernoulli-type equations}, University of Burgos, Burgos, Spain, December 16, 2016.
+
+\item Talk: {\it Cohomological approach to immersed submanifold via integrable systems}, {\bf XXVth International Conference on Integrable systems and Quantum Symmetries}, Prague, Czech Republic, June 11st, 2017.
+
+\item Invited talk: {\it Multisymplectic structures and Lie systems}, {\bf A century of Noether's Theorem and beyond}, Silesian University in Opava, Opava, Czech Republic, December 2, 2018.
+
+\item Invited talk: {\it Lie systems and multisymplectic structures},  {\bf Zoom-Workshop de Geometr\'ia y Sistemas Din\'amicos}, Sonora, Mexico, May 11--12, 18--19, 2020.
+
+\item Invited talk: {\it Multisymplectic structures and Lie systems},  {\bf Young researchers' Virtual Multisymplectic Geometry Conference}, Washington, USA, July 15th, 2020.
+
+\item Invited talk: {\it Multisymplectic structures and Lie systems},  {\bf Young researchers' Virtual Multisymplectic Geometry Conference}, Washington, USA, July 15th, 2021.
+
+\item Invited talk: {\it Foliated Lie systems: theory and applications},  {\bf Winter School and Workshop Wisła 2020-2021}, Wys'l a, Poland, January 25th-February 5th, 2021.
+
+\item Invited talk: {\it A Time-dependent Energy-Momentum Method},  {\bf X Workshop on Dynamical Systems and Geometry}, Sonora, Mexico, April 20th-22nd, 2021.
+
+
+\item Invited talk: {\it Symplectic Methods and Dynamical Systems }, {\bf Seminarium University of Kij\'ow and Baltic Institute of Mathematics}, Kijow, January 15th, 2022.
+
+\item Talk: {\it A time-dependent energy momentum method}, {\bf 
+14th Symposium in Integrable Systems}, \L\'od\'z, June 3-4th, 2022.
+
+
+\item Invited one of two main courses speaker: {\it Lie systems and compatible geometric structures},  during {\bf 14th International ICMAT Summer School on Geometrics, Mechanics and Control}, July 4-8, 2022, Burgos, Spain.
+
+\item Talk: {\it A time-dependent energy-momentum method}, {\bf 
+XXX International Fall Workshop on Geometry and Physics}, August 29th to September 2nd 2023, ICMAT, Madrid, Spain.
+
+\item Talk: A cohomological approach to immersed submanifold via integrable systems, Seminarium of the CRM  Mathematical Physics Laboratorium, Centre de Recherches Math\'ematiques (CRM), December 6th, 2022, CRM, Montreal, Canada (online).
+\item Talk: A cohomological approach to immersed submanifold via integrable systems, Seminarium of the CRM  Mathematical Physics Laboratorium, Centre de Recherches Math\'ematiques (CRM), September 12th, 2023, CRM, Montreal, Canada.
+
+%\item By\l em Chairman w sesji PDE III podczas konferencja ``XXIII Congress %on Differential Equations and Applications (CEDYA)
+%XIII Congress on Applied Mathematics'' w dniu 9 wrzesnia 2013 w Castellon %(Spain). 
+%
+%{\bf Title:} Dirac--Lie systems: theory and applications
+
+\end{enumerate}
+
+
+\color{blue}
+
+
+
+\begin{center}
+\large\textbf{ III. Didactic and divulgation achievements, as well as information on international collaborations of the candidate}
+\end{center}
+\color{black}
+\vspace{1cm}
+%\noindent Część informacji dotyczą%cych   mojej współpracy z innymi instytucjami naukowymi jest zawarta w autoreferacie.
+\vspace{0.5cm}
+
+{\bf Participation in European programs and/or other international and national programs.}
+\vskip 0.5cm
+I took part as a collaborator in a project HARMONIA funded by the Polish National Center for research within an international collaboration between Poland and Spain from 2012 to 2015. 
+\vskip 0.5cm
+
+{\bf  Participation in international and national scientific conferences}
+\vskip 0.5cm
+
+\begin{enumerate}
+
+\item {\bf School on Combinatorics and Control}, Benasque, Spain, April 11--17,  2010.
+\item {\bf XIII Winter Meeting on Geometry, Mechanics and Control Theory}, Saragossa, Spain,  26--27 stycznia 2011 r.
+\item {\bf XIII Thematic day on: Classic Field Theory}, Saragossa, Spain,  January 28, 2011.
+\item {\bf Geometry of Manifolds and Mathematical Physics}, Crak\'ow, Poland,  June 27, July 1, 2011.
+\item {\bf III Iberoamerican Meeting on Geometry, Mechanics and Control}, Salamanca, Spain, September 3--7,  2012.
+\item  {\bf XV Winter meeting on Mechanics, Geometry and Control}, Saragossa, Spain, January 30--31, 2013.
+\item  {\bf 8th Symposium on Integrable Systems},  Department of Physics and Applied Mathematics, University of \L\'odz, \L\'od\'z, Poland, July 3--4, 2015.
+\item  {\bf Quantum Spacetime '16},  Zakopane, Poland, February 6--12, 2016.
+\item  {\bf Geometry of Fields and Jets},  IMPAN Research and conference center in  Bedlewo, Bedlewo, Poland, May 10--16, 2016.
+\item  {\bf A Celebration of Geometry, Analysis and Physics}, CRM, Montreal, Canada, June 10--14, 2019.
+
+\end{enumerate}
+\vskip 0.5cm
+
+{\bf Participation in organizing committees of international and national research conferences}
+\vskip 0.5cm
+ \begin{itemize}
+ \item {\bf  I Meeting on Lie systems: theory, generalisations, and applications}, IMPAN, Warsaw, Poland, May 20--24, 2013.
+\item {\bf  II Meeting on Lie systems: theory, generalisations, and applications}, IMPAN, Warsaw, Poland, September 22--27, 2014.
+\item {\bf III Meeting on Lie systems: theory, generalisations, and applications}, IMPAN, Warsaw, Poland, September 21--26, 2015.
+\item {\bf Geometry of Jets and Fields}, IMPAN Research and conference center in B\c edlewo, B edlewo, Poland, May 10--16, 2016.
+\item {\bf Lie systems and selected Lie theory methods in differential equations}, IMPAN, Warsaw, Poland, June 4--7, 2018.
+\item {\bf XVIIIth International Young Researchers Workshop on Geometry, Dynamics, and Field Theory}, Warsaw, February 21-23, 2024.
+\item {\bf Geometric Science of Information 2025}, Session on symplectic geometry of differential equations, October 2025.
+
+\end{itemize}
+
+\vskip 0.5cm
+
+%{\bf Other Prizes and distinctions not detailed in points II-I}
+%\vskip 0.5cm
+ %\begin{itemize}
+% \item 2016 - Wyr\'o\.znienie w uznaniu osi agni e\'c wp\l ywaj acych na rozw\'oj oraz presti\.z Uniwersytetu Warszawskiego, University Warszawski. Nagroda przeznana za
+ 
+ %\item 2014 - Winner of the prize `Teacher of the year' at the Faculty of Physics of the University of Warsaw (Council of Students UW).
+ %\item 2013 - Didactic Award, Summer Semester, University of Warsaw. Prize conceded by the Department of Physics of the University of Warsaw in recognition for my exercise classes on Analysis II.
+ %\end{itemize}
+
+\vskip 0.5cm
+{\bf Participation in scientific networks}
+\vskip 0.5cm
+
+I have been participating from 2007 in the `Geometry, Mechanics and Control Network' consisting of most Spanish researchers working on differential geometry and its applications in physics and/or control theory. This network is financed by the  Ministerio de Educaci\'on y Ciencia (Ministry of Education and Science).
+
+\vskip 0.5cm
+ 
+{\bf Participation in research and editing journal boards}
+\vskip 0.5cm
+
+Mathematics (Editorial board) from 2021 till 2024 (No real activity). Symmetry (Referee board) from 2020 till 2024 (Accomplished several referee reports -mostly rejecting with no relevance.
+\vskip 0.5cm
+
+%{\bf Participating in international and national research organizations and associations}
+%\vskip 0.5cm
+%
+%It does not apply
+
+\vskip 0.5cm
+
+{\bf Achievements concerning didactic activities and/or popularization of science }
+
+\centerline{Teaching}
+\vskip 0.5cm
+$\bullet$ In the summer term of the academic year 02/03 I was the teaching assistant of the course on differential geometry at the Faculty of Physics of the University of Salamanca (Spain).
+
+$\bullet$ In the academic years 07/08 and 08/09 I was the teaching assistant of the course on differential calculus I and II at the Faculty of Sciences of the University of Saragossa (Spain). The evaluation of my lectures was positive.
+
+$\bullet$ In the academic year 12/13 I was in charge of the exercises classes at the Mathematical and Natural Sciences Department of the Cardinal Stefan Wyszy\'nski University in Warsaw (Poland):
+
+\begin{itemize}
+\item Introduction to Higher Mathematics
+\item Algebra I
+\item Mathematical Analysis I and II
+\item Measure Theory
+\end{itemize}
+
+$\bullet$ In the academic years 2013-2024 I taught the following courses in the Faculty of Physics of the University of Warsaw:
+\begin{itemize}
+\item Differential geometric methods in Physics, Lectures   (acad. course 14/15, 30 hours)
+\item Group theory I, Exercise classes (acad. course 15/16 i 16/17, 30 hours)
+\item Group theory II, Lectures  (acad. course  15/16, 30 hours)
+\item  Algebra with geometry II, Exercise classes (acad. course 12/13, 30 hours)
+\item  Algebra I extended, Exercise classes (acad. course 13/14, 14/15, 30 hours)
+\item Algebra II extended,  Exercise classes (acad. course 15/16, 30 hours)
+\item Analysis I,  Exercise classes (acad. course 14/15, 60 hours),
+\item Analysis II,  Exercise classes (acad. course 12/13, 13/14, 14/15, 15/16, 60 hours) 
+\item Analysis III, Exercise classes (acad. course 16/17, 17/18 and 18/19, 60 hours)
+\item Functional Analysis I, Exercise classes (acad. course 14/15 i 15/16, 30 hours)
+\item Analysis I extended, Exercise classes (acad. course 13/14 i 15/16, 60 hours)
+\item Mathematics I, Exercise classes and lectures (acad. course 13/14, 120 hours, and 18/19 120 hours, respectively)
+
+\end{itemize}
+
+I was awarded the `Zygmunt Adjuk' {\bf didactic award} of the Faculty of Physics of the University of Warsaw in the winter semester of the academic course 19/20 for my exercise classes of Differential Geometry I.
+
+I was awarded a {\bf didactic award} of the Faculty of Physics of the University of Warsaw in the summer semester of the academic course 12/13 for my exercise classes of Analysis II.
+
+I was awarded as the {\bf ,,Best teacher of the year of the Faculty of Physics of the University of Warsaw''} by the Student Council of the University of Warsaw in the academic year 12/13.
+
+I was nominated to a {\bf didactic award} of the Faculty of Physics of the University of Warsaw in the summer semesters of the academic years 13/14 and 15/16 for my exercise classes of Algebra I extended and Algebra II extended, correspondingly.
+
+I have been short listed to the didactic awards to the University of Warsaw in several years, e.g. 2024, 2022, 2018 and 2016.
+
+
+I took part in the ``Physics day" of the Faculty of Physics of the University of Warsaw in the academic years 2014/15 and 2015/16.
+
+
+\vspace{0.5cm}
+
+
+
+{\bf J) Scientific supervision of students and doctors during specialization}
+\vskip 0.5cm
+{\bf Supervision of postdocs and PhD stays}
+
+In September-December 2016  I supervised the PhD student {\bf Eduardo Sainz} from the University of Burgos, Spain.
+From January to December 2022 I will supervise a postdoc student {\bf Marcin Zaj\c ac} hired under a PRELUDIUM grant financed by the National Science Center (Poland). 
+
+From January 31st and February 27th I supervised the postdoc student {\bf Xavier Garcia Guijarro} from UNIR, Spain.
+\vskip 0.5cm
+{\bf Supervision of doctoral students as a supervisor or a secondary advisor}
+
+\vskip 0.5cm
+
+From 2024 I am the supervisor of the doctoral student {\bf Adam Maskalaniec} along with J. Grabowski. His PhD thesis focuses on geometric structures on graded geometry.
+
+From 2024 I am the supervisor of the   doctoral student {\bf Tomasz Sobczak}. His PhD thesis focuses on $k$-contact structures and their applications to differential equations and integrable systems.
+
+From 2021 I am the supervisor of the   doctoral student {\bf Bartosz Zawora}. His PhD thesis focuses on the stability analysis of Hamiltonian systems obtained under Marsden-Weinstein reduction and the energy-momentum method. Defense planned on September, 2025.
+
+From 2020 I am the supervisor of the doctoral student {\bf Julia Lange}. His PhD thesis focuses on the analysis of Hamilton-Jacobi equations in different types of manifolds with geometric structures.
+
+From 2017 to 2024 I was the supervisor of the doctoral student {\bf Daniel Wysocki}. His PhD thesis was defended on September 12th 2023 online in the Faculty of Mathematics, Informatics and Mechanics of the University of Warsaw. All three referees asked for its distinction, but the distintion was denied by the Research Council of the Faculty.
+
+From  2012 to 2015  I was the secondary advisor at the Faculty of Physics of the University of Salamanca (Spain) of the doctoral thesis of  {\bf Cristina Sard\'on Mu\~noz}. Her doctoral thesis {\it Lie systems, Lie symmetries and reciprocal transformations} was defended on May 15, 2015 obtaining CUM LAUDE and she got the {\it Extraordinary prize for doctoral thesis of the University of Salamanca} in 2016. About the 70\% of her doctoral thesis accomplished under my exclusive supervision as illustrated by her publications and this habilitation (her main advisor was P. Garcia Est\'evez).
+
+\vskip 0.5cm
+
+\centerline{\bf Master Theses}
+\begin{itemize}
+
+\item In 2013 I supervised the master thesis of {\bf Mariola Napiorkowska} at the Department of Mathematics of the Cardinal Stefan Wyszy\'nski University of Warsaw. Title: {\it Geometry of the simplex method}.
+
+\item In 2013 I supervised the master thesis accomplished of {\bf Katarzyna Kropopiek} at the Department of Mathematics of the Cardinal Stefan Wyszy\'nski University. Title: {\it Methods of calculation of mathematical reserves}.
+
+\item In 2017 I supervised the Master thesis of {\bf D. Wysocki}  at the Faculty of Physics of the University of Warsaw. Title: {\it Classification of Lie bialgebras and methods of quantization}.
+
+\item In 2020 I supervised the Master thesis of {\bf J. Lange}  at the Faculty of Physics of the University of Warsaw. Title: {\it A Hamilton-Jacobi theory on twisted Poisson manifolds}.
+
+
+\item In 2021 I supervised the Master thesis of {\bf B. Zawora}  at the Faculty of Physics of the University of Warsaw. Title: {\it A time-dependent energy-momentum method}. He got one of the two Prizes im. Joanny z Gwiżdżów i Jerzego Glazerów in 2022 for master's theses of the Faculty of Physics of the University of Warsaw.
+\item In 2024 I supervised the Master thesis of {\bf T. Sobczak}  at the Faculty of Physics of the University of Warsaw. Title: {\it New approaches to k-contact geometry and applications}. 
+\item In 2024 I supervised the Master thesis of {\bf A. Maskalaniec}  at the Faculty of Physics of the University of Warsaw. Title: {\it Supersymplectic geometry and reductionss}. 
+\item In 2024/25 I am supervising the Master thesis of {\bf M. Borczy\'nska}  at the Faculty of Physics of the University of Warsaw. Title: {\it On Marsden--Weinstein reductions and orbifolds}. 
+\item In 2024/25 I am supervised the Master thesis of {\bf T. Frelik }  at the Faculty of Physics of the University of Warsaw. Title: {\it Cartan Geometry in an infinite-dimensional setting}. 
+%\item Nowadays, I supervise the master theses of {\bf M. Tobolski} (Lie-Hamilton systems on manifolds with curvature). 
+\end{itemize}
+\centerline{\bf Batchelor theses}
+\begin{itemize}
+
+\item In 2015 I supervised the Batchelor thesis accomplished by {\bf M. Tobolski}, {\it Riccati equations over normed division algebras with applications} at the Faculty of Physics of the University of Warsaw. This Batchelor thesis gave rise to the publication J. de Lucas, M. Tobolski and S. Vilari\~no,  Geometry of Riccati equations over normed division algebras, J. Math. Anal. Appl. {\bf 440}, 394--414 (2016).
+
+\item In 2015 I supervised the Batchelor thesis accomplished by  {\bf D. Wysocki} at the Faculty of Physics of the University of Warsaw. Title: {\it Algebraic and geometric methods of quantization}.
+
+\item In 2016 I supervised the Batchelor thesis accomplished by {\bf M. Lewandowski} at the Faculty of Physic of the University of Warsaw. Title: {\it Theory and applications of Lie algebras of conformal and Killing vector fields}.
+
+\item In 2016 I supervised the Batchelor thesis accomplished by {\bf M. Skowronek} at the Faculty of Physics of the University of Warsaw. Title: {\it Applications of the Marsden-Weinstein reduction to physics}.
+
+
+\item In 2017 I supervised the Batchelor thesis of {\bf W. Fabja\'nczuk} at the Faculty of Physics of the University of Warsaw. Title: {\it Supergeometric methods and applications in Physics}.
+
+\item In 2017 I supervised the Batchelor thesis of {\bf J. Lange} at the Faculty of Physics of the University of Warsaw. Title: {\it Infinite-dimensional Marsden-Weinstein reduction and applications to quantum mechanics}.
+
+\item In 2018 I supervised the Batchelor thesis of {\bf B. Zawora} at the Faculty of Physics of the University of Warsaw. Title: {\it Zastosowania mechaniki geometrycznej w dynamice par asterior\'ow}.
+
+\item In 2018 I supervised the Batchelor thesis of {\bf J. Szypulsi} at the Faculty of Physics of the University of Warsaw. Title: {\it Geometryczne r\'ownania Maxwella}.
+\item In 2022 I am supervising  the Batchelor thesis of {\bf A. Maskalaniec} at the Faculty of Physics of the University of Warsaw. Title: {\it Energy-momentum method: theory and generalisations}. Prize for master theses, Faculty of Physics, University of Warsaw, 2021.
+\item In 2022 I supervised  the Batchelor thesis of {\bf A. Maskalaniec} at the Faculty of Physics of the University of Warsaw. Title: {\it Energy-momentum method: theory and generalisations}.
+\item In 2023 I supervised  the Batchelor thesis of {\bf T. Frelik} at the Faculty of Physics of the University of Warsaw. Title: {\it Multisymplectic reduction: theory, reduction, and applications}.
+\item In 2023 I supervised  the Batchelor thesis of {\bf M. Duch} at the Faculty of Physics of the University of Warsaw. Title: {\it  On $b^k$-symplectic manifolds and applications }.
+\item In 2024 I supervised  the Batchelor thesis of {\bf  Maksym Matviienko} at the Faculty of Physics of the University of Warsaw. Title: {\it  Mechanics on Lie Algebroids: Theory and Applications}.
+\item In 2024/25 I am supervising  the Batchelor thesis of {\bf  Jakub Jurczak} at the Faculty of Physics of the University of Warsaw. Title: {\it  Homological invariants of vector
+	bundles and applications}.
+\item In 2024/25 I am supervising  the Batchelor thesis of {\bf Krzysztof Wolicki} at the Faculty of Physics of the University of Warsaw. Title: {\it  Clifford algebras and their
+	applications}.
+\item In 2024/25 I am supervising  the Batchelor thesis of {\bf  Małgorzata Flis} at the Faculty of Physics of the University of Warsaw. Title: {\it to be confirmed}.
+\item In 2024/25 I am supervising  the Batchelor thesis of {\bf  Marek Morawski} at the Faculty of Physics of the University of Warsaw. Title: {\it to be confirmed}.
+
+\end{itemize}
+
+\vskip 0.5cm
+\centerline{\bf Supervision of students}
+\vskip 0.5cm
+
+I have been the supervisor of several of the very best students belonging to the programs of individual students of the Faculty of Physics (PSIF) and the Interdisciplinary program of individual studies on mathematics and life sciences (MISMaP). More specifically, 
+\begin{itemize}
+		\item I am the supervisor of {\bf Serafin Yablonski} from 2023  (MISMaP).\\
+		\item I am the supervisor of {\bf Jakub Jurczak} from 2022  (MISMaP).\\
+				\item I am the supervisor of {\bf Marek Morawski} from 2022  (MISMaP).\\
+							\item I am the supervisor of {\bf Krzysztof My\'sliwy} from 2022  (MISMaP).\\
+				\item I was the supervisor of the student {\bf Maksim Matsviienko (MISMaP)} from 2023 to 2024 (MISMaP)\\
+	\item I was the supervisor of  {\bf Adam Maskalaniec} from 2021 to 2024 (MISMaP)\\
+	
+\item I was the supervisor of the student {\bf Klaudia Nosal} (MISMaP) and  {\bf Julia Lange} (PSIF).\\
+\item I was the supervisor of {\bf Klaudia Nosal} (MISMaP)  and {\bf Wojciech Fabja\'nczuk}  (PSIF) in the academic course 15/16.\\
+\item In the academic year 14/15, I was the supervisor of the students: {\bf Pawe\l\, Czajka}, {\bf Wojciech Fabja\'nczuk} and {\bf Maciej Antoni Pawlus} (PSIF). \\
+\item In the academic year 13/14, I was the supervisor of  {\bf Szymon Wrzesie\'n} (MISMaP).\\
+\end{itemize}
+
+
+
+\vskip 0.5cm
+{\bf Membership in tribunals of doctoral/bachelor/master theses}
+\vskip 0.5cm
+
+\begin{itemize}
+        \item Report and member of the tribunal of the bachelor thesis ``Applications of Dirac structures: RLC circuits as an example of a system with nonholonomic constraints'' hold in the Faculty of Physics of the University of Warsaw, (Warsaw, Poland) on September 9, 2015.
+        \item Report on the thesis ``Open Quantum Systems: geometric description, dynamics and control" of the PhD Student Jorge Alberto Jover Galtier,
+        \item Member of the tribunal thesis ``Open Quantum Systems: geometric description, dynamics and control" of the PhD Student Jorge Alberto Jover Galtier hold in the Faculty of Sciences of the University of Saragossa, (Saragossa, Spain) on July 3, 2017.
+        \item President of the doctoral committee of the tribunal thesis ``Open Quantum Systems: geometric description, dynamics and control" of the PhD Student   hold in the Faculty of Sciences of the University of Saragossa, (Saragossa, Spain) on July 3, 2023.
+        \item Member of the tribunal thesis ``Open Quantum Systems: geometric description, dynamics and control" of the PhD Student   hold in the Faculty of Physics of the University of Warsaw, (Warsaw, Poland) on July 3, 2023.
+        \item Referee of the  doctoral thesis ``O pewnych metodach w konstruowaniu caakowalnych potoków geodezyjnych na przestrzeniach jednorodnych" of the PhD Student  Konrad Lompert hold in the Warsaw University of Technology in 2024.
+        \end{itemize}
+
+\vskip 0.5cm
+{\bf Stays in international and national research centers}
+\vskip 0.5cm
+
+ \centerline{\bf \underline{Long research stays}}
+\vskip 0.5cm
+ \begin{itemize}
+   \item September 7-December 22, 2023: Centre Recherches Math\'ematiques, CRM, University of Montreal, Canada.
+  \item June 1-July 1, 2019: Centre Recherches Math\'ematiques, CRM, University of Montreal, Canada.
+   \item May 8-May 26, 2018: Centre Recherches Math\'ematiques, CRM, University of Montreal, Canada.
+ \item August 6-September 6, 2016: Centre Recherches Math\'ematiques, CRM, University of Montreal, Canada.
+ \item August 9-September 6, 2015: Centre Recherches Math\'ematiques, CRM, University of Montreal, Canada.
+ \item August 28-September 29, 2012: University of Burgos, Burgos, Spain. 
+ \item October 1-December 31, 2011: University of Zaragoza, Zaragoza, Spain. 
+% \item 2011: University of Sonora, Hermosillo, Mexico. 
+% \item Jun 18-Jul 25, 2009: University of Federico III, Naples, Italy. 
+  \end{itemize}
+  \vskip 0.5cm
+
+  \centerline{\bf \underline{Short research stays (up to 3 weeks)}}
+\vskip 0.5cm
+\begin{itemize}
+        \item \'Ecole Normale Sup\'erieure de Cacham (CLMA), Paris, France, April 21--25, 2017.
+    \item \'Ecole Normale Sup\'erieure de Cacham (CLMA), Paris, France, February 12--16, 2017.
+    \item University of Burgos, Burgos, Spain, December, 2016.
+    \item University of Saragossa, Spain, June, 2015.
+    \item Polytechnic University of Catalonia, Barcelona, Spain, December, 2015.
+    \item University of Salamanca, Salamanca, Spain, May, 2010.
+    \item University of Salamanca, Salamanca, Spain, September, 2010.
+  \end{itemize}
+ 
+\vskip 0.5cm
+
+{\bf Participation in expert  groups}
+\vskip 0.5cm
+
+It does not apply
+
+\vskip 0.5cm
+
+{\bf Referee for international and national projects}
+
+\vskip 0.5cm
+
+I was referee for the Portuguese Foundation for Science and Technology in 2014 and 2015.
+I was a referee for the Marie Sk\l adowska Curie action postdoctoral fellowship programs in 2025.
+\vskip 0.5cm
+
+{\bf Referee of publications in international and national journals}
+
+\vskip 0.5cm
+I have been referee for  Rep. Math, Phys, J. Geometry and Analysis, J. Geom. Phys., J. Phys. A, Adv. Math. Phys., J. Geometric Analysis, J. Math. Phys., Rep. Math. Phys., J. Dyn. Contr. Systems, Annals of Physics, Proc. Royal Soc. A, Int. J. Geom. Methods Mod. Physics, Advances in Mathematical Physics,  EPJP and others.  
+
+\vskip 0.5 cm
+{\bf  Other achievements not listed above}
+
+\vskip 0.5 cm
+\begin{itemize}
+\item I collaborate with researchers from the University of Saragossa and Burgos (Spain), the Centre de Recherches Math\'ematiques of the University of Montreal (Canada), the Polytechnic University of Catalonia in Barcelona (Spain), IMPAN (Poland), ICMAT (Spain), Universidad Complutense de Madrid (Spain), and so on. Previously I worked with researchers from the S.N. Bose National Centre for Basic Sciences (India), the University of Sonora in Hermosillo (Mexico) and the University of Pau (France).
+
+
+\item I got one of the best grades of Spain in the Spanish Examination to enter the University  (PAU) 1999 r. (9.50 out of 10)
+\item I got the highest distinction after finishing the high school (`MATRICULA DE HONOR') (9.98 out of 10)
+\item I got the second position in the `XXXXIX Olimpiada Matematica Espa\~nola (Castilla-La Mancha)' (Spanish Mathematical Olympiad) (1999). I participated in the national session (1999, Granada, Spain)
+\item I speak English, Spanish, and Polish fluently. I am a beginner in German, Russian, and French.
+\end{itemize}
+
+\end{document}

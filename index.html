@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>dr. hab. Javier de Lucas Araujo, prof. UW - Personal Website</title>
+<style>
+:root {
+  --brand: #66cdaa;
+  --brand-dark: #5ba3a3;
+  --bg: #eaf2f8;
+  --text: #333;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+.container { width: min(100%, 1000px); margin: 0 auto; padding: 0 16px; }
+header {
+  background: var(--brand);
+  color: #fff;
+  border-bottom: 3px solid var(--brand-dark);
+}
+header .container { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 24px 16px; }
+header h1 { margin: 0; font-size: 1.6rem; }
+header p { margin: 4px 0 0; }
+nav ul { list-style: none; display: flex; gap: 16px; padding: 8px 0 16px; margin: 0; flex-wrap: wrap; }
+nav a { color: #fff; text-decoration: none; font-weight: 600; }
+.portrait { height: 180px; width: 260px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+main .section { background: #fff; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 1px 8px rgba(0,0,0,.08); }
+.section-title { margin: 0 0 12px; padding: 8px 12px; background: var(--brand); color: #fff; border-radius: 6px; font-size: 1.1rem; }
+.publications ol { padding-left: 20px; }
+.publications li { margin: 8px 0; }
+.publications a { margin-left: 8px; text-decoration: none; }
+footer {
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  border-top: 3px solid var(--brand-dark);
+  margin-top: 24px;
+}
+
+/* --- Publications search UI --- */
+
+/* Journal / links look */
+.publications li a { font-weight:600; }
+
+/* Slightly calmer academic palette */
+:root {
+  --brand: #3a74b0;       /* deep steel blue */
+  --brand-dark: #2f5c8a;
+  --bg: #f4f7fb;
+  --text: #233142;
+}
+
+.publications li { margin: 4px 0 !important; }
+.publications li { margin: 2px 0 !important; }
+.publications li a { margin-left: 6px !important; }
+
+/* --- Secciones plegables --- */
+
+.section {
+  position: relative;
+}
+
+/* Oculta todo el contenido de la sección salvo el título cuando está colapsada */
+.section.collapsed > :not(.section-title) {
+  display: none;
+}
+
+/* Hace que el título parezca clicable y añade un icono + / - */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* Icono por defecto (colapsado) */
+.section.collapsed .section-title::after {
+  content: "＋";
+  font-weight: 700;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+/* Icono cuando está desplegado */
+.section:not(.collapsed) .section-title::after {
+  content: "−";
+  font-weight: 700;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div>
+      <h1>dr. hab. Javier de Lucas Araujo, prof. UW</h1>
+      <p>Department of Mathematical Methods in Physics, University of Warsaw</p>
+      <p>ul. Pasteura 5, 02-093 Warsaw, Poland</p>
+    </div>
+    <img alt="Portrait" class="portrait" src="YoOpava.jpeg"/>
+    <nav>
+      <ul>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#students">Students</a></li>
+        <li><a href="#collab">Works for Students</a></li>
+        <li><a href="#news">News</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- CV -->
+<section class="section" id="cv">
+  <h2 class="section-title">Short Curriculum Vitae</h2>
+  <div class="info">
+    <p><strong>Name:</strong> Javier de Lucas Araujo</p>
+    <p><strong>Date and place of Birth:</strong> Talavera de la
+      Reina (Spain) on September 2, 1981</p>
+    <p><strong>Addresses:</strong> <br/>
+      Permanent position: Department of Mathematical Methods
+      in Physics, room 5.46, Faculty of Physics, University of
+      Warsaw,  Pasteura 5, 02-093, Warsaw, Poland.<br/>
+      Temporary position: External member at the Math-Phys
+      Laboratorium of the Centre de Recherches Mathématiques,
+      Universite de Montreal, Pavillon Andre-Aisenstadt, 2920,
+      Chemin de la Tour, Montreal, QC H3T 1J4.<br/>
+    </p>
+    <p><strong>Email:</strong> javier.de.lucas@fuw.edu.pl</p>
+    <p><strong>Detailed curriculum:</strong> <a href="https://www.fuw.edu.pl/~delucas/Curric-Eng.pdf" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[link]</a></p>
+    <p><strong>ResearcherID:</strong>  C-1498-2009</p>
+
+
+<dd class="col-sm-20">
+  <div itemscope itemtype="https://schema.org/Person"
+       style="display:flex; align-items:center;">
+
+    <!-- ORCID label -->
+    <span style="font-weight:600; margin-right:0.4em;">ORCID:</span>
+
+    <!-- ORCID icon + ID -->
+    <a itemprop="sameAs"
+       href="https://orcid.org/0000-0001-8643-144X"
+       target="orcid.widget" rel="me noopener noreferrer"
+       style="display:flex; align-items:center;">
+
+      <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
+           alt="ORCID iD icon"
+           style="width:1em; margin-right:0.5em; vertical-align:middle;">
+
+      0000-0001-8643-144X
+    </a>
+    
+ 
+
+    
+  </div>
+</dd>
+
+  </div>
+
+  <h3>Degrees <br/></h3>
+  <p>Simons-CRM Professor at the Center de Recherchers
+    Mathematiques, University of Montreal (2023)</p>
+  <p>Associate Professor, Faculty of Physics, University of Warsaw
+    (2022)</p>
+  <p>Polish Habilitation in Physics, University of Warsaw (2017)<a href="https://fuw.edu.pl/~delucas/Habilitacja/Autoreferat-ang.pdf" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[Habilitation]</a></p>
+  <p>Spanish Habilitation: Profesor contratado doctor in Applied
+    Mathematics, ANECA, Spain (2012)</p>
+  <p>PhD in Physics, University of Zaragoza, Spain (2009)<a href="https://fuw.edu.pl/~delucas/Habilitacja/Autoreferat-ang.pdf" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[PhD dissertation]</a></p>
+  <p>MSc in Physics, University of Salamanca, Spain (2004)</p>
+
+  <h3>Prizes and Distinctions  (most relevant in bold)<br/></h3>
+  <p>
+    • 2025 - Rector prize of third degree for research achievements,
+    Faculty of Physics, University of Warsaw.<br/>
+    • 2024 - Award in recognition of achievements affecting the
+    development and prestige of the University of Warsaw,
+    University of Warsaw.<br/>
+    • <b>2024 - Chosen External member at the Math-Phys
+      Laboratorium of the Centre de Recherches Mathématiques,
+      Universite de Montreal.</b><br/>
+    • <b>2024 - Nomination to Didactic Award ‘Zygmunt Ajduk’ in
+      recognition to outstanding exercises classes (Analysis II
+      R), Faculty of Physics, University of Warsaw (Summer
+      Semester).</b><br/>
+    • 2023 - Individual prize of second degree for research
+    achievements, Faculty of Physics, University of Warsaw.<br/>
+    • <b>2023 - Simons–CRM Professorship, Centre de Recherches
+      Mathématiques (CRM), University of Montreal, Canada (one of
+      the most reputable research positions at the CRM).</b><br/>
+    • <b>2022 - Nomination to Didactic Award ‘Zygmunt Ajduk’ in
+      recognition to outstanding exercises classes (Analysis III
+      Special Functions in Mathematical Physics), Faculty of
+      Physics, University of Warsaw (Summer Semester).</b><br/>
+    • 2021 - Dean Prize of third degree for research
+    achievements.<br/>
+    <b>• 2021 - Dean Prize in commemoration to Rector Stefan
+      Pienkowski and Rector Grzegorz Białkowski for the best
+      researcher in the Faculty of Physics of the University of
+      Warsaw (younger than 40 years old).</b><br/>
+    <b>• 2020 - UW Rector Prize of second degree in recognition to
+      the publication “A Guide to Lie Systems with Compatible
+      Geometric Structures”, research on the differential geometry
+      properties of differential equations, and didactic
+      achievements, University of Warsaw.</b><br/>
+    <b>• 2020 - UW Didactic Award ’Zygmunt Ajduk’ in
+      reocgnition to outstanding exercises classes (Differential
+      Geometry), Faculty of Physics, University of Warsaw.</b><br/>
+    • 2019 - Award in recognition of achievements affecting the
+    development and prestige of the University of Warsaw,
+    University of Warsaw.<br/>
+    <b>• 2018 - Nomination to the best paper prize of the
+      conference ,,10th International Symposium on Quantum theory
+      and symmetries and 12th International Workshop on Lie
+      Theory and Its Applications in Physics”(+70 participants).</b><br/>
+    <b>• 2017 - Didactic Award of the Rector of the University of
+      Warsaw (Natural and Mathematical Sciences Faculties).</b><br/>
+    • 2016 - Award in recognition of achievements affecting the
+    development and prestige of the University of Warsaw,
+    University of Warsaw.<br/>
+    • 2015 - Individual prize of third degree, Faculty of Physics,
+    University of Warsaw.<br/>
+    • 2014 - Best teacher of the Faculty of Physics, University of
+    Warsaw (UW Student council).<br/>
+    <b>• 2013 - Didactic Award for outstanding classes and
+      lectures, Summer term, University of Warsaw.</b><br/>
+    • 2011 - Postdoc fellowship for young researchers, IMPAN.<br/>
+    <b>• 2011 - Special Award for Doctoral Theses, University of
+      Zaragoza, year 2009/2010.</b><br/>
+    • 2010 - Postdoc fellowship for young researchers, IMPAN.<br/>
+    • 2009 - Postdoc fellowship for young researchers, IMPAN.<br/>
+    <b>• 2006 - F.P.U. Fellowship funded by the Ministerio de
+      Educacion y Ciencia (Ministry of Education and Science) for
+      the best students in Spain to accomplish my PhD thesis
+      project “Lie systems and applications to Quantum Mechanics”.</b><br/>
+    • 2005 - Fellowship funded by the Faculty of Science of the
+    University of Salamanca for the best students in the
+    University of Salamanca starting their PhD.<br/>
+    • 2005 - F.P.I. Fellowship funded by the Junta de Castilla y
+    León (Castilla y Leon council) for the best students in the
+    Castilla y León region starting their PhD.<br/>
+    • 2003 - Excellences Fellowship ‘Beca de colaboración’ funded by the
+    Ministry of Education, Culture and Sport (Spain) (2400 fellowships granted in 2004 for all students finishing their studies in all Universities in Spain).<br/>
+    <b>• 1999 - One of the best scores in PAU (Prueba de acceso a la Universidad) in Castilla-La Mancha and Spain (score 9.5/10).</b><br/>
+    • 1999 - Second position in the National Mathematics Olympiad in Castilla-La Mancha and participation in the final national competition in Granada.
+  </p>
+</section>
+
+<!-- Gamma Research group -->
+<section class="section" id="gamma">
+  <h2 class="section-title">Gamma Research group</h2>
+
+   <p>
+    The <strong>Gamma Research Group</strong>, led by <strong>prof. UW Javier de Lucas Araujo</strong> at the
+    <strong>University of Warsaw</strong>, is an internationally oriented research team advancing
+    <strong>cutting-edge geometric methods</strong> in mathematics and mathematical physics.
+    Our mission is to develop <strong>unifying geometric frameworks</strong> that connect differential geometry,
+    dynamical systems, and field theory, providing both <strong>deep theoretical insight</strong> and
+    <strong>broad applicability</strong> across disciplines.
+  </p>
+
+  <h3>Research Focus</h3>
+  <p>We work at the intersection of:</p>
+  <ul>
+    <li><strong>Geometric study of jets, symmetries, differential equations and their applications</strong>.</li>
+    <li><strong>Geometric mechanics and field theories</strong>, advancing geometric foundations for classical and modern dynamical systems.</li>
+    <li><strong>Symplectic, Poisson, contact, and generalized geometric structures</strong>, including reduction procedures and multisymplectic frameworks.</li>
+    <li><strong>Integrability, Lie systems, and superposition principles</strong>, developing structural approaches to non-autonomous systems and partial differential equations.</li>
+    <li><strong>Stochastic and numerical geometric methods</strong>, bridging geometric theory with computational and probabilistic techniques.</li>
+  </ul>
+
+  <h3>Research Environment and Activities</h3>
+  <p>
+    The group combines <strong>rigorous theoretical development</strong> with <strong>actively supervised PhD projects</strong>
+    and a strong international network of collaborators. We foster a dynamic research environment through:
+  </p>
+  <ul>
+    <li>
+      Am <strong> online weekly research seminar</strong> on modern geometric approaches, attracting global participation from leading experts
+      and disseminated through widely accessed online platforms.
+    </li>
+     <li>
+      A <strong>weekly hybrid reading group</strong> on Lie groupoids and Lie algebroids.
+    </li>
+    <li>
+      <strong>Monographic courses on geometric mechanics</strong> in the  Faculty of Physics of the University of Warsaw.
+    </li>
+    <li>
+      Ongoing collaborative work with leading researchers and institutions, including the
+      <strong>Universitat Rovira i Virgili</strong> (Spain), the <strong>Polytechnic University of Catalonia</strong> (Spain) and the <strong>Centre de Recherches Mathematiques of the University of Montreal</strong> (Canada).
+    </li>
+    <li>
+      Regular involvement in international conferences and workshops in geometry and mathematical physics. Organization of conferences in the Faculty of Physics of the University of Warsaw.
+    </li>
+  </ul>
+
+  <h3>Impact</h3>
+  <p>
+    The group’s research outputs span <strong>foundational advances</strong>—including monographs and conceptual frameworks—as well as
+    <strong>impactful applications</strong>, positioning <strong>Gamma</strong> as a <strong>global reference point</strong> for modern
+    geometric methods in mathematics and physics.
+  </p>
+  
+  <p><strong>Current members:</strong></p>
+  <ul>
+    <li><strong>X. Rivas, Universidad Rovira i Virgili, Tarragona, Spain</strong></li>
+    <li><strong>S. Vilari\~no, University of Zaragoza, Spain</strong></li>
+    <li><strong>A. Lopez-Gordon, IMPAN, Poland</strong></li>
+    <li><strong>B. Zawora, KU Leuven, Belgium</strong></li>
+    <li><strong>T. Sobczak, PhD, 2 year</strong></li>
+    <li><strong>A. Maskalaniec (with J. Grabowski), PhD, 2 year</strong></li>
+    <li><strong>J. Lange, PhD, defense planned 2026</strong></li>
+    <li><strong>M. Wojtkowiak, second degree student</strong></li>
+    <li><strong>M. Flis, second degree student</strong></li>
+  </p>
+  
+  <p style="text-align: center;">
+    <a href="https://www.youtube.com/@GammaSeminar" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">Gamma seminar YouTube Channel</a>
+    <a href="https://www.fuw.edu.pl/KMMF/gamma/" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">Gamma seminar website</a></p>
+    <p style="text-align: center;">
+    <a href="https://www.fuw.edu.pl/~delucas/AboutMe.html" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">About Myself and the Gamma Research Group</a>
+  </p>
+</section>
+
+<!-- Publications -->
+<section class="section publications" id="publications">
+  <h2 class="section-title">
+    Publications. Citations: 1415 Hirsch: 22 (Google scholar):
+    <a href="https://scholar.google.com/citations?hl=es&user=XNuXyrYAAAAJ&view_op=list_works&sortby=pubdate" style="color:rgb(245, 245, 245); text-decoration:none; font-weight:600; margin-left:8px;">Google profile</a>
+  </h2>
+
+  <!-- Buscador de publicaciones -->
+  <div id="pub-search" style="margin:20px 0;">
+    <label for="searchInput" style="font-weight:600;">Search publications:</label><br>
+    <input id="searchInput" type="text"
+           placeholder="Type author, title, or journal…"
+           style="width:60%;max-width:520px;padding:6px 10px;margin-top:6px;border:1px solid #ccc;border-radius:6px;font-size:15px;">
+    <span id="searchCount" style="margin-left:12px;color:#555;font-size:14px;"></span>
+  </div>
+
+  <script>
+  (function () {
+    var container = document.getElementById("searchInput").parentNode;
+    var list = container.nextElementSibling;
+    while (list && !(list.tagName === "OL" || list.tagName === "UL")) {
+      list = list.nextElementSibling;
+    }
+    if (!list) return;
+
+    var items = Array.prototype.filter.call(list.children, function (el) {
+      return el && el.tagName === "LI";
+    });
+
+    function norm(s) {
+      return (s || "")
+        .toString()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    var cache = items.map(function (li) {
+      return { li: li, text: norm(li.textContent) };
+    });
+
+    var input = document.getElementById("searchInput");
+    var counter = document.getElementById("searchCount");
+
+    function applyFilter() {
+      var q = norm(input.value.trim());
+      var shown = 0;
+      for (var i = 0; i < cache.length; i++) {
+        var match = !q || cache[i].text.indexOf(q) !== -1;
+        cache[i].li.style.display = match ? "" : "none";
+        if (match) shown++;
+      }
+      counter.textContent = q ? (shown + " match" + (shown === 1 ? "" : "es")) : "";
+    }
+
+    input.addEventListener("input", applyFilter);
+  })();
+  </script>
+
+  <ol style="margin:0; padding-left:22px; line-height:1.35;">
+    </li>
+    
+    <li>J. de Lucas, <i>Classification of smooth finite-dimensional
+Lie algebras of vector fields on the real line</i>, 2026.
+</li>
+    <li>J.F. Carinena, J. de Lucas, <i>Infinitesimal time reparametrisation of nonautonomous
+systems and its applications</i>, 2026.
+</li>
+    
+
+    <li>M. Flis and J. de Lucas, <i>Lie groupoids and Lie symmetries of differential equations</i>, 2026.
+</li>
+<li>J.F. Carinena, J. de Lucas, and M. Wojtkowiak, <i>Contact canonoid transformations</i>, 2026.
+</li>
+<li>A. Lopez-Gordon, J. de Lucas, B.M. Zawora, <i>Stability of contact Hamiltonian systems</i>, 2025.
+</li>
+
+<li>J. de Lucas, J. Lange, <i>Reduction of twisted Poisson manifolds and applications to Hamilton–Jacobi equations</i>, To be submitted, 2026.
+</li>
+<li>J. de Lucas, <i>Jet Bundles as Higher-Order Polarised k-Contact Manifolds</i>, To be submitted, 2026. <a href="https://arxiv.org/abs/2606.09263" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+
+<li>J. de Lucas, X. Rivas, S. Vilariño, B.M. Zawora, <i>Marsden–Meyer–Weinstein reduction for k-contact field theories</i>, submitted, 2026.
+<a href="https://arxiv.org/abs/2505.05462" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+
+
+<li>J. de Lucas, X. Rivas, T. Sobczak, <i>Foundations on k-contact geometry</i>, submitted  
+<a href="https://arxiv.org/abs/2409.11001" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+<li>J. Lange, J. de Lucas, M. Krych <i>A Guide to Applications of k-Contact Geometry
+in Dissipative Field Equations</i>, submitted, 2026.
+<a href="https://arxiv.org/abs/2605.13313" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a></li>
+
+<li>J. de Lucas, J. Lange, C. Sardon, X. Rivas, <i>Hamilton–Jacobi theory for non-conservative field
+theories in the k-contact framework</i>, JPA, to appear, 2026.
+<a href="https://arxiv.org/abs/2604.27670" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+
+
+<li>R. Campoamor-Stursberg, O. Carballal, F.J. Herranz, J. de Lucas, <i>Mixed superposition rules for Lie systems, compatible geometric structures, and applications</i>, submitted
+<a href="https://arxiv.org/abs/2511.01063" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+
+<li>M. Hontarenko, J. de Lucas, and A. Maskalaniec, <i>A k-contact geometrical approach to pseudo-gauge transformation</i>, J. Phys. A <b> 59</b>, 075201 (2026).
+<a href="https://arxiv.org/abs/2511.09375" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ae4078" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+
+
+<li>J. de Lucas, X. Rivas, T. Sobczak, <i>k-contact Lie systems: theory and applications</i>, Geometric Mechanics, to appear in 2026.
+<a href="https://arxiv.org/abs/2511.17734" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.worldscientific.com/doi/10.1142/S2972458926400022" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+
+<li>A.M. Grundland, J. de Lucas, and B.M. Zawora, <i>Stability analysis of the <i>n</i>-dimensional Nambu-Goto action gas models</i>, J. Phys. A <b>58</b>, 50 (2025).
+<a href="https://arxiv.org/abs/2503.19842" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ae280f" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+
+<li>R. Campoamor-Stersberg, F.J. Herranz, J. de Lucas, <i>Nonlinear Lie-Hamilton systems: t-Dependent curved oscillators and Kepler-Coulomb Hamiltonians</i>, Comm. Nonl. Science Num. Sim. <b>152</b>, Part B, 109206 (2026)
+<a href="https://arxiv.org/abs/2505.13853" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/search?qs=Nonlinear%20Lie-Hamilton%20systems%20109206%202026%20Herranz%20de%20Lucas" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>
+  J. de Lucas, M. Zajac, 
+  <i>Applications of Standard and Hamiltonian Stochastic Lie Systems</i>, 
+  in: F. Nielsen, F. Barbaresco (eds.), <i>Geometric Science of Information</i>, 
+  Lecture Notes in Computer Science, vol. 16035, Springer, Cham, 2026, pp. 354–363.
+  <a href="https://arxiv.org/abs/2510.24131" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://link.springer.com/chapter/10.1007/978-3-032-03924-8_37" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+
+
+<li>E. Fernandez-Saiz, J. de Lucas and M. Zajac, <i>Hamiltonian stochastic Lie systems and applications</i>, J. Phys. A <b>58</b>, 415202, 2025
+<a href="https://arxiv.org/abs/2307.06232" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ae0bcd" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+
+
+
+
+<li>A.M. Grundland, J. de Lucas, <i>Quasi-rectifiable Lie algebras for partial differential equations</i>, Nonlinearity, <b>38</b>, 025006 (2025)
+<a href="https://arxiv.org/abs/2312.05238" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1361-6544/ada50e" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>L. Colombo, J. de Lucas, X. Rivas, B. Zawora, <i>An energy-momentum method for ordinary differential equations with an underlying k-polysymplectic manifold</i>, J. Nonlinear Science <b>35</b>, 42 (2025)
+<a href="https://arxiv.org/abs/2311.15035" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1007/s00332-025-10135-w" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>X. Gràcia, J. de Lucas, X. Rivas, N. Román-Roy, <i>On Darboux theorems for geometric structures induced by closed forms</i>, RACSAM <b>118</b>, 131 (2024)
+<a href="https://arxiv.org/abs/2306.08556" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1007/s13398-024-01632-w" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, J. Lange, X. Rivas, <i>A symplectic approach to Schrödinger equations in the infinite-dimensional unbounded setting</i>, AIMS Mathematics, 2024
+<a href="https://arxiv.org/abs/2312.09192" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.aimspress.com/article/doi/10.3934/math.20241359" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+  <li>J. de Lucas, A. Maskalaniec, B.M. Zawora, <i>Cosymplectic geometry, reductions, and energy-momentum methods with applications
+</i>, J. Nonl. Math. Phys. <b>31</b>, 64 (2024)
+<a href="https://arxiv.org/abs/2302.05827" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1007/s44198-024-00225-w" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>L. Blanco, F. Jiménez, J. de Lucas, C. Sardon, <i>Geometry preserving numerical methods for physical systems with finite-dimensional Lie algebras</i>, J. Nonlinear Science <b>34</b>, 26 (2024)
+<a href="https://arxiv.org/abs/2308.00820" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1007/s00332-023-10000-8" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, X. Rivas, S. Vilariño, B.M. Zawora, <i>On k-polycosymplectic Marsden–Weinstein reductions</i>, J. Geom. Phys. <b>191</b>, 104899 (2023)
+<a href="https://arxiv.org/abs/2302.09037" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0393044023001511" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, X. Rivas, <i>Contact Lie systems: theory and applications</i>, J. Phys. A <b>56</b>, 335203 (2023)
+<a href="https://arxiv.org/pdf/2207.04038" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ace0e7" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>L. Blanco, F. Jiménez, J. de Lucas, C. Sardon, <i>Geometric numerical methods for Lie systems and their application in optimal control</i>, Symmetry <b>15</b>, 1285 (2023)
+<a href="https://arxiv.org/abs/2204.00046" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.mdpi.com/2073-8994/15/6/1285" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. F. Cariñena, J. de Lucas, C. Sardón, <i>Quantum quasi-Lie systems: properties and applications</i>, EPJP <b>138</b>, 339 (2023)
+<a href="https://arxiv.org/abs/2204.00954" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1140/epjp/s13360-023-03883-9" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A.M. Grundland, J. de Lucas, <i>Multiple Riemann wave solutions of the general form of quasilinear hyperbolic systems</i>, Adv. Diff. Eq. <b>28</b>, 73–112 (2023)
+<a href="https://arxiv.org/abs/2203.15122" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://projecteuclid.org/journals/advances-in-differential-equations/volume-28/issue-1_2f_2/Multiple-Riemann-wave-solutions-of-the-general-form-of-quasilinear/ade028-0102-73.short" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>O. Esen, J. de Lucas, C. Sardon, M. Zajac, <i>Decomposing Euler–Poincaré flow on the space of Hamiltonian vector fields</i>, Symmetry <b>15</b>, 23 (2022)
+<a href="https://www.mdpi.com/2073-8994/15/1/23" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+ <li>C. Gonera, J. Gonera, J. de Lucas, W. Szczesek, B.M. Zawora, <i>More on Superintegrable Models on Spaces of Constant Curvature</i>, Regular and Chaotic Dynamics <b>27</b>, 561–571 (2022)
+<a href="https://arxiv.org/abs/2207.08935" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1134/S1560354722050045" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. F. Cariñena, J. de Lucas, D. Wysocki, <i>Stratified Lie systems: Theory and applications</i>, J. Phys. A <b>55</b>, 385206 (2022)
+<a href="https://arxiv.org/abs/1905.13102" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ac89bd" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, X. Gràcia, X. Rivas, N. Román-Roy, S. Vilariño, <i>Reduction and reconstruction of multisymplectic Lie systems</i>, J. Phys. A <b>55</b>, 295204 (2022)
+<a href="https://arxiv.org/abs/2202.13748" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ac78ab" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, D. Wysocki, <i>Darboux families and the classification of real four-dimensional indecomposable coboundary Lie bialgebras</i>, Symmetry <b>13</b>, 465 (2021)
+<a href="https://arxiv.org/abs/2102.05969" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.mdpi.com/2073-8994/13/3/465" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A. Ballesteros, R. Campoamor-Stursberg, E. Fernandez-Saiz, F.J. Herranz, J. de Lucas, <i>Poisson-Hopf deformations of Lie-Hamilton systems revisited: deformed superposition rules and applications to the oscillator algebra</i>, J. Phys. A <b>54</b>, 205202 (2021)
+<a href="https://arxiv.org/abs/2009.08744" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/abf1db" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, D. Wysocki, <i>A Grassmann and graded approach to coboundary Lie bialgebras, their classification, and Yang–Baxter equations</i>, J. Lie Theory, 1161–1194 (2020)
+<a href="https://arxiv.org/abs/1710.05022" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.emis.de/journals/JLT/vol.30_no4/8.html" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. Lange, J. de Lucas, <i>Geometric Models for Lie–Hamilton systems on ℝ²</i>, Mathematics <b>7</b>, 1053 (2019)
+<a href="https://arxiv.org/abs/1911.01094" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.3390/math7111053" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>M.M. Lecanda, X. Gràcia, J. de Lucas, S. Vilariño, <i>Multisymplectic structures and invariant tensors for Lie systems</i>, J. Phys. A <b>52</b>, 215201 (2019)
+<a href="https://arxiv.org/abs/1808.06240" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ab15f2" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+
+  <li>J.F. Cariñena, J. Grabowski, J. de Lucas, <i>Quasi-Lie Schemes for PDEs</i>, Int. J. Geom. Methods Mod. Phys. <b>16</b>, 1950096 (2019)
+<a href="https://arxiv.org/abs/1712.02238" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.worldscientific.com/doi/10.1142/S0219887819500968" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, C. Sardón, <i>A Guide to Lie systems with Compatible Geometric Structures</i>, World Scientific, Singapore, 408, pp. 2020
+<a href="https://www.worldscientific.com/worldscibooks/10.1142/q0208?srsltid=AfmBOoqJsLKWbqaXztM5qLUuCrzMEbpx_yACHkrRmv0CO5Kf_veqv0U4#t=aboutBook" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[book]</a>
+</li>
+
+<li>A.M. Grundland, J. de Lucas, <i>On the geometry of the Clairin theory of conditional symmetries for higher-order systems of PDEs with applications</i>, Diff. Geom. Appl. <b>67</b>, 101557 (2019)
+<a href="https://arxiv.org/abs/1807.01610" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0926224519300051" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+  <li>A.M. Grundland, J. de Lucas, <i>A cohomological approach to immersion formulas via integrable systems</i>, Selecta Mathematica (N.S.) <b>24</b>, 4749–4780 (2018)
+    <a href="https://arxiv.org/abs/1709.07789" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+    <a href="https://link.springer.com/article/10.1007/s00029-018-0434-y" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+  </li>
+
+  <li>A. Ballesteros, R. Campoamor-Stursberg, E. Fernandez-Saiz, F.J. Herranz, J. de Lucas, <i>A unified approach to Poisson–Hopf deformations of Lie–Hamilton systems based on sl(2)</i>, Springer Proc. Math. Stat. (2018)
+<a href="https://arxiv.org/abs/1803.07404" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/chapter/10.1007/978-981-13-2715-5_23" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A. Ballesteros, R. Campoamor-Stursberg, E. Fernandez-Saiz, F.J. Herranz, J. de Lucas, <i>Poisson-Hopf algebra deformations of Lie-Hamilton systems</i>, J. Phys. A <b>51</b>, 065202 (2018)
+<a href="https://arxiv.org/abs/1708.08185" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.1088/1751-8121/aaa090" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>F.J. Herranz, J. de Lucas, M. Tobolski, <i>Lie-Hamilton systems on curved spaces: A geometrical approach</i>, J. Phys. A <b>50</b>, 495201 (2017)
+<a href="https://arxiv.org/abs/1612.08901" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/aa918f/meta" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>M.M. Lewandowski, J. de Lucas, <i>Geometric features of Vessiot–Guldberg Lie algebras of conformal and Killing vector fields on ℝ²</i>, Banach Center Publ. <b>113</b>, 243–262 (2017)
+<a href="https://arxiv.org/abs/1708.09375" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.impan.pl/en/publishing-house/banach-center-publications/all/en/publishing-house/banach-center-publications/all/113/0/111457/geometric-features-of-vessiot-guldberg-lie-algebras-of-conformal-and-killing-vector-fields-on-mathbb-r-2" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A.M. Grundland, J. de Lucas, <i>A Lie systems approach to the Riccati hierarchy and partial differential equations</i>, J. Differential Equations <b>263</b>, 299–337 (2017)
+<a href="https://arxiv.org/abs/1612.00256" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0022039617301079" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>P. García-Estévez, F.J. Herranz, J. de Lucas, C. Sardón, <i>Lie symmetries for Lie systems: Applications to systems of ODEs and PDEs</i>, Appl. Math. Comp. <b>273</b>, 435–452 (2016)
+<a href="https://arxiv.org/abs/1404.2740" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0096300315013168?via%3Dihub" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, M. Tobolski, S. Vilariño, <i>Geometry of Riccati equations over normed division algebras</i>, J. Math. Anal. Appl. <b>440</b>, 394–414 (2016)
+<a href="https://arxiv.org/abs/1603.01413" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0022247X16002602" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, M.F. Rañada, <i>Jacobi multipliers, nonlocal symmetries, and harmonic oscillators</i>, J. Math. Phys. <b>56</b>, 063505 (2015)
+<a href="https://arxiv.org/abs/1506.02235" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://pubs.aip.org/aip/jmp/article-abstract/56/6/063505/918065/Jacobi-multipliers-non-local-symmetries-and?redirectedFrom=fulltext" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+<li>J.F. Cariñena, J. de Lucas, <i>Quasi–Lie families, schemes, invariants and their applications to Abel equations</i>, J. Math. Anal. Appl. <b>430</b>, 648–671 (2015)
+<a href="https://arxiv.org/abs/1505.07241" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0022247X15004205" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. de Lucas, S. Vilariño, <i>k-symplectic Lie systems: theory and applications</i>, J. Differential Equations <b>258</b>(6), 2221–2255 (2015)
+<a href="https://arxiv.org/abs/1404.1596" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0022039614004641" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A. Ballesteros, A. Blasco, F.J. Herranz, C. Sardón, <i>Lie–Hamilton systems on the plane: Properties, classification and applications</i>, J. Differential Equations <b>258</b>, 2873–2907 (2015)
+<a href="https://arxiv.org/abs/1410.4434" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0022039614004963" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A. Blasco, F.J. Herranz, J. de Lucas, C. Sardón, <i>Lie–Hamilton systems on the plane: applications and superposition rules</i>, J. Phys. A <b>48</b>, 345202 (2015)
+<a href="https://arxiv.org/abs/1502.05859" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.1088/1751-8113/48/34/345202" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>F.J. Herranz, J. de Lucas, C. Sardón, <i>Jacobi–Lie systems: theory and low dimensional classification</i>, DCDS-A <b>35</b>, 605–614 (2015)
+<a href="https://arxiv.org/abs/1404.6136" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.3934/dcds.2015.35.605" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. Grabowski, J. de Lucas, C. Sardón, <i>Dirac–Lie systems and Schwarzian equations</i>, J. Differential Equations <b>257</b>(7), 2303–2340 (2014)
+<a href="https://arxiv.org/abs/1311.6369" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.1016/j.jde.2014.06.009" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>A. Ballesteros, J.F. Cariñena, F.J. Herranz, J. de Lucas, C. Sardón, <i>From constants of motion to superposition rules for Lie–Hamilton systems</i>, J. Phys. A <b>46</b>, 285203 (2013)
+<a href="https://arxiv.org/abs/1305.6272" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.1088/1751-8113/46/28/285203" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, P. Guha, <i>A quasi-Lie schemes approach to the Gambier equation</i>, SIGMA <b>9</b>, 026 (2013)
+<a href="https://arxiv.org/abs/1303.3434" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://sigma-journal.com/2013/026/" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J. Grabowski, J. de Lucas, <i>Mixed superposition rules and the Riccati hierarchy</i>, J. Differential Equations <b>254</b>, 179–198 (2013)
+<a href="https://arxiv.org/abs/1203.0123" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S0022039612003348" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, J. Grabowski, <i>Superposition rules for higher-order systems and their applications</i>, J. Phys. A <b>45</b>, 185202 (2012)
+<a href="https://arxiv.org/abs/1111.4070" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://iopscience.iop.org/article/10.1088/1751-8113/45/18/185202" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, M.F. Rañada, <i>Un enfoque geométrico de las ecuaciones diferenciales de Abel de primera y segunda clase</i>, Actas del XI Congreso Dr. Antonio Monteiro, 63–82 (2012)
+<a href="https://scholar.google.com/scholar?q=Un+enfoque+geom%C3%A9trico+de+las+ecuaciones+diferenciales+de+Abel+de+primera+y+segunda+clase+Carinena+de+Lucas+Ranada+2012" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, C. Sardón, <i>A new Lie systems approach to second-order Riccati equations</i>, Int. J. Geom. Methods Mod. Phys. <b>9</b>, 1260007 (2012)
+<a href="https://arxiv.org/abs/1110.3298" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://doi.org/10.1142/S0219887812600079" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, A. Ramos, <i>A geometric approach to integrability conditions for systems of ordinary differential equations</i>, SIGMA <b>7</b>, 067 (2011)
+<a href="https://arxiv.org/abs/1012.2257" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+<a href="https://link.springer.com/article/10.1007/s10773-010-0624-7" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, C. Sardón,
+  <i>Lie–Hamilton systems: theory and applications</i>, Int. J. Geom. Methods Mod. Phys. <b>10</b>, 1350047 (2013)
+  <a href="https://arxiv.org/abs/1211.6991" target="_blank" rel="noopener" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://doi.org/10.1142/S0219887813500473" target="_blank" rel="noopener" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Superposition rules and second-order Riccati equations</i>,
+  J. Geom. Mech. <b>3</b>, 1–22 (2011)
+  <a href="https://arxiv.org/abs/1007.1309" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.aimsciences.org/article/doi/10.3934/jgm.2011.3.1" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Superposition rules and second-order differential equations</i>,
+  in AIP Conference Proceedings <b>1360</b>, 127–132 (2011)
+  <a href="https://arxiv.org/abs/1102.1299" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://pubs.aip.org/aip/acp/article-abstract/1360/1/127/871679/Superposition-rules-and-second-order-differential?redirectedFrom=fulltext" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+<li>P.G. Estevez, M.L. Gandarias, and J. de Lucas,
+  <i>Classical Lie symmetries and reductions of a nonisospectral Lax pair</i>,
+  J. Nonlinear Math. Phys. <b>18</b>, 51–60 (2011)
+  <a href="https://arxiv.org/abs/1102.4687" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://link.springer.com/article/10.1142/S1402925111001271" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Integrability of Lie systems through Riccati equations</i>,
+  J. Nonlinear Math. Phys. <b>18</b>, 29–54 (2011)
+  <a href="https://arxiv.org/abs/1002.0530" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://link.springer.com/article/10.1142/S1402925111001131" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and M.F. Rañada,
+  <i>A geometric approach to integrability of Abel differential equations</i>,
+  Int. J. Theor. Phys. <b>50</b>, 2114–2124 (2011)
+  <a href="https://arxiv.org/abs/1012.2257" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://link.springer.com/article/10.1007/s10773-010-0624-7" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Lie systems: theory, generalizations, and applications</i>,
+  Dissertationes Math. <b>479</b>, 1–169 (2011)
+  <a href="https://arxiv.org/abs/1103.4166" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="http://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-rm-doi-10_4064-dm479-0-1?q=bwmeta1.element.desklight-5ca4b532-4aa3-4856-924f-8bbed25e3c33;478&qt=CHILDREN-STATELESS" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. Grabowski, and J. de Lucas,
+  <i>Lie families: theory and applications</i>,
+  J. Phys. A <b>43</b>, 305201 (2010)
+  <a href="https://arxiv.org/abs/1003.3529" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://iopscience.iop.org/article/10.1088/1751-8113/43/30/305201" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>R. Flores, J. de Lucas, and Y. Vorobiev,
+  <i>Phase splitting for periodic Lie systems</i>,
+  J. Phys. A <b>43</b>, 205208 (2010)
+  <a href="https://arxiv.org/abs/0910.2575" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://iopscience.iop.org/article/10.1088/1751-8113/43/20/205208" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and M.F. Rañada,
+  <i>Lie systems and integrability conditions for t-dependent frequency harmonic oscillators</i>,
+  Int. J. Geom. Methods Mod. Phys. <b>7</b>, 289–310 (2010)
+  <a href="https://arxiv.org/abs/0908.2292" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.worldscientific.com/doi/abs/10.1142/S0219887810004014" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Quantum Lie systems and integrability conditions</i>,
+  Int. J. Geom. Meth. Mod. Phys. <b>6</b>, 1235–1252 (2009)
+  <a href="https://arxiv.org/abs/0908.2235" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.worldscientific.com/doi/abs/10.1142/S021988780900420X" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, P.G.L. Leach, and J. de Lucas,
+  <i>Quasi-Lie schemes and Emden–Fowler equations</i>,
+  J. Math. Phys. <b>50</b>, 103515 (2009)
+  <a href="https://arxiv.org/abs/0908.2236" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://pubs.aip.org/aip/jmp/article-abstract/50/10/103515/985108/Quasi-Lie-schemes-and-Emden-Fowler-equations?redirectedFrom=fulltext" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. Grabowski, and J. de Lucas,
+  <i>Quasi-Lie schemes: theory and applications</i>,
+  J. Phys. A <b>42</b>, 335206 (2009)
+  <a href="https://www.fuw.edu.pl/~delucas/" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.fuw.edu.pl/~delucas/" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Applications of Lie systems in dissipative Milne–Pinney equations</i>,
+  Int. J. Geom. Methods Mod. Phys. <b>6</b>, 683–699 (2009)
+  <a href="https://arxiv.org/abs/0902.2132" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.worldscientific.com/doi/abs/10.1142/S0219887809003758?srsltid=AfmBOor_COzLRtIHapGsQXC9e_dfnP3IdkPEKPD0TIrlqCCxKXRrtoWp" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and A. Ramos,
+  <i>A geometric approach to time evolution operators of Lie quantum systems</i>,
+  Int. J. Theor. Phys. <b>48</b>, 1379–1404 (2009)
+  <a href="https://arxiv.org/abs/0811.4386" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://link.springer.com/article/10.1007/s10773-008-9909-5" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and M.F. Rañada,
+  <i>Recent Applications of the Theory of Lie Systems in Ermakov Systems</i>,
+  SIGMA <b>4</b>, 031 (2008)
+  <a href="https://arxiv.org/abs/0803.1824" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.fuw.edu.pl/~delucas/" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and M.F. Rañada,
+  <i>Integrability of Lie systems and some of its applications in physics</i>,
+  J. Phys. A <b>41</b>, 304029 (2008)
+  <a href="https://arxiv.org/abs/0810.4006" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://iopscience.iop.org/article/10.1088/1751-8113/41/30/304029/meta" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>A nonlinear superposition rule for solutions of the Milne–Pinney equation</i>,
+  Phys. Lett. A <b>372</b>, 5385–5389 (2008)
+  <a href="https://arxiv.org/abs/0807.0370" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.sciencedirect.com/science/article/pii/S0375960108009523" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and A. Ramos,
+  <i>A geometric approach to integrability conditions for Riccati equations</i>,
+  Electronic Journal of Differential Equations <b>122</b>, 1–14 (2007)
+  <a href="https://arxiv.org/abs/0810.1740" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://ejde.math.txstate.edu/Volumes/2007/122/abstr.html" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>F. Avram, J.F. Cariñena, and J. de Lucas,
+  <i>A Lie systems approach for the first passage-time of piecewise deterministic processes</i>,
+  in <i>Modern Trends of Controlled Stochastic Processes: Theory and Applications</i>,
+  Luniver Press, 2010, pp. 144–160
+  <a href="https://arxiv.org/abs/1008.2625" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+  <a href="https://www.fuw.edu.pl/~delucas/" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[journal]</a>
+</li>
+
+<li>J.F. Cariñena and J. de Lucas,
+  <i>Lie systems and integrability conditions of differential equations and some of its applications</i>,
+  in <i>Differential Geometry and its Applications</i>, World Science Publishing, Prague, 2008, pp. 407–417
+  <a href="https://arxiv.org/pdf/0902.1135" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+
+<li>J.F. Cariñena, J. de Lucas, and M.F. Rañada,
+  <i>Nonlinear superpositions and Ermakov systems</i>,
+  in <i>Differential Geometric Methods in Mechanics and Field Theory: Volume in Honour of W. Sarlet</i>,
+  Academia Press, Gent, 2007, 15–33
+  <a href="https://arxiv.org/abs/0810.3494" style="color:blue; text-decoration:none; font-weight:600; margin-left:8px;">[arXiv]</a>
+</li>
+  </ol>
+  <ol></ol>
+</section>
+
+<!-- Students -->
+<section class="section" id="students">
+  <h2 class="section-title">Students (past and current)</h2>
+  <ul>
+    <li> 
+      <p><strong>PhD Students: 3+3(in progress)</strong></p>
+      <ul>
+        <li><strong>T. Sobczak, 3 year</strong></li>
+        <li><strong>A. Maskalaniec (with J. Grabowski), 3 year</strong></li>
+        <li><strong>J. Lange,</strong><i> Hamilton--Jacobi theory on k-contact manifolds and applications,</i> under redaction, <strong> January 2027</strong></i><strong></strong></li>
+        <li><strong>B. Zawora, </strong><i>Marsden--Meyer--Weinstein Reduction Theories and their Applications to Energy-Momentum methods</i>, <strong>2026</strong><i> (With distinction)</i><strong></strong><a href="PhDTheses/ThesisBartosz.pdf" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[PhD Thesis]</a></li>
+        <li><strong>D. Wysocki,</strong><i> Geometric approaches to Lie bialgebras, their classification, and applications, </i><strong>2023</strong><a href="https://arxiv.org/abs/2512.24795" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[PhD Thesis]</a></li>
+        <li><strong>C. Sardón-Muñoz,</strong><i> Lie systems, Lie symmetries and reciprocal transformations, </i><strong>2015</strong> <i>(Prize for doctoral theses of the University of Salamanca)</i><a href="https://arxiv.org/abs/1508.00726" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[PhD Thesis]</a></li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Master's Students: 9+2(in progress)</strong></p>
+      <ul>
+              <li><strong>P. Petrykowski -  </strong><i>Cartan theory of reduction</i> <strong>2025/26 - in progress</strong></li>
+  
+        <li><strong>A. Surya Putra -  </strong><i>BRST quantization</i> <strong>2026/27 - in progress</strong></li>
+        <li><strong>T. Frelik 2025 -  </strong><i>Complex geometry, Cartan bundles, and
+          their applications to gauge theory</i></li>
+        <li><strong>M. Borczyńska 2025 - </strong><i>Regular
+          and singular symplectic reduction on orbifolds</i></li>
+        <li><strong>T. Sobczak 2024 - </strong><i>New
+          approaches to k-contact geometry and applications</i></li>
+        <li><strong>A. Maskalaniec 2024 -  </strong><i>Supersymplectic
+          geometry and reductions</i></li>
+        <li><strong>B.M. Zawora 2021 - </strong><i>A
+          time-dependent energy-momentum method - </i>Prize
+          Joanny Gwizdow i Jerzy Glazer of the Faculty of
+          Physics of the University of Warsaw</li>
+        <li><strong>J. Lange 2020 -</strong><i> A
+          Hamilton-Jacobi theory on twisted Poisson manifolds</i></li>
+        <li><strong>D. Wysocki  2017 -</strong><i> New
+          approaches to Lie bialgebras and their quantization</i></li>
+        <li><strong>DK. Propiuk 2013 - </strong><i>Methods of calculation of
+          mathematical reserves.</i></li>
+        <li><strong>DM. Napiórkowska 2013 - </strong><i>Geometry of the simplex
+          method.</i></li>
+      </ul>
+    </li>
+    <li>
+      <i><strong>Bachelor's Students 15+3(in progress):</strong></i>
+      <ul>
+        <li><strong>D. Spisak, </strong><i>Casimir-energy methods
+          -</i><strong> 2025/26 - in progress</strong></li>
+        <li><strong>S. Yablonski, </strong><i>Theory and
+          applications of Lie groupoids and algebroids
+          -</i><strong> 2025/26 - in progress</strong></li>
+        <li><strong>M. Flis, </strong><i>Symmetries of
+          Differential equations and applications -</i><strong>
+          2025 </strong></li>
+        <li><strong>J. Jurczak,  </strong><i>Homological
+          invariants of vector bundles and applications</i><strong>
+          - 2025 </strong></li>
+        <li><strong>M. Wojtkowiak,  </strong><i>Canonoid
+          Transformations: introduction and applications</i><strong>
+          - 2025 </strong></li>
+        <li><strong>K. Wolicki, </strong><i>Clifford algebras
+          and applications</i><strong> - 2025 </strong></li>
+        <li><strong>M. Matviienko - </strong><i>Mechanics on
+          Lie Algebroids: Theory and Applications </i><strong>-
+          2024</strong></li>
+        <li><strong>T. Frelik - </strong><i>Multisymplectic
+          theory, reduction and applications </i><strong>-
+          2023</strong></li>
+        <li><strong>M. Duch - </strong><i> On
+          b^k-symplectic manifolds and applications</i><strong>
+          - 2023</strong></li>
+        <li><strong>W. Fabjanczuk - </strong><i>Metody
+          supergeometryczne i zastosowania w fizyce</i><strong>
+          - 2017</strong></li>
+        <li><strong>M. Tobolski - </strong><i>Riccati equations
+          over normed division algebras with applications</i><strong>
+          - 2015</strong></li>
+        <li><strong>J. Szypulksi - </strong><i>Opis równań
+          Maxwella w geometrii różniczkowej i ich zastosowania
+          -</i><strong> 2019</strong></li>
+        <li><strong>J. Lange - </strong><i>Infinite-dimensional
+          Marsden-Weinstein reduction in quantum mechanics </i><strong>-
+          2018</strong></li>
+        <li><strong>B.M. Zawora - </strong><i>Zastosowania
+          mechaniki geometrycznej w badaniu dynamiki asteroir
+          </i><strong>- 2019</strong></li>
+        <li><strong>M. Skowronek -  </strong><i>Zastosowania
+          redukcji Marsdena-Weinsteina w równaniach
+          różniczkowych fizyki </i><strong>- 2016</strong></li>
+        <li><strong>M. Lewandowski - </strong><i>Teoria i
+          zastosowania algebr Liego pól wektorowych
+          konforemnych i Killinga </i><strong>- 2016</strong></li>
+        <li><strong>D. Wysocki -</strong><i> Algebraiczne i
+          geometryczne metody kwantyzacji</i><strong> - 2015</strong></li>
+      </ul>
+      <p><i>Research group: B.M. Zawora, J. Lange, A.
+        Maskalaniec, T. Sobczak, X. Rivas, S. Vilarino, A. Lopez-Gordon, M. Krych.</i></p>
+    </li>
+  </ul>
+</section>
+
+<!-- Talks -->
+<section class="section" id="projects">
+  <h2 class="section-title">Talks and slides</h2>
+   <p>Invited talk in the XXXIV Fall Workshop on Geometric and Physics, Tarragona, Spain, 1-9/4-9-2026.<br/></p>
+  <p>Invited talk in the XLIII International Workshop on Geometric Methods in Physics, Białystok, 29-VI/4-VII-2026<br/></p>
+  <p>Salesian University of Opava, December 4th 2025, Czech Republic<br/></p>
+  <p>Gamma seminar, University of Warsaw, October 23rd 2025, Warsaw, Poland<br/></p>
+  <p>GSI 2025, October 30th 2025, Saint Malo, France<br/></p>
+</section>
+
+<!-- Referee for projects -->
+<section class="section" id="projects">
+  <h2 class="section-title">Referee for projects</h2>
+  <p>Referee for postdoc Marie-Składowska Curie actions of the
+    Horizon program<br/></p>
+  <p>Referee for the Fundação para a Ciência e a Tecnologia -
+    FCT (Portugal)<br/></p>
+</section>
+
+<!-- Works for students -->
+<section class="section" id="collab">
+  <h2 class="section-title">Works for students and potential
+    collaborators</h2>
+  <p>Nowadays I have several running projects. Students can
+    request to take part in any of them so as to write Bachelor,
+    Master, PhD dissertations or postdoc stays:<br/></p>
+  <p>
+    1) Lie systems, superposition rules and integrable systems,<br/>
+    2) Reduction methods and modern differential geometric
+    structures,<br/>
+    3) Energy-momentum methods,<br/>
+    4) Supergeometry and super Lie group and super Lie algebra
+    methods, <br/>
+    5) Orbifolds,<br/>
+    6) Differential geometry of differential equations: Lax
+    pairs, Lie symmetries, properties, and applications. <br/>
+  </p>
+</section>
+
+<!-- Useful links -->
+<section class="section" id="links">
+  <h2 class="section-title">Useful links</h2>
+  <p>Website with materials for my lectures
+    <a href="https://delucasaraujo.wixsite.com/uniwersytet" style="color:red;text-decoration:none; font-weight:600; margin-left:8px;">[link]</a><br/></p>
+  <p>Link to the Faculty of Physics of the University of Warsaw structure
+    <a href="https://https://usosweb.uw.edu.pl/kontroler.php?_action=katalog2/jednostki/pokazBudynek&bud_kod=3113" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[link]</a><br/></p>
+  <p>Link to Xavier Rivas website
+    <a href="https://xrivas.com/" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[link]</a><br/></p>
+  <p>Link to Bartosz Zawora website
+    <a href="https://bmzawora.github.io" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[link]</a><br/></p>
+  <p>MR Look up
+    <a href="https://mathscinet.ams.org/mrlookup" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[link]</a><br/></p>
+    <p>Description of Journals
+    <a href="https://fuw.edu.pl/~delucas/Revistas.pdf" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[link]</a><br/></p>
+</section>
+
+<!-- News -->
+<section class="section" id="news">
+  <h2 class="section-title">News</h2>
+  <p>My Facebook profile "Mathematical Physics at UW" has been
+    by the Institute for Advanced Study (IAS, Princeton, USA).<br/><br/></p>
+  <ul>
+<li>B. Zawora obtained a NAWA grant to work in KU Leuven, Belgium.</li></ul>
+  <ul>
+
+    <li>J. Lange obtained one of the didactic distinctions in 2026 for her exercise lectures in the Faculty of Physics of the University of Warsaw.</li>
+  </ul>
+  <ul>
+    <li>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <span>
+        Fundacja Uniwersytetu Warszawskiego finantially supported my session "A geometric approach to differential equations"
+        organised in the conference Geometric  Science of Information held in Saint-Malo, France on October 29–31, 2025.
+      </span>
+      <img src="fuw_eng.jpg" alt="FUW logo"
+           style="height:100px; margin-left:15px; flex-shrink:0;">
+    </div>
+  </li></ul>
+  <ul>
+    <li>The work by B.M. Zawora and J. Lange obtained one of the eight prizes given for more than two-hundred participants in the conference GSI, France, 29-31 October, 2025 (Saint-Malo).</li>
+  </ul>
+  <ul>
+    <li>A. Maskalaniec obtained one of the prizes for the best posters for "k-Contact geometry and pseudo-gauge invariance in relativistic spin hydrodynamics" in the conference XXXIII International Fall Workshop on Geometry and Physics, held from
+      September 09 to 12, 2025, in Córdoba, Spain.</li>
+  </ul>
+  <ul>
+    <li>J. Lange obtained one of the didactic distinctions in 2025 for her exercise lectures in the Faculty of Physics of the University of Warsaw.</li>
+  </ul>
+  <ul>
+    <li>J. de Lucas obtained one of the didactic distinctions in 2025 for her exercise lectures in the Faculty of Physics of the University of Warsaw.</li>
+  </ul>
+  <ul>
+    <li>Disclaimer: I have not been related in any manner to
+      Symmetry or Mathematics MDPI journals for several years now.
+      Despite my numerous petitions, my personal information is
+      still in the website of Symmetry (Mathematics accepted to delete my information after many attempts).</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>Javier de Lucas Araujo © 2026</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var sections = document.querySelectorAll(".section");
+  var keepOpenIds = ["cv", "projects", "gamma", "collab"];
+
+  sections.forEach(function (section) {
+    var title = section.querySelector(".section-title");
+    if (!title) return;
+
+    var id = section.id || "";
+    var keepOpen = keepOpenIds.indexOf(id) !== -1;
+
+    if (!keepOpen) {
+      section.classList.add("collapsed");
+    }
+
+    title.addEventListener("click", function () {
+      section.classList.toggle("collapsed");
+    });
+  });
+
+  function openSectionFromHash() {
+    var id = window.location.hash ? window.location.hash.substring(1) : "";
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (target && target.classList.contains("section")) {
+      target.classList.remove("collapsed");
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  openSectionFromHash();
+  window.addEventListener("hashchange", openSectionFromHash);
+});
+</script>
+
+</body>
+</html>

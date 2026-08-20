@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research & Gamma | Javier de Lucas Araujo</title>
+  <meta name="description" content="Research profile and Gamma Geometric Mechanics Program — English and Polish." />
+
+  <style>
+    :root{
+      /* match main site palette */
+      --brand: #3a74b0;
+      --brand-dark: #2f5c8a;
+      --bg: #f4f7fb;
+      --text: #233142;
+
+      /* layout */
+      --maxw: 1000px;
+      --pad: 16px;
+
+      /* typography */
+      --link: #0645ad;
+      --line: rgba(255,255,255,.45);
+      --line2: rgba(35,49,66,.18);
+      --muted: rgba(35,49,66,.85);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { background: var(--bg); color: var(--text); }
+    body{
+      margin: 0;
+      font-family: "Times New Roman", Times, serif;
+      line-height: 1.45;
+      font-size: 16px;
+    }
+
+    /* --- header like main page --- */
+    header{
+      background: var(--brand);
+      color: #fff;
+      border-bottom: 3px solid var(--brand-dark);
+    }
+    header .container{
+      width: min(100%, var(--maxw));
+      margin: 0 auto;
+      padding: 24px var(--pad) 10px var(--pad);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+    header h1{
+      font-size: 1.6rem;
+      margin: 0 0 .25rem 0;
+      font-weight: 700;
+    }
+    header .affil{
+      margin: 0;
+      opacity: .95;
+    }
+    .portrait{
+      height: 180px;
+      width: 260px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      object-fit: cover;
+    }
+
+    /* nav bar (white text) */
+    nav{
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+    nav ul{
+      list-style: none;
+      margin: 0;
+      padding: 0 0 8px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    nav li{ margin: 0; padding: 0; }
+    nav a{
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover{ text-decoration: underline; }
+
+    /* --- main content --- */
+    .wrap{
+      width: min(100%, var(--maxw));
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    a{ color: var(--link); text-decoration: underline; }
+    a:hover{ text-decoration: none; }
+
+    h2{
+      font-size: 1.25rem;
+      margin: 1.4rem 0 .45rem 0;
+    }
+    h3{
+      font-size: 1.05rem;
+      margin: 1.0rem 0 .35rem 0;
+    }
+    p{ margin: .35rem 0 .65rem 0; }
+    .muted{ color: var(--muted); }
+    ul{ margin: .35rem 0 .75rem 1.25rem; }
+    li{ margin: .2rem 0; }
+
+    /* optional "academic boxes" that still fit your main look */
+    .box{
+      background: #fff;
+      border: 1px solid var(--line2);
+      padding: .75rem .9rem;
+      margin: .75rem 0 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 1px 8px rgba(0,0,0,.06);
+    }
+
+    .two{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 900px){
+      .two{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .hr{
+      margin: 1.4rem 0;
+      border: 0;
+      border-top: 1px solid var(--line2);
+    }
+
+    .small{ font-size: .95rem; }
+    .kbd{
+      font-family: var(--mono);
+      font-size: .92em;
+      background: #f6f6f6;
+      border: 1px solid #e8e8e8;
+      padding: 0 .25rem;
+    }
+
+    footer{
+      background: var(--brand);
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      border-top: 3px solid var(--brand-dark);
+      margin-top: 24px;
+    }
+
+    /* responsive header: stack on small screens */
+    @media (max-width: 720px){
+      header .container{
+        grid-template-columns: 1fr;
+      }
+      .portrait{
+        width: 220px;
+        height: 150px;
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div>
+        <h1>Research profile &amp; Gamma Research Group</h1>
+        <p class="affil">dr. hab. Javier de Lucas Araujo, prof. UW — Department of Mathematical Methods in Physics, University of Warsaw</p>
+      </div>
+
+      <!-- SAME photo as main site -->
+      <img class="portrait" src="YoOpava.jpeg" alt="Portrait" />
+
+      <nav aria-label="Page navigation">
+        <ul>
+          <li><a href="#en">English</a></li>
+          <li><a href="#pl">Polski</a></li>
+          <li><a href="#gamma">Gamma</a></li>
+          <li><a href="#students">For students / Dla studentów</a></li>
+          <li><a href="#links">Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="gamma">
+      <h2>Gamma Research Group Program</h2>
+      <div class="box">
+        <p class="small">
+          GAMMA (Geometry and Applications: Modern Mathematical Approaches) is both a <strong>research group</strong> and a <strong>formation environment</strong> for students, doctoral, and postdoctoral researchers.
+          Gamma has a seminar whose talks and lecture series are <strong>publicly available on YouTube</strong> and can be used for independent study.
+        </p>
+      </div>
+    </section>
+
+    <section id="students">
+      <h2>Student formation and early research experience</h2>
+
+      <div class="two">
+        <div class="box">
+          <h3>What students do in Gamma</h3>
+          <ul>
+            <li>Join seminars and reading groups from early stages (BSc/MSc).</li>
+            <li>Learn modern geometric methods through guided projects and collaborative work.</li>
+            <li>Present progress in internal seminars and give short talks.</li>
+            <li>Participate in student conferences and deliver presentations at early stages.</li>
+            <li>In selected cases, develop results that may lead to <strong>co-authored publications</strong>, when warranted by scientific maturity and opportunity.</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>Standards</h3>
+          <p class="small">
+            Publication is not treated as a routine target. When it happens, it is the outcome of genuine progress,
+            appropriate timing, and rigorous quality control.
+          </p>
+    
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section id="en">
+      <h2>English</h2>
+
+      <h3>Research profile and academic activities of prof. Javier de Lucas Araujo</h3>
+      <p>
+        I am a mathematician working at the interface between <strong>differential geometry</strong> and
+        <strong>mathematical physics</strong>, currently affiliated with the <strong>Faculty of Physics, University of Warsaw</strong> and related to the Centre de Recherches Mathematiques of the Unviersity of Montreal.
+        Alongside my individual research, I actively lead a <strong>research group composed of undergraduate students, PhD candidates,
+        and early-career researchers</strong>, with whom I collaborate on both foundational and applied problems in geometric mechanics.
+      </p>
+
+      <p>
+        My scientific work focuses on <strong>symplectic, Poisson, cosymplectic, and Dirac geometry</strong>, as well as their extensions
+        to multi-time and field-theoretical frameworks, including <strong><em>k</em>-symplectic</strong> and
+        <strong><em>k</em>-contact geometry</strong>. A central theme of my research is the development of <strong>geometric reduction
+        theories</strong>, geometric methods for differential equations, and their applications to classical mechanics, field theories,
+        and gauge-type systems.
+      </p>
+
+      <p>
+        An important part of my activity is the leadership of the <strong>Gamma Geometric Mechanics Program</strong>, which serves not only
+        as a research platform but also as a <strong>training and formation environment</strong> for students and doctoral researchers.
+        Within Gamma, students are gradually introduced to modern geometric methods, learn how to read and write research-level mathematics,
+        and actively participate in seminars and collaborative projects.
+      </p>
+
+      <p>
+        Within Gamma, particular emphasis is placed on the <strong>early scientific development of students</strong>. Already at undergraduate
+        and early graduate stages, students are encouraged to participate in the academic community by <strong>presenting their work at student
+        conferences, giving seminar talks</strong>, and contributing to research discussions. In selected cases, when the scientific maturity of
+        the results justifies it, such activities may naturally lead to <strong>co-authored research publications</strong>. These outcomes are
+        not treated as routine objectives, but rather as the result of genuine scientific progress and appropriate opportunities.
+      </p>
+
+      <p>
+        A distinctive feature of Gamma is its <strong>open and educational character</strong>: many seminars and lecture series are
+        <strong>publicly available on YouTube</strong>, allowing students and young researchers to learn geometric mechanics independently and
+        at their own pace. These materials are regularly used as complementary resources for advanced courses and PhD training.
+      </p>
+
+      <p>
+        My publications appear in international journals in geometry and mathematical physics and often result from close collaboration with members
+        of my research group. I place strong emphasis on mentoring, long-term scientific formation, and building bridges between abstract geometric
+        theory and concrete physical models.
+      </p>
+    </section>
+
+    <hr class="hr" />
+
+    <section id="pl">
+      <h2>Polski</h2>
+
+      <h3>Profil naukowy i działalność badawczo-dydaktyczna</h3>
+      <p>
+        Jestem matematykiem zajmującym się <strong>geometrią różniczkową i fizyką matematyczną</strong>, związanym z
+        <strong>Wydziałem Fizyki Uniwersytetu Warszawskiego</strong>. Oprócz własnej działalności naukowej prowadzę
+        <strong>aktywną grupę badawczą</strong>, w skład której wchodzą <strong>studenci, doktoranci oraz młodzi badacze</strong>,
+        wspólnie realizujący projekty z zakresu geometrii mechaniki i teorii pól.
+      </p>
+
+      <p>
+        Moje zainteresowania obejmują <strong>geometrię symplektyczną, Poissona, kosymplektyczną oraz struktury Diraca</strong>, a także ich
+        uogólnienia do kontekstów wieloczasowych i polowych, takich jak <strong>geometria <em>k</em>-symplektyczna</strong> i
+        <strong><em>k</em>-kontaktowa</strong>. Istotnym nurtem moich badań są <strong>teorie redukcji geometrycznej</strong>, metody geometryczne
+        w teorii równań różniczkowych oraz ich zastosowania w mechanice klasycznej i teoriach typu cechowania.
+      </p>
+
+      <p>
+        Kluczowym elementem mojej działalności jest kierowanie <strong>programem Gamma – Geometric Mechanics</strong>, który pełni jednocześnie rolę
+        <strong>platformy badawczej oraz środowiska formacyjnego</strong> dla studentów i doktorantów. W ramach Gamma młodsi uczestnicy stopniowo uczą się
+        nowoczesnych metod geometrycznych, pracy z literaturą naukową oraz samodzielnego prowadzenia badań.
+      </p>
+
+      <p>
+        W ramach Gamma szczególny nacisk kładziony jest na <strong>wczesną formację naukową studentów</strong>. Już na etapie studiów licencjackich i
+        magisterskich studenci są stopniowo włączani w działalność naukową poprzez <strong>udział w konferencjach studenckich, wygłaszanie referatów</strong>
+        oraz aktywny udział w seminariach i dyskusjach badawczych. W wybranych przypadkach, gdy poziom merytoryczny uzyskanych wyników na to pozwala, taka aktywność
+        może prowadzić również do <strong>współautorstwa publikacji naukowych</strong>. Nie jest to jednak traktowane jako cel sam w sobie, lecz jako naturalna
+        konsekwencja rzeczywistego postępu badawczego i sprzyjających okoliczności.
+      </p>
+
+      <p>
+        Ważną cechą programu Gamma jest jego <strong>otwarty i dydaktyczny charakter</strong>: liczne seminaria i wykłady są <strong>publicznie dostępne na YouTube</strong>,
+        dzięki czemu studenci mogą uczyć się geometrii mechaniki także samodzielnie, poza formalnymi zajęciami. Materiały te są regularnie wykorzystywane jako uzupełnienie kursów
+        zaawansowanych oraz kształcenia doktorantów.
+      </p>
+
+      <p>
+        Moje publikacje ukazują się w międzynarodowych czasopismach z zakresu geometrii i fizyki matematycznej i często powstają we współpracy z członkami grupy badawczej.
+        Szczególną wagę przykładam do długofalowej formacji młodych naukowców oraz do łączenia abstrakcyjnej teorii geometrycznej z konkretnymi modelami fizycznymi.
+      </p>
+    </section>
+
+    <hr class="hr" />
+
+    <section id="CRM">
+      <h2>CRM collaboration</h2>
+      <ul>
+        <li>
+          I am a external member of the <strong>Centre de Recherches Mathématiques (CRM)</strong> at the University of Montreal,
+          within the <strong>Mathematical Physics and Geometry</strong> research group.
+        </li>
+        <li>
+          The CRM is a leading mathematical research institute in Canada, fostering collaboration among mathematicians
+          from various fields and institutions.
+        </li>
+        <li>
+          Through this affiliation, I engage in joint research projects, seminars, and workshops with fellow researchers
+          in geometry and mathematical physics. 
+        </li>
+        <li>
+          This collaboration, started in 2015 under a HARMONIA project of the Polish NCN, enriches my research activities and provides valuable opportunities for my students
+          to connect with the broader mathematical community. It has been instrumental in fostering international collaborations and enhancing the research profile of my group. In particular, it led to a second HARMONIA project (2019-2023) as well as a CRM-Simons professorship for prof. J. de Lucas in 2023.
+      </ul>
+    </section>
+    <section id="links">
+      <h2>Links</h2>
+      <ul>
+        <li><strong>Gamma seminar YouTube channel:</strong> <a href="https://www.youtube.com/@GammaSeminar">GammaSeminar</a></li>
+        <li><strong>Gamma seminar website:</strong> <a href="https://www.fuw.edu.pl/KMMF/gamma/">fuw.edu.pl/KMMF/gamma</a></li>
+        <li><strong>Main website:</strong> <a href="https://www.fuw.edu.pl/~delucas/">/~delucas/</a></li>
+        <li><strong>Detailed CV (PDF):</strong> <a href="https://www.fuw.edu.pl/~delucas/Curric-Eng.pdf">Curric-Eng.pdf</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Javier de Lucas Araujo © 2026</p>
+  </footer>
+</body>
+</html>
