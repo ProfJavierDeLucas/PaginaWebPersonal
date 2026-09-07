@@ -1,0 +1,35 @@
+name: Update Gamma link
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-gamma-link.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace old Gamma URL
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          old = 'https://www.fuw.edu.pl/KMMF/gamma/'
+          new = 'https://users.fuw.edu.pl/~kmmf/gamma/'
+          if old not in text:
+              raise SystemExit('Old Gamma URL not found')
+          text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8')
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Gamma seminar link"
+          git push
