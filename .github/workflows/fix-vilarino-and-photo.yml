@@ -25,7 +25,6 @@ jobs:
           good_short = 'S. Vilari' + enye + 'o'
           good_full = 'Silvia Vilari' + enye + 'o'
           good_last = 'Vilari' + enye + 'o'
-          # Filename as stored in the repo tree: Bia\xc3\x85\xc2\x82ystok.jpg displayed as BiaÅystok.jpg
           photo = b'Bia\xc3\x85\xc2\x82ystok.jpg'.decode('utf-8')
 
           pairs = [
