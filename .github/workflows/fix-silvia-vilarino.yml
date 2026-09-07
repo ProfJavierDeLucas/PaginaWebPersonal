@@ -19,7 +19,6 @@ jobs:
           from pathlib import Path
           replacements = {
               'Silvia Vilarino': 'Silvia Vilariño',
-              'Silvia Vilariño': 'Silvia Vilariño',
               'S. Vilarino': 'S. Vilariño',
               'Vilarino': 'Vilariño',
           }
@@ -48,3 +47,4 @@ jobs:
             git commit -m "Fix Silvia Vilariño spelling on website"
             git push
           fi
+# trigger
