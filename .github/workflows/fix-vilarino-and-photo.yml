@@ -1,0 +1,62 @@
+name: Fix Vilariño spelling and Bialystok photo
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-vilarino-and-photo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix website text and portrait
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          photo = 'BiaÅystok.jpg'
+          changed = []
+
+          replacements = {
+              'S. Vilari\\\\~no': 'S. Vilariño',
+              'S. Vilari\\~no': 'S. Vilariño',
+              'S. Vilari~no': 'S. Vilariño',
+              'S. Vilarino': 'S. Vilariño',
+              'Silvia Vilarino': 'Silvia Vilariño',
+              'Silvia Vilari\\\\~no': 'Silvia Vilariño',
+              'Silvia Vilari\\~no': 'Silvia Vilariño',
+              'Vilarino': 'Vilariño',
+              'Vilari\\\\~no': 'Vilariño',
+              'Vilari\\~no': 'Vilariño',
+          }
+
+          for path in [Path('index.html')]:
+              text = path.read_text(encoding='utf-8')
+              new = text
+              for old, value in replacements.items():
+                  new = new.replace(old, value)
+
+              # Main portrait and social/structured metadata image.
+              new = new.replace('YoOpava.jpeg', photo)
+
+              if new != text:
+                  path.write_text(new, encoding='utf-8')
+                  changed.append(str(path))
+
+          print('Changed files:', changed)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Fix Silvia Vilariño spelling and update portrait"
+            git push
+          fi
