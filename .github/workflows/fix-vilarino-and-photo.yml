@@ -1,4 +1,4 @@
-name: Fix Vilariño spelling and Bialystok photo
+name: Website text and photo fix
 
 on:
   push:
@@ -13,41 +13,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fix website text and portrait
+      - name: Patch index
         run: |
           python3 - <<'PY'
           from pathlib import Path
 
-          photo = 'BiaÅystok.jpg'
-          changed = []
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          new = text
 
-          replacements = {
-              'S. Vilari\\\\~no': 'S. Vilariño',
-              'S. Vilari\\~no': 'S. Vilariño',
-              'S. Vilari~no': 'S. Vilariño',
-              'S. Vilarino': 'S. Vilariño',
-              'Silvia Vilarino': 'Silvia Vilariño',
-              'Silvia Vilari\\\\~no': 'Silvia Vilariño',
-              'Silvia Vilari\\~no': 'Silvia Vilariño',
-              'Vilarino': 'Vilariño',
-              'Vilari\\\\~no': 'Vilariño',
-              'Vilari\\~no': 'Vilariño',
-          }
+          # Correct bad TeX-style spelling variants to proper Unicode.
+          pairs = [
+              ('S. Vilari\\\\\\~no', 'S. Vilari\u00f1o'),
+              ('S. Vilari\\\\~no', 'S. Vilari\u00f1o'),
+              ('S. Vilari\\~no', 'S. Vilari\u00f1o'),
+              ('S. Vilari~no', 'S. Vilari\u00f1o'),
+              ('S. Vilarino', 'S. Vilari\u00f1o'),
+              ('Silvia Vilarino', 'Silvia Vilari\u00f1o'),
+              ('Silvia Vilari\\\\~no', 'Silvia Vilari\u00f1o'),
+              ('Silvia Vilari\\~no', 'Silvia Vilari\u00f1o'),
+              ('Vilarino', 'Vilari\u00f1o'),
+              ('Vilari\\\\~no', 'Vilari\u00f1o'),
+              ('Vilari\\~no', 'Vilari\u00f1o'),
+          ]
+          for old, value in pairs:
+              new = new.replace(old, value)
 
-          for path in [Path('index.html')]:
-              text = path.read_text(encoding='utf-8')
-              new = text
-              for old, value in replacements.items():
-                  new = new.replace(old, value)
+          # Use the Bialystok image file already present in the repo.
+          new = new.replace('YoOpava.jpeg', 'BiaÅystok.jpg')
 
-              # Main portrait and social/structured metadata image.
-              new = new.replace('YoOpava.jpeg', photo)
-
-              if new != text:
-                  path.write_text(new, encoding='utf-8')
-                  changed.append(str(path))
-
-          print('Changed files:', changed)
+          p.write_text(new, encoding='utf-8')
+          print('changed:', new != text)
+          print('YoOpava left:', 'YoOpava.jpeg' in new)
+          print('bad surname left:', any(x in new for x in ['Vilari\\\\~no', 'Vilari\\~no', 'Vilarino']))
+          print('Bialystok refs:', new.count('BiaÅystok.jpg'))
           PY
       - name: Commit changes
         run: |
@@ -57,6 +56,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Fix Silvia Vilariño spelling and update portrait"
+            git commit -m "Fix Silvia Vilariño spelling and use Bialystok portrait"
             git push
           fi
