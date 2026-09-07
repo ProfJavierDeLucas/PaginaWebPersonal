@@ -1,0 +1,53 @@
+name: Update master theses links
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-master-theses-links.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch student links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old_b = '''<li><strong>B.M. Zawora 2021 - </strong><i>A
+          time-dependent energy-momentum method - </i>Prize
+          Joanny Gwizdow i Jerzy Glazer of the Faculty of
+          Physics of the University of Warsaw</li>'''
+          new_b = '''<li><strong>B.M. Zawora 2021 - </strong><i>A
+          time-dependent energy-momentum method - </i>Prize
+          Joanny Gwizdow i Jerzy Glazer of the Faculty of
+          Physics of the University of Warsaw <a href="MasterTheses/Bartosz_Maciej_Zawora_Master_Work_2021.html" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[Master work]</a></li>'''
+          old_j = '''<li><strong>J. Lange 2020 -</strong><i> A
+          Hamilton-Jacobi theory on twisted Poisson manifolds</i></li>'''
+          new_j = '''<li><strong>J. Lange 2020 -</strong><i> A
+          Hamilton-Jacobi theory on twisted Poisson manifolds</i><a href="MasterTheses/Julia_Lange_Master_Thesis_2020.html" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[Master thesis]</a></li>'''
+          missing = []
+          if old_b not in s:
+              missing.append('Bartosz master item')
+          else:
+              s = s.replace(old_b, new_b, 1)
+          if old_j not in s:
+              missing.append('Julia master item')
+          else:
+              s = s.replace(old_j, new_j, 1)
+          if missing:
+              raise SystemExit('Missing expected text: ' + ', '.join(missing))
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add index.html
+          git commit -m "Link master theses from students section" || exit 0
+          git push
