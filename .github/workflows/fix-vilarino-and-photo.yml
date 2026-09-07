@@ -1,4 +1,4 @@
-name: Website text and photo fix
+name: Website patch
 
 on:
   push:
@@ -9,11 +9,11 @@ permissions:
   contents: write
 
 jobs:
-  fix:
+  patch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Patch index
+      - name: Patch index html
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -21,34 +21,38 @@ jobs:
           p = Path('index.html')
           text = p.read_text(encoding='utf-8')
           new = text
+          enye = chr(0x00f1)
+          good_short = 'S. Vilari' + enye + 'o'
+          good_full = 'Silvia Vilari' + enye + 'o'
+          good_last = 'Vilari' + enye + 'o'
+          # Filename as stored in the repo tree: Bia\xc3\x85\xc2\x82ystok.jpg displayed as BiaÅystok.jpg
+          photo = b'Bia\xc3\x85\xc2\x82ystok.jpg'.decode('utf-8')
 
-          # Correct bad TeX-style spelling variants to proper Unicode.
           pairs = [
-              ('S. Vilari\\\\\\~no', 'S. Vilari\u00f1o'),
-              ('S. Vilari\\\\~no', 'S. Vilari\u00f1o'),
-              ('S. Vilari\\~no', 'S. Vilari\u00f1o'),
-              ('S. Vilari~no', 'S. Vilari\u00f1o'),
-              ('S. Vilarino', 'S. Vilari\u00f1o'),
-              ('Silvia Vilarino', 'Silvia Vilari\u00f1o'),
-              ('Silvia Vilari\\\\~no', 'Silvia Vilari\u00f1o'),
-              ('Silvia Vilari\\~no', 'Silvia Vilari\u00f1o'),
-              ('Vilarino', 'Vilari\u00f1o'),
-              ('Vilari\\\\~no', 'Vilari\u00f1o'),
-              ('Vilari\\~no', 'Vilari\u00f1o'),
+              ('S. Vilari' + '\\\\' + '~no', good_short),
+              ('S. Vilari' + '\\' + '~no', good_short),
+              ('S. Vilari~no', good_short),
+              ('S. Vilarino', good_short),
+              ('Silvia Vilarino', good_full),
+              ('Silvia Vilari' + '\\\\' + '~no', good_full),
+              ('Silvia Vilari' + '\\' + '~no', good_full),
+              ('Vilarino', good_last),
+              ('Vilari' + '\\\\' + '~no', good_last),
+              ('Vilari' + '\\' + '~no', good_last),
           ]
           for old, value in pairs:
               new = new.replace(old, value)
 
-          # Use the Bialystok image file already present in the repo.
-          new = new.replace('YoOpava.jpeg', 'BiaÅystok.jpg')
+          new = new.replace('YoOpava.jpeg', photo)
 
           p.write_text(new, encoding='utf-8')
-          print('changed:', new != text)
-          print('YoOpava left:', 'YoOpava.jpeg' in new)
-          print('bad surname left:', any(x in new for x in ['Vilari\\\\~no', 'Vilari\\~no', 'Vilarino']))
-          print('Bialystok refs:', new.count('BiaÅystok.jpg'))
+          print('changed', new != text)
+          print('YoOpava_left', 'YoOpava.jpeg' in new)
+          print('bad_tex_left', ('Vilari' + '\\' + '~no') in new or ('Vilari' + '\\\\' + '~no') in new)
+          print('bad_ascii_left', 'Vilarino' in new)
+          print('photo_refs', new.count(photo))
           PY
-      - name: Commit changes
+      - name: Commit patch
         run: |
           git config user.name "ProfJavierDeLucas"
           git config user.email "j.de-lucas-ara@uw.edu.pl"
@@ -56,6 +60,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Fix Silvia Vilariño spelling and use Bialystok portrait"
+            git commit -m "Fix Silvia Vilarino spelling and Bialystok portrait"
             git push
           fi
