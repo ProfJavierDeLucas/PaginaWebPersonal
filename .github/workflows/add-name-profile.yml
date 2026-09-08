@@ -1,0 +1,40 @@
+name: Add visible name to research profile
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-name-profile.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add visible name
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('erc-profile.html')
+          s = p.read_text(encoding='utf-8')
+          css_old = 'h1{font-size:clamp(2rem,5vw,4.05rem);line-height:1.02;margin:0 0 12px;font-weight:850}'
+          css_new = '.name{font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:800;letter-spacing:.02em;margin:0 0 10px;color:#fff}h1{font-size:clamp(2rem,5vw,4.05rem);line-height:1.02;margin:0 0 12px;font-weight:850}'
+          if css_old not in s:
+              raise SystemExit('Expected h1 CSS not found')
+          s = s.replace(css_old, css_new, 1)
+          hero_old = '      <h1>Geometric structures for differential equations and field theory</h1>'
+          hero_new = '      <div class="name">Javier de Lucas Araujo</div>\n      <h1>Geometric structures for differential equations and field theory</h1>'
+          if hero_old not in s:
+              raise SystemExit('Expected hero heading not found')
+          s = s.replace(hero_old, hero_new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add erc-profile.html
+          git commit -m "Add name prominently to research profile"
+          git push
