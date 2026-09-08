@@ -1,0 +1,35 @@
+name: Add doctoral thesis award
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-thesis-award.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add thesis award to selected recognitions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('erc-profile.html')
+          s = p.read_text(encoding='utf-8')
+          anchor = '          <li>Dean Prize for the best researcher under 40 at the Faculty of Physics, University of Warsaw.</li>\n'
+          addition = anchor + '          <li>Special Award for Doctoral Theses, University of Zaragoza (2011).</li>\n'
+          if anchor not in s:
+              raise SystemExit('Selected recognitions anchor not found')
+          s = s.replace(anchor, addition, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add erc-profile.html
+          git commit -m "Add doctoral thesis award to selected recognitions"
+          git push
