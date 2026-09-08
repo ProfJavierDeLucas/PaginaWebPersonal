@@ -1,0 +1,34 @@
+name: Remove two-layer paragraph
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-two-layer-paragraph.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove paragraph
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('erc-profile.html')
+          s = p.read_text(encoding='utf-8')
+          target = '        <p>This page is deliberately organised as a two-layer profile. The first layer states the research vision and capacity. The expandable layer preserves the full archival function of the website: publications, students, talks, theses, seminars and resources.</p>\n'
+          if target not in s:
+              raise SystemExit('Target paragraph not found')
+          s = s.replace(target, '', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add erc-profile.html
+          git commit -m "Remove two-layer profile paragraph"
+          git push
