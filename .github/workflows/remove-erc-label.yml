@@ -1,0 +1,40 @@
+name: Remove ERC label text
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-erc-label.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch erc profile wording
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('erc-profile.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('<div class="kicker">ERC-style research profile · experimental landing page</div>\n      ', '')
+          s = s.replace('Google Scholar citations shown on the main page', 'Google Scholar citations')
+          s = s.replace('Hirsch index shown on the main page', 'Hirsch index')
+          s = s.replace('PhD students past/current on the main page', 'PhD students past/current')
+          p.write_text(s, encoding='utf-8')
+          print('kicker left:', 'ERC-style research profile · experimental landing page' in s)
+          print('shown phrase left:', 'shown on the main page' in s)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add erc-profile.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Remove ERC draft labels from profile page"
+            git push
+          fi
