@@ -1,0 +1,43 @@
+name: Refine recognition years and scope
+
+on:
+  push:
+    paths:
+      - '.github/workflows/refine-recognitions-years.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update selected recognitions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('erc-profile.html')
+          s = p.read_text(encoding='utf-8')
+          old = '''          <li>Invited participant in the 2026 IAS Workshop on Recent Developments in Symplectic Dynamics, School of Mathematics, Institute for Advanced Study, Princeton.</li>
+          <li>Simons–CRM Professorship, Centre de Recherches Mathématiques, University of Montréal.</li>
+          <li>Dean Prize for the best researcher under 40 at the Faculty of Physics, University of Warsaw.</li>
+          <li>Special Award for Doctoral Theses, University of Zaragoza (2011).</li>
+          <li>Didactic awards and nominations at the University of Warsaw.</li>'''
+          new = '''          <li><strong>2026</strong> — Invited participant, Workshop on Recent Developments in Symplectic Dynamics, School of Mathematics, Institute for Advanced Study, Princeton.</li>
+          <li><strong>2023</strong> — Simons–CRM Professorship, Centre de Recherches Mathématiques, University of Montréal.</li>
+          <li><strong>2021</strong> — Dean Prize for the best researcher under 40, Faculty of Physics, University of Warsaw.</li>
+          <li><strong>2011</strong> — Special Award for Doctoral Theses, awarded across all science faculties of the University of Zaragoza.</li>
+          <li><strong>2013, 2017, 2020</strong> — University-wide didactic awards at the University of Warsaw; further student-council nominations in <strong>2022</strong> and <strong>2024</strong>.</li>'''
+          if old not in s:
+              raise SystemExit('Recognition block not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add erc-profile.html
+          git commit -m "Clarify years and scope of selected recognitions"
+          git push
