@@ -1,0 +1,162 @@
+name: Update theses information
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-theses.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch website and CV source
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html')
+          text = index.read_text(encoding='utf-8')
+          start = text.index('<!-- Students -->')
+          end = text.index('<!-- Talks -->')
+          students = '''<!-- Students -->
+          <section class="section" id="students">
+            <h2 class="section-title">Students (past and current)</h2>
+            <ul>
+              <li>
+                <p><strong>PhD Students: 3+3(in progress)</strong></p>
+                <ul>
+                  <li><strong>T. Sobczak, 3 year</strong></li>
+                  <li><strong>A. Maskalaniec (with J. Grabowski), 3 year</strong></li>
+                  <li><strong>J. Lange,</strong><i> Hamilton--Jacobi theory on k-contact manifolds and applications,</i> under redaction, <strong> January 2027</strong></li>
+                  <li><strong>B. Zawora, </strong><i>Marsden--Meyer--Weinstein Reduction Theories and their Applications to Energy-Momentum methods</i>, <strong>2026</strong><i> (with distinction)</i><a href="PhDTheses/ThesisBartosz.pdf" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[PhD Thesis]</a></li>
+                  <li><strong>D. Wysocki,</strong><i> Geometric approaches to Lie bialgebras, their classification, and applications, </i><strong>2023</strong><a href="https://arxiv.org/abs/2512.24795" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[PhD Thesis]</a></li>
+                  <li><strong>C. Sardón-Muñoz,</strong><i> Lie systems, Lie symmetries and reciprocal transformations, </i><strong>2015</strong> <i>(Prize for doctoral theses of the University of Salamanca)</i><a href="https://arxiv.org/abs/1508.00726" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[PhD Thesis]</a></li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Master's Students: 9+2(in progress)</strong></p>
+                <ul>
+                  <li><strong>P. Petrykowski - </strong><i>Cartan theory of reduction</i> <strong>2025/26 - in progress</strong></li>
+                  <li><strong>A. Surya Putra - </strong><i>BRST quantization</i> <strong>2026/27 - in progress</strong></li>
+                  <li><strong>M. Borczyńska 2025 - </strong><i>Marsden--Meyer--Weinstein reductions in the singular orbifold setting with applications</i></li>
+                  <li><strong>T. Frelik 2025 - </strong><i>Complex geometry, Cartan bundles, and their applications to gauge theory</i></li>
+                  <li><strong>T. Sobczak 2024 - </strong><i>New approaches to k-contact geometry and applications</i></li>
+                  <li><strong>A. Maskalaniec 2024 - </strong><i>Super symplectic geometry and reductions</i></li>
+                  <li><strong>B.M. Zawora 2021 - </strong><i>A time-dependent energy-momentum method</i>. Prize Joanny Gwizdów i Jerzego Glazerów of the Faculty of Physics of the University of Warsaw <a href="MasterTheses/Bartosz_Maciej_Zawora_Master_Work_2021.html" style="color:red; text-decoration:none; font-weight:600; margin-left:8px;">[Master work]</a></li>
+                  <li><strong>J. Lange 2020 - </strong><i>A Hamilton-Jacobi theory on twisted Poisson manifolds</i></li>
+                  <li><strong>D. Wysocki 2017 - </strong><i>New approaches to Lie bialgebras and their quantization</i></li>
+                  <li><strong>D.K. Propiuk 2013 - </strong><i>Methods of calculation of mathematical reserves</i></li>
+                  <li><strong>D.M. Napiórkowska 2013 - </strong><i>Geometry of the simplex method</i></li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Bachelor's Students: 15+3(in progress)</strong></p>
+                <ul>
+                  <li><strong>D. Spisak - </strong><i>Introduction to the energy-Casimir method and applications</i> <strong>2025/26 - in progress</strong></li>
+                  <li><strong>S. Yablonski - </strong><i>Theory and applications of Lie groupoids and algebroids</i> <strong>2025/26 - in progress</strong></li>
+                  <li><strong>M. Flis 2025 - </strong><i>Lie group symmetries of differential equations and applications</i></li>
+                  <li><strong>J. Jurczak 2025 - </strong><i>Homological invariants of vector bundles and applications</i></li>
+                  <li><strong>M. Wojtkowiak 2025 - </strong><i>Canonoid Transformations: introduction and applications</i></li>
+                  <li><strong>K. Wolicki 2025 - </strong><i>Clifford algebras and their applications</i></li>
+                  <li><strong>M. Matviienko 2024 - </strong><i>Mechanics on Lie Algebroids: Theory and Applications</i></li>
+                  <li><strong>T. Frelik 2023 - </strong><i>Multisymplectic theory, reduction and applications</i></li>
+                  <li><strong>M. Duch 2023 - </strong><i>On b<sup>k</sup>-symplectic manifolds and applications</i></li>
+                  <li><strong>A. Maskalaniec 2022 - </strong><i>The energy-momentum method: Theory, generalisations, and applications</i></li>
+                  <li><strong>B.M. Zawora 2019 - </strong><i>Applications of Geometric Mechanics to the Dynamics of Asteroid Pairs</i></li>
+                  <li><strong>J. Szypulski 2019 - </strong><i>Differential geometric description of Maxwell's equations and its applications</i></li>
+                  <li><strong>J. Lange 2018 - </strong><i>Infinite-dimensional Marsden-Weinstein reduction in quantum mechanics</i></li>
+                  <li><strong>D. Wysocki 2017 - </strong><i>New approaches to Lie bialgebras and their quantization</i></li>
+                  <li><strong>W. Fabjańczuk 2017 - </strong><i>Supergeometric methods and applications in physics</i></li>
+                  <li><strong>M. Lewandowski 2016 - </strong><i>Theory and applications of Lie algebras of conformal and Killing vector fields</i></li>
+                  <li><strong>M. Skowronek 2016 - </strong><i>Applications of the Marsden-Weinstein reduction in differential equations</i></li>
+                  <li><strong>M. Tobolski 2015 - </strong><i>Riccati equations over normed division algebras with applications</i></li>
+                </ul>
+                <p><i>Research group: B.M. Zawora, J. Lange, A. Maskalaniec, T. Sobczak, X. Rivas, S. Vilariño, A. Lopez-Gordon, M. Krych.</i></p>
+              </li>
+            </ul>
+          </section>
+
+          '''
+          index.write_text(text[:start] + students + text[end:], encoding='utf-8')
+
+          cv = Path('Curric-Eng.tex')
+          t = cv.read_text(encoding='utf-8')
+          a = t.index('\\centerline{\\bf Master Theses}')
+          b = t.index('\\vskip 0.5cm\n\\centerline{\\bf Supervision of students}', a)
+          theses = r'''\centerline{f Master Theses}
+egin{itemize}
+
+\item In 2013 I supervised the master thesis of {f Mariola Napiórkowska} at the Department of Mathematics of the Cardinal Stefan Wyszyński University of Warsaw. Title: {\it Geometry of the simplex method}.
+
+\item In 2013 I supervised the master thesis of {f Katarzyna Kropopiek} at the Department of Mathematics of the Cardinal Stefan Wyszyński University. Title: {\it Methods of calculation of mathematical reserves}.
+
+\item In 2017 I supervised the master thesis of {f D. Wysocki} at the Faculty of Physics of the University of Warsaw. Title: {\it New approaches to Lie bialgebras and their quantization}. Defended on September 19, 2017.
+
+\item In 2020 I supervised the master thesis of {f J. Lange} at the Faculty of Physics of the University of Warsaw. Title: {\it A Hamilton-Jacobi theory on twisted Poisson manifolds}. Defended on September 16, 2020.
+
+\item In 2021 I supervised the master thesis of {f B. Zawora} at the Faculty of Physics of the University of Warsaw. Title: {\it A time-dependent energy-momentum method}. Defended on September 21, 2021. He got one of the two Prizes im. Joanny z Gwiżdżów i Jerzego Glazerów in 2022 for master's theses of the Faculty of Physics of the University of Warsaw.
+
+\item In 2024 I supervised the master thesis of {f T. Sobczak} at the Faculty of Physics of the University of Warsaw. Title: {\it New approaches to $k$-contact geometry and applications}. Defended on September 25, 2024.
+
+\item In 2024 I supervised the master thesis of {f A. Maskalaniec} at the Faculty of Physics of the University of Warsaw. Title: {\it Super symplectic geometry and reductions}. Defended on September 19, 2024.
+
+\item In 2025 I supervised the master thesis of {f M. Borczyńska} at the Faculty of Physics of the University of Warsaw. Title: {\it Marsden--Meyer--Weinstein reductions in the singular orbifold setting with applications}. Defended on November 5, 2025.
+
+\item In 2025 I supervised the master thesis of {f T. Frelik} at the Faculty of Physics of the University of Warsaw. Title: {\it Complex geometry, Cartan bundles, and their applications to gauge theory}. Defended on September 23, 2025.
+
+\end{itemize}
+\centerline{f Bachelor theses}
+egin{itemize}
+
+\item In 2015 I supervised the bachelor thesis of {f M. Tobolski} at the Faculty of Physics of the University of Warsaw. Title: {\it Riccati equations over normed division algebras with applications}. Defended on September 9, 2015. This bachelor thesis gave rise to the publication J. de Lucas, M. Tobolski and S. Vilariño, {\it Geometry of Riccati equations over normed division algebras}, J. Math. Anal. Appl. {f 440}, 394--414 (2016).
+
+\item In 2015 I supervised the bachelor thesis of {f D. Wysocki} at the Faculty of Physics of the University of Warsaw. Title: {\it Algebraic and geometric methods of quantization}. Defended on July 23, 2015.
+
+\item In 2016 I supervised the bachelor thesis of {f M. Lewandowski} at the Faculty of Physics of the University of Warsaw. Title: {\it Theory and applications of Lie algebras of conformal and Killing vector fields}. Defended on September 22, 2016.
+
+\item In 2016 I supervised the bachelor thesis of {f M. Skowronek} at the Faculty of Physics of the University of Warsaw. Title: {\it Applications of the Marsden-Weinstein reduction in differential equations}. Defended on September 22, 2016.
+
+\item In 2017 I supervised the bachelor thesis of {f W. Fabjańczuk} at the Faculty of Physics of the University of Warsaw. Title: {\it Supergeometric methods and applications in physics}. Defended on September 18, 2017.
+
+\item In 2018 I supervised the bachelor thesis of {f J. Lange} at the Faculty of Physics of the University of Warsaw. Title: {\it Infinite-dimensional Marsden-Weinstein reduction in quantum mechanics}. Defended on September 13, 2018.
+
+\item In 2019 I supervised the bachelor thesis of {f B. Zawora} at the Faculty of Physics of the University of Warsaw. Title: {\it Applications of Geometric Mechanics to the Dynamics of Asteroid Pairs}. Defended on September 23, 2019.
+
+\item In 2019 I supervised the bachelor thesis of {f J. Szypulski} at the Faculty of Physics of the University of Warsaw. Title: {\it Differential geometric description of Maxwell's equations and its applications}. Defended on July 22, 2019.
+
+\item In 2022 I supervised the bachelor thesis of {f A. Maskalaniec} at the Faculty of Physics of the University of Warsaw. Title: {\it The energy-momentum method: Theory, generalisations, and applications}. Defended on September 26, 2022.
+
+\item In 2023 I supervised the bachelor thesis of {f T. Frelik} at the Faculty of Physics of the University of Warsaw. Title: {\it Multisymplectic theory, reduction and applications}.
+
+\item In 2023 I supervised the bachelor thesis of {f M. Duch} at the Faculty of Physics of the University of Warsaw. Title: {\it On $b^k$-symplectic manifolds and applications}. Defended on July 22, 2023.
+
+\item In 2024 I supervised the bachelor thesis of {f Maksym Matviienko} at the Faculty of Physics of the University of Warsaw. Title: {\it Mechanics on Lie Algebroids: Theory and Applications}. Defended on September 23, 2024.
+
+\item In 2025 I supervised the bachelor thesis of {f Małgorzata Flis} at the Faculty of Physics of the University of Warsaw. Title: {\it Lie group symmetries of differential equations and applications}. Defended on September 29, 2025.
+
+\item In 2025 I supervised the bachelor thesis of {f Jakub Jurczak} at the Faculty of Physics of the University of Warsaw. Title: {\it Homological invariants of vector bundles and applications}. Defended on September 23, 2025.
+
+\item In 2025 I supervised the bachelor thesis of {f Michał Wojtkowiak} at the Faculty of Physics of the University of Warsaw. Title: {\it Canonoid Transformations: introduction and applications}. Defended on September 29, 2025.
+
+\item In 2025 I supervised the bachelor thesis of {f Krzysztof Wolicki} at the Faculty of Physics of the University of Warsaw. Title: {\it Clifford algebras and their applications}. Defended on September 29, 2025.
+
+\item In 2025/26 I am supervising the bachelor thesis of {f Daniel Spisak} at the Faculty of Physics of the University of Warsaw. Title: {\it Introduction to the energy-Casimir method and applications}.
+
+\item In 2025/26 I am supervising the bachelor thesis of {f Serafin Yablonski} at the Faculty of Physics of the University of Warsaw. Title: {\it Theory and applications of Lie groupoids and algebroids}.
+
+\end{itemize}
+
+'''
+          cv.write_text(t[:a] + theses + t[b:], encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add index.html Curric-Eng.tex
+          git commit -m "Update supervised thesis titles and defense dates"
+          git push
