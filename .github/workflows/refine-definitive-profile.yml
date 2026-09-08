@@ -1,0 +1,54 @@
+name: Refine definitive research profile
+
+on:
+  push:
+    paths:
+      - '.github/workflows/refine-definitive-profile.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refine profile page
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('erc-profile.html')
+          s = p.read_text(encoding='utf-8')
+
+          repl = [
+            ('<meta name="description" content="ERC-style research profile of Javier de Lucas Araujo: geometric structures for differential equations, field theory, k-contact geometry, jet geometry, integrable systems, symmetries and reduction."/>',
+             '<meta name="description" content="Research profile of Javier de Lucas Araujo: geometric structures for differential equations, field theory, k-contact geometry, jet geometry, integrable systems, symmetries and reduction."/>'),
+            ('.hero{background:linear-gradient(135deg,#142b4d,#28639f);color:#fff;padding:36px 0 30px;border-bottom:5px solid #1c426d}',
+             '.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#142b4d,#28639f);color:#fff;padding:36px 0 30px;border-bottom:5px solid #1c426d}.hero-bg{position:absolute;inset:0;pointer-events:none;opacity:.78}.hero-bg svg{position:absolute;right:-70px;top:-6px;width:min(760px,68vw);height:100%;filter:blur(.45px)}'),
+            ('.hero-grid{display:grid;grid-template-columns:1.25fr 310px;gap:28px;align-items:center}',
+             '.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr 310px;gap:28px;align-items:center}'),
+            ('<header class="hero">\n  <div class="wrap hero-grid">',
+             '<header class="hero">\n  <div class="hero-bg" aria-hidden="true">\n    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">\n      <g fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">\n        <path d="M165 220 C 255 80, 400 34, 545 64 S 805 170, 816 255"/>\n        <path d="M218 252 C 315 170, 408 160, 492 166"/>\n        <path d="M492 166 C 542 156, 602 130, 650 93"/>\n        <path d="M492 166 C 545 176, 603 194, 653 230"/>\n        <path d="M362 130 C 405 103, 450 88, 520 88"/>\n      </g>\n      <g fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="1.6">\n        <rect x="106" y="202" width="128" height="38" rx="18"/>\n        <rect x="312" y="111" width="136" height="38" rx="18"/>\n        <rect x="446" y="147" width="110" height="38" rx="18"/>\n        <rect x="566" y="65" width="128" height="38" rx="18"/>\n        <rect x="565" y="212" width="134" height="38" rx="18"/>\n      </g>\n      <g fill="rgba(255,255,255,0.42)" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600">\n        <text x="136" y="226">symmetries</text>\n        <text x="355" y="135">integrability</text>\n        <text x="480" y="171">PDEs</text>\n        <text x="600" y="89">k-contact</text>\n        <text x="616" y="236">reduction</text>\n      </g>\n      <g fill="rgba(255,255,255,0.18)" font-family="Georgia, Times, serif" font-size="22" font-style="italic">\n        <text x="526" y="43">J^r pi</text>\n        <text x="710" y="130">d theta = 0</text>\n      </g>\n      <g fill="rgba(255,255,255,0.18)">\n        <circle cx="227" cy="251" r="4.2"/>\n        <circle cx="447" cy="130" r="4.2"/>\n        <circle cx="561" cy="166" r="4.2"/>\n        <circle cx="667" cy="85" r="4.2"/>\n        <circle cx="667" cy="231" r="4.2"/>\n      </g>\n    </svg>\n  </div>\n  <div class="wrap hero-grid">'),
+            ('<summary>Why this matters for an ERC-style profile</summary>', '<summary>How this page is organised</summary>'),
+            ('<p>The page shows the programme before the archive. The first screen gives the scientific identity, frontier, group and visibility. The detailed information is still present or linked, but placed in expandable sections so that external readers see a coherent research agenda before encountering the complete record.</p>',
+             '<p>This page is organised in two layers. The opening section presents the scientific programme, current frontier, research environment and international standing in a compact form. The expandable sections retain the supporting record -- publications, students, theses, talks and resources -- so that readers first see a coherent research agenda and can then move naturally to the full archive.</p>'),
+            ('<p>This draft page does not replace the full information page. It is a front layer: compact, ERC-oriented and readable in one minute. The original page remains the complete archive.</p>',
+             '<p>This research profile complements the full information page. It offers a compact overview for external readers while preserving the website as a complete information and archive centre.</p>'),
+            ('<div class="wrap">Javier de Lucas Araujo · ERC-style draft page · <a href="index.html">Back to the full information page</a></div>',
+             '<div class="wrap">Javier de Lucas Araujo · Research profile · <a href="index.html">Back to the full information page</a></div>')
+          ]
+
+          for old, new in repl:
+              if old not in s:
+                  raise SystemExit('Missing expected snippet: ' + old[:80])
+              s = s.replace(old, new, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "ProfJavierDeLucas"
+          git config user.email "j.de-lucas-ara@uw.edu.pl"
+          git add erc-profile.html
+          git commit -m "Refine definitive research profile" || exit 0
+          git push
