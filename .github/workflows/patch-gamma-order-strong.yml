@@ -1,0 +1,24 @@
+name: Patch Gamma order and collaborations
+
+"on":
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'Run Gamma order patch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Gamma patch
+        run: python .github/patch_gamma_order_strong.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add erc-profile.html
+          git diff --cached --quiet || git commit -m "Order Gamma conferences and strengthen collaborations wording"
+          git push
