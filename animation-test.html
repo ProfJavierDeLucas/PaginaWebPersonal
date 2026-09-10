@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Animation test | Javier de Lucas Araujo</title>
+<style>
+:root{--blue:#254f88;--dark:#142b4d;--blue2:#28639f;--ink:#172033}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f4f7fb;color:var(--ink)}
+.wrap{width:min(1120px,calc(100% - 48px));margin:0 auto}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,var(--dark),var(--blue2));color:#fff;padding:36px 0 30px;border-bottom:5px solid #1c426d;min-height:440px}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 76% 18%,rgba(255,255,255,.08),transparent 35%),radial-gradient(circle at 15% 90%,rgba(255,255,255,.05),transparent 28%);pointer-events:none}
+.geometry-bg{position:absolute;inset:-40px;z-index:-1;pointer-events:none;opacity:.16;transition:opacity .35s ease}
+.geometry-bg svg{width:100%;height:100%;display:block}
+.mesh{fill:none;stroke:rgba(235,245,255,.78);stroke-width:1.05;vector-effect:non-scaling-stroke}
+.mesh.soft{stroke:rgba(235,245,255,.48);stroke-width:.8}
+.torus{transform-origin:79% 31%;animation:floatTorus 28s ease-in-out infinite alternate}
+.surface{transform-origin:43% 68%;animation:driftSurface 34s ease-in-out infinite alternate}
+.orbit{transform-origin:18% 24%;animation:orbitDrift 38s ease-in-out infinite alternate}
+@keyframes floatTorus{0%{transform:translate(-8px,5px) rotate(-3deg)}100%{transform:translate(16px,-10px) rotate(4deg)}}
+@keyframes driftSurface{0%{transform:translateX(-18px) translateY(4px)}100%{transform:translateX(22px) translateY(-7px)}}
+@keyframes orbitDrift{0%{transform:translate(-5px,-3px) rotate(0deg)}100%{transform:translate(12px,8px) rotate(5deg)}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(220px,300px);gap:28px;align-items:center}
+.kicker{letter-spacing:.11em;text-transform:uppercase;font-size:.684rem;font-weight:800;opacity:.82;margin-bottom:8px}
+.name{font-size:clamp(1.125rem,1.98vw,1.53rem);font-weight:800;letter-spacing:.02em;margin:0 0 10px}
+h1{font-size:clamp(1.8rem,4.5vw,3.645rem);line-height:1.02;margin:0 0 12px;font-weight:850}
+.lead{font-size:clamp(.945rem,1.8vw,1.206rem);max-width:790px;margin:0 0 18px;color:#eaf2ff}
+.portrait{display:block;width:100%;max-width:300px;aspect-ratio:300/230;object-fit:cover;border-radius:18px;box-shadow:0 14px 35px rgba(0,0,0,.28);border:3px solid rgba(255,255,255,.55);justify-self:end}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);padding:6px 8px;border-radius:999px;font-weight:700;font-size:.756rem;color:#fff;white-space:nowrap}
+.controls{width:min(760px,calc(100% - 32px));margin:28px auto;background:#fff;border:1px solid #dce4ef;border-radius:16px;padding:18px;box-shadow:0 3px 14px rgba(20,38,60,.08)}
+.controls h2{margin:0 0 8px;font-size:1.15rem;color:#254f88}.controls p{margin:0 0 14px;color:#536078}.buttons{display:flex;flex-wrap:wrap;gap:8px}.buttons button{border:1px solid #cbd7e6;background:#f7f9fd;color:#254f88;border-radius:9px;padding:8px 12px;font-weight:750;cursor:pointer}.buttons button:hover{background:#edf3fb}.buttons button.active{background:#254f88;color:#fff;border-color:#254f88}.note{font-size:.86rem;color:#6b778c;margin-top:12px}
+body.no-motion .torus,body.no-motion .surface,body.no-motion .orbit{animation:none}
+body.low .geometry-bg{opacity:.09}body.medium .geometry-bg{opacity:.16}body.high .geometry-bg{opacity:.25}
+@media(max-width:850px){.wrap{width:min(1120px,calc(100% - 32px))}.hero-grid{grid-template-columns:1fr}.portrait{width:min(100%,230px);justify-self:center}.geometry-bg{opacity:.11}}
+@media(prefers-reduced-motion:reduce){.torus,.surface,.orbit{animation:none!important}}
+</style>
+</head>
+<body class="medium">
+<header class="hero">
+  <div class="geometry-bg" aria-hidden="true">
+    <svg viewBox="0 0 1400 560" preserveAspectRatio="xMidYMid slice">
+      <g class="orbit">
+        <ellipse class="mesh soft" cx="240" cy="145" rx="175" ry="58" transform="rotate(-16 240 145)"/>
+        <ellipse class="mesh soft" cx="240" cy="145" rx="135" ry="105" transform="rotate(26 240 145)"/>
+        <path class="mesh" d="M72 171 C151 56 336 58 409 150 C340 230 168 245 72 171Z"/>
+        <circle cx="346" cy="88" r="3.2" fill="rgba(255,255,255,.75)"/>
+      </g>
+
+      <g class="torus">
+        <ellipse class="mesh" cx="1110" cy="175" rx="188" ry="76"/>
+        <ellipse class="mesh" cx="1110" cy="175" rx="188" ry="76" transform="rotate(28 1110 175)"/>
+        <ellipse class="mesh soft" cx="1110" cy="175" rx="188" ry="76" transform="rotate(56 1110 175)"/>
+        <ellipse class="mesh soft" cx="1110" cy="175" rx="188" ry="76" transform="rotate(84 1110 175)"/>
+        <ellipse class="mesh" cx="1110" cy="175" rx="92" ry="32"/>
+        <ellipse class="mesh soft" cx="1110" cy="175" rx="145" ry="55"/>
+      </g>
+
+      <g class="surface">
+        <path class="mesh soft" d="M-30 410 C180 305 340 505 560 385 S930 300 1135 410 S1375 470 1460 375"/>
+        <path class="mesh" d="M-30 440 C170 338 350 520 565 411 S930 330 1145 438 S1380 493 1460 405"/>
+        <path class="mesh soft" d="M-30 470 C175 372 350 540 580 445 S940 365 1160 469 S1375 520 1460 440"/>
+        <path class="mesh soft" d="M120 345 C185 405 173 469 144 518"/>
+        <path class="mesh soft" d="M320 338 C381 401 367 470 341 522"/>
+        <path class="mesh soft" d="M520 354 C580 412 568 478 547 525"/>
+        <path class="mesh soft" d="M720 338 C779 401 766 470 742 520"/>
+        <path class="mesh soft" d="M920 344 C979 407 966 474 944 524"/>
+        <path class="mesh soft" d="M1120 365 C1175 422 1164 480 1144 522"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Research profile · University of Warsaw</div>
+      <div class="name">Javier de Lucas Araujo</div>
+      <h1>Geometric structures for differential equations and field theory</h1>
+      <p class="lead">I develop geometric frameworks for PDEs and field theories, with emphasis on symmetry, reduction, integrability and non-conservative dynamics. A central direction is the use of <strong>k-contact geometry</strong> and <strong>jet geometry</strong> as a unifying language.</p>
+      <div class="badges">
+        <span class="badge">Differential equations</span><span class="badge">k-contact geometry</span><span class="badge">Jet geometry</span><span class="badge">Integrable systems</span><span class="badge">Reduction and symmetries</span>
+      </div>
+    </div>
+    <img class="portrait" src="BiaÅystok.jpg" alt="Javier de Lucas Araujo"/>
+  </div>
+</header>
+
+<section class="controls">
+  <h2>Background animation test</h2>
+  <p>The homepage is unchanged. This page only lets us compare how much geometry should be visible in the blue header.</p>
+  <div class="buttons" aria-label="Animation intensity">
+    <button data-level="low">Very subtle</button>
+    <button data-level="medium" class="active">Subtle</button>
+    <button data-level="high">More visible</button>
+    <button id="motion">Pause motion</button>
+  </div>
+  <div class="note">The animation is CSS/SVG only, so it is lightweight. It is automatically disabled for users who request reduced motion.</div>
+</section>
+<script>
+const levelButtons=[...document.querySelectorAll('[data-level]')];
+levelButtons.forEach(btn=>btn.addEventListener('click',()=>{
+  document.body.classList.remove('low','medium','high');
+  document.body.classList.add(btn.dataset.level);
+  levelButtons.forEach(b=>b.classList.toggle('active',b===btn));
+}));
+const motion=document.getElementById('motion');
+motion.addEventListener('click',()=>{
+  const stopped=document.body.classList.toggle('no-motion');
+  motion.textContent=stopped?'Resume motion':'Pause motion';
+});
+</script>
+</body>
+</html>
