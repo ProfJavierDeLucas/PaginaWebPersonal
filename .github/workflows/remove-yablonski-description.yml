@@ -1,0 +1,35 @@
+name: One-time removal of Yablonski thesis description
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-yablonski-description.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove descriptive paragraph from Yablonski entry
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('detailed.html')
+          s = p.read_text(encoding='utf-8')
+          text = " Bachelor's thesis in Physics, Faculty of Physics, University of Warsaw. The thesis develops an introductory route from Lie groupoids and Lie algebroids to Poisson geometry and symplectic groupoids, with emphasis on geometric mechanics and mathematical physics. It discusses the Poisson structure induced on the base of a symplectic groupoid, Lagrangian bisections and the identification of its Lie algebroid with the cotangent Lie algebroid, and treats the pair groupoid and cotangent groupoid as principal examples. The physical part applies the cotangent groupoid to the free rigid body, recovering Lie--Poisson reduction, Euler equations, reconstruction and conservation of spatial angular momentum."
+          if text not in s:
+              raise SystemExit('Target text not found')
+          s = s.replace(text, '', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git rm .github/workflows/remove-yablonski-description.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add detailed.html
+          git commit -m 'Shorten Serafim Yablonski thesis entry'
+          git push
