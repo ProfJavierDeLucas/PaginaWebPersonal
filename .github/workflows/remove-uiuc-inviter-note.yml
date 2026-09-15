@@ -1,0 +1,35 @@
+name: Remove UIUC inviter note
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-uiuc-inviter-note.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove inviter note from detailed page
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('detailed.html')
+          s = p.read_text(encoding='utf-8')
+          target = ' Invited by Rui Loja Fernandes; seminar slot reserved for this visit.'
+          if target not in s:
+              raise SystemExit('Target text not found')
+          s = s.replace(target, '', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git rm .github/workflows/remove-uiuc-inviter-note.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add detailed.html
+          git commit -m 'Simplify UIUC invited talk entry'
+          git push
