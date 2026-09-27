@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LIE SYSTEMS - Ejercicios de analisis</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%23131618"/><path d="M15 42h34M15 32h24M15 22h34" stroke="%23f2d06b" stroke-width="5" stroke-linecap="round"/></svg>' />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #141414;
+        --muted: #62676d;
+        --line: #d9dde2;
+        --panel: #ffffff;
+        --panel-soft: #f6f7f8;
+        --accent: #9b6b12;
+        --accent-dark: #5f3d06;
+        --focus: #285cc4;
+        --shadow: 0 16px 36px rgba(20, 20, 20, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #eef0f2;
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .lock {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(238, 240, 242, 0.96)),
+          repeating-linear-gradient(90deg, rgba(20, 20, 20, 0.045), rgba(20, 20, 20, 0.045) 1px, transparent 1px, transparent 64px);
+      }
+
+      .lock-panel {
+        width: min(100%, 430px);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 28px;
+      }
+
+      .lock-title,
+      .brand {
+        letter-spacing: 0;
+        margin: 0;
+      }
+
+      .lock-title {
+        font-size: 32px;
+        line-height: 1.05;
+      }
+
+      .lock-subtitle {
+        margin: 10px 0 22px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .field-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .field-row input,
+      .search-box input {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+        color: var(--ink);
+        padding: 12px 13px;
+        outline: none;
+      }
+
+      .field-row input:focus,
+      .search-box input:focus {
+        border-color: var(--focus);
+        box-shadow: 0 0 0 3px rgba(40, 92, 196, 0.14);
+      }
+
+      .field-row button,
+      .clear-btn {
+        border: 0;
+        border-radius: 6px;
+        background: var(--ink);
+        color: #fff;
+        padding: 0 16px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .error {
+        min-height: 22px;
+        margin: 10px 0 0;
+        color: #a33124;
+        font-size: 14px;
+      }
+
+      .app {
+        display: none;
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .topbar-inner,
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar-inner {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        font-size: 22px;
+        line-height: 1.1;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 4px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .badge {
+        border: 1px solid #cab16e;
+        background: #fff7d9;
+        color: var(--accent-dark);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-weight: 650;
+      }
+
+      main {
+        padding: 28px 0 48px;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+        align-items: end;
+        padding-bottom: 22px;
+      }
+
+      .intro h1 {
+        margin: 0;
+        font-size: clamp(34px, 6vw, 72px);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .intro p {
+        margin: 14px 0 0;
+        max-width: 690px;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 17px;
+      }
+
+      .search-box {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+        box-shadow: var(--shadow);
+      }
+
+      .search-label {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .search-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .clear-btn {
+        min-width: 92px;
+        background: #eceff2;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 18px 0 20px;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: #30343a;
+        border-radius: 999px;
+        padding: 8px 11px;
+        cursor: pointer;
+      }
+
+      .chip.active {
+        border-color: #c89f40;
+        background: #fff3c4;
+        color: var(--accent-dark);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        min-height: 268px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 18px;
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+
+      .card p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 13px;
+      }
+
+      .tag {
+        border-radius: 999px;
+        background: var(--panel-soft);
+        border: 1px solid #e3e6e9;
+        padding: 5px 8px;
+        font-size: 12px;
+        color: #3f454b;
+      }
+
+      .pdf-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        border-radius: 6px;
+        background: var(--ink);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .empty {
+        display: none;
+        border: 1px dashed #aeb5bd;
+        background: rgba(255, 255, 255, 0.72);
+        border-radius: 8px;
+        padding: 28px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      footer {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto 30px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 920px) {
+        .intro,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          min-height: 0;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .topbar-inner {
+          min-height: 88px;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .field-row,
+        .search-actions {
+          flex-direction: column;
+        }
+
+        .field-row button,
+        .clear-btn {
+          min-height: 44px;
+        }
+
+        .intro h1 {
+          font-size: 44px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="lock" id="lock" aria-label="Acceso protegido">
+      <div class="lock-panel">
+        <h1 class="lock-title">LIE SYSTEMS</h1>
+        <p class="lock-subtitle">Indice privado de ejercicios de analisis. Introduce la clave para abrir los enlaces y el buscador.</p>
+        <form class="field-row" id="accessForm">
+          <input id="accessKey" type="password" autocomplete="current-password" placeholder="Clave" aria-label="Clave de acceso" />
+          <button type="submit">Entrar</button>
+        </form>
+        <p class="error" id="accessError" role="status"></p>
+      </div>
+    </section>
+
+    <section class="app" id="app">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <h1 class="brand">LIE SYSTEMS<span>Ejercicios de analisis - Grezio</span></h1>
+          <div class="meta"><span class="badge" id="countBadge">0 PDFs</span><span>Google Drive</span></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div>
+            <h1>Biblioteca de analisis</h1>
+            <p>Una guia enlazable a los PDFs de ejercicios: cada ficha resume el contenido y el buscador localiza rapidamente hojas por tema, tecnica o palabra clave.</p>
+          </div>
+          <div class="search-box">
+            <div class="search-label">
+              <span>Buscar contenido</span>
+              <span id="resultText">0 resultados</span>
+            </div>
+            <div class="search-actions">
+              <input id="searchInput" type="search" placeholder="Ej.: Lebesgue, series, Taylor, integrales multiples..." aria-label="Buscar en los PDFs" />
+              <button class="clear-btn" id="clearSearch" type="button">Limpiar</button>
+            </div>
+          </div>
+        </section>
+
+        <nav class="filters" id="filters" aria-label="Filtros por tema"></nav>
+        <section class="grid" id="grid" aria-live="polite"></section>
+        <section class="empty" id="empty">No hay PDFs que coincidan con esa busqueda.</section>
+      </main>
+
+      <footer>
+        Los PDFs estan guardados junto a esta pagina en el directorio pdfs/.
+      </footer>
+    </section>
+
+    <script>
+      const ACCESS_KEY = "LIE SYSTEMS";
+
+      const documents = [
+        {
+          title: "int_m.pdf",
+          category: "Integrales",
+          url: "pdfs/int_m.pdf",
+          tags: ["integrales multiples", "Fubini", "cambio de variables", "coordenadas"],
+          summary: "Problemas resueltos sobre integrales multiples y cambios de variable: descomposicion de dominios, Fubini, coordenadas polares, cilindricas y esfericas, centros de masa, volumenes de solidos de revolucion, momentos de inercia y formulas para simplex y bolas n-dimensionales."
+        },
+        {
+          title: "dif_cal_1.pdf",
+          category: "Calculo diferencial",
+          url: "pdfs/dif_cal_1.pdf",
+          tags: ["varias variables", "EDP", "laplaciano", "extremos"],
+          summary: "Cálculo diferencial avanzado: ecuaciones diferenciales parciales de primer orden, invariantes, gradiente y laplaciano en coordenadas polares, cilindricas y esfericas, cambios de variables y estudio de puntos criticos y extremos."
+        },
+        {
+          title: "dif_cal.pdf",
+          category: "Calculo diferencial",
+          url: "pdfs/dif_cal.pdf",
+          tags: ["Taylor", "convexidad", "limites", "desigualdades"],
+          summary: "Cálculo diferencial de una variable: monotonia local y global, convexidad, desigualdades elementales, limites con l'Hospital, desarrollos de Taylor y restos, estudio de graficas, asintotas y formulas tipo diferencias finitas."
+        },
+        {
+          title: "szeregi.pdf",
+          category: "Series",
+          url: "pdfs/szeregi.pdf",
+          tags: ["sucesiones", "series", "convergencia", "Leibniz"],
+          summary: "Coleccion extensa sobre sucesiones y series: criterios de d'Alembert, Cauchy, Dirichlet, Leibniz y Raabe; convergencia absoluta y condicional, estimaciones asintoticas, restos de series e irracionalidad de constantes construidas por series."
+        },
+        {
+          title: "sets.pdf",
+          category: "Fundamentos",
+          url: "pdfs/sets.pdf",
+          tags: ["conjuntos", "logica", "aplicaciones", "numerabilidad"],
+          summary: "Ejercicios de teoria de conjuntos y logica: uniones e intersecciones parametrizadas, semiplanos y regiones, numerabilidad, aplicaciones inyectivas y biyectivas, funciones inversas, recurrencias, cuantificadores de frecuencia y limites inferior y superior de conjuntos."
+        },
+        {
+          title: "rel.pdf",
+          category: "Fundamentos",
+          url: "pdfs/rel.pdf",
+          tags: ["relaciones", "equivalencia", "orden", "conjuntos"],
+          summary: "Hoja centrada en relaciones y estructuras basicas: relaciones binarias, clases de equivalencia, ordenes, composicion, propiedades algebraicas elementales y ejercicios de traduccion entre lenguaje formal y descripcion de conjuntos."
+        },
+        {
+          title: "seq_num.pdf",
+          category: "Sucesiones",
+          url: "pdfs/seq_num.pdf",
+          tags: ["sucesiones numericas", "limites", "Cauchy", "monotonia"],
+          summary: "Sucesiones numericas: calculo de limites, sucesiones monotonas y acotadas, criterios de Cauchy, comparaciones, estimaciones asintoticas y ejemplos que separan convergencia, divergencia y oscilacion."
+        },
+        {
+          title: "seq_top.pdf",
+          category: "Topologia",
+          url: "pdfs/seq_top.pdf",
+          tags: ["topologia", "limites", "puntos de acumulacion", "cierres"],
+          summary: "Sucesiones desde el punto de vista topologico: puntos de acumulacion, clausura, interior, frontera, convergencia en espacios metricos y relacion entre propiedades de conjuntos y comportamiento de sucesiones."
+        },
+        {
+          title: "implicit.pdf",
+          category: "Calculo diferencial",
+          url: "pdfs/implicit.pdf",
+          tags: ["funcion implicita", "Jacobiano", "derivadas parciales"],
+          summary: "Ejercicios sobre el teorema de la funcion implicita e inversa: condiciones jacobianas, parametrizacion local de soluciones, derivacion implicita y aplicaciones a curvas, superficies y sistemas no lineales."
+        },
+        {
+          title: "anal05.pdf",
+          category: "Hojas mixtas",
+          url: "pdfs/anal05.pdf",
+          tags: ["analisis", "problemas mixtos", "calculo"],
+          summary: "Hoja numerada de analisis con problemas mixtos de calculo, limites, derivadas, estimaciones y demostraciones cortas; util como bloque de practica general antes de pasar a temas mas especializados."
+        },
+        {
+          title: "anal07.pdf",
+          category: "Hojas mixtas",
+          url: "pdfs/anal07.pdf",
+          tags: ["analisis", "series", "integrales", "funciones"],
+          summary: "Hoja de ejercicios de analisis intermedio con enfasis en tecnicas de prueba, funciones reales, comportamiento local, integracion y argumentos de convergencia."
+        },
+        {
+          title: "anal08.pdf",
+          category: "Hojas mixtas",
+          url: "pdfs/anal08.pdf",
+          tags: ["analisis", "varias variables", "convergencia"],
+          summary: "Problemas de continuidad, diferenciabilidad, convergencia y calculo en varias variables, pensados para entrenar cambios de tecnica entre demostracion abstracta y calculo explicito."
+        },
+        {
+          title: "anal09.pdf",
+          category: "Hojas mixtas",
+          url: "pdfs/anal09.pdf",
+          tags: ["analisis", "integracion", "topologia"],
+          summary: "Hoja avanzada de analisis con ejercicios de integracion, propiedades topologicas, limites y construccion de ejemplos; buena para repasar conexiones entre calculo y estructura de espacios."
+        },
+        {
+          title: "anal10.pdf",
+          category: "Hojas mixtas",
+          url: "pdfs/anal10.pdf",
+          tags: ["analisis avanzado", "demostraciones", "problemas"],
+          summary: "Coleccion de problemas avanzados de cierre: demostraciones, contraejemplos, integracion, convergencia y tecnicas combinadas de analisis real."
+        },
+        {
+          title: "ANAL02.PDF",
+          category: "Hojas mixtas",
+          url: "pdfs/ANAL02.PDF",
+          tags: ["analisis basico", "limites", "continuidad"],
+          summary: "Hoja inicial de analisis con ejercicios de fundamentos: limites, continuidad, funciones reales, desigualdades y primeras tecnicas de demostracion."
+        },
+        {
+          title: "distrib.pdf",
+          category: "Analisis funcional",
+          url: "pdfs/distrib.pdf",
+          tags: ["distribuciones", "funciones generalizadas", "debil"],
+          summary: "Material de practica sobre distribuciones y formulaciones debiles: funciones test, derivadas en sentido distribucional, operaciones basicas y ejemplos que conectan analisis clasico con analisis funcional."
+        },
+        {
+          title: "banach.pdf",
+          category: "Analisis funcional",
+          url: "pdfs/banach.pdf",
+          tags: ["Banach", "espacios normados", "completitud"],
+          summary: "Ejercicios sobre espacios normados y de Banach: completitud, normas, operadores, sucesiones de Cauchy, continuidad lineal y ejemplos canonicos del analisis funcional."
+        },
+        {
+          title: "lebesgue.pdf",
+          category: "Integrales",
+          url: "pdfs/lebesgue.pdf",
+          tags: ["Lebesgue", "medida", "integral", "convergencia"],
+          summary: "Problemas de medida e integral de Lebesgue: conjuntos medibles, funciones medibles, integrabilidad, convergencia monotona o dominada y comparacion con la integral de Riemann."
+        },
+        {
+          title: "SURFACES.PS.pdf",
+          category: "Geometria",
+          url: "pdfs/SURFACES.PS.pdf",
+          tags: ["superficies", "parametrizacion", "integrales de superficie"],
+          summary: "Ejercicios sobre superficies parametrizadas: mapas regulares, normales, area, orientacion e integrales de superficie con aplicaciones geometricas."
+        },
+        {
+          title: "INT_P.PS.pdf",
+          category: "Integrales",
+          url: "pdfs/INT_P.PS.pdf",
+          tags: ["integrales parametrizadas", "curvas", "parametros"],
+          summary: "Hoja sobre integrales con parametros y objetos parametrizados: diferenciacion bajo el signo integral, estimaciones, familias de integrales y calculos vinculados a curvas."
+        },
+        {
+          title: "POW_SER.PS.pdf",
+          category: "Series",
+          url: "pdfs/POW_SER.PS.pdf",
+          tags: ["series de potencias", "radio de convergencia", "Taylor"],
+          summary: "Series de potencias: radio e intervalo de convergencia, operaciones con series, derivacion e integracion termino a termino, desarrollos de Taylor y representacion local de funciones."
+        },
+        {
+          title: "SZER_FUN.PS.pdf",
+          category: "Series",
+          url: "pdfs/SZER_FUN.PS.pdf",
+          tags: ["series de funciones", "convergencia uniforme", "Weierstrass"],
+          summary: "Series de funciones: convergencia puntual y uniforme, criterio de Weierstrass, intercambio de limites con integrales o derivadas y ejemplos de funciones definidas por series."
+        },
+        {
+          title: "ODE.pdf",
+          category: "Ecuaciones diferenciales",
+          url: "pdfs/ODE.pdf",
+          tags: ["EDO", "ecuaciones diferenciales", "sistemas", "existencia"],
+          summary: "Ejercicios de ecuaciones diferenciales ordinarias: metodos elementales, sistemas, problemas de valor inicial, estabilidad y resultados basicos de existencia y unicidad."
+        }
+      ];
+
+      const normalize = (value) => value
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+      const state = {
+        query: "",
+        category: "Todos"
+      };
+
+      const lock = document.getElementById("lock");
+      const app = document.getElementById("app");
+      const accessForm = document.getElementById("accessForm");
+      const accessKey = document.getElementById("accessKey");
+      const accessError = document.getElementById("accessError");
+      const searchInput = document.getElementById("searchInput");
+      const clearSearch = document.getElementById("clearSearch");
+      const filters = document.getElementById("filters");
+      const grid = document.getElementById("grid");
+      const empty = document.getElementById("empty");
+      const countBadge = document.getElementById("countBadge");
+      const resultText = document.getElementById("resultText");
+
+      const unlock = () => {
+        lock.style.display = "none";
+        app.style.display = "block";
+        sessionStorage.setItem("lie-systems-access", "true");
+        searchInput.focus();
+      };
+
+      accessForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (accessKey.value.trim() === ACCESS_KEY) {
+          unlock();
+        } else {
+          accessError.textContent = "Clave incorrecta.";
+          accessKey.select();
+        }
+      });
+
+      const categories = ["Todos", ...Array.from(new Set(documents.map((doc) => doc.category))).sort()];
+
+      const renderFilters = () => {
+        filters.innerHTML = categories.map((category) => (
+          `<button class="chip${category === state.category ? " active" : ""}" type="button" data-category="${category}">${category}</button>`
+        )).join("");
+      };
+
+      const documentMatches = (doc) => {
+        const haystack = normalize([doc.title, doc.category, doc.summary, ...doc.tags].join(" "));
+        const queryOk = !state.query || haystack.includes(normalize(state.query));
+        const categoryOk = state.category === "Todos" || doc.category === state.category;
+        return queryOk && categoryOk;
+      };
+
+      const render = () => {
+        const visible = documents.filter(documentMatches);
+        countBadge.textContent = `${documents.length} PDFs`;
+        resultText.textContent = `${visible.length} resultado${visible.length === 1 ? "" : "s"}`;
+        grid.innerHTML = visible.map((doc) => `
+          <article class="card">
+            <div>
+              <h2>${doc.title}</h2>
+              <p>${doc.summary}</p>
+              <div class="tags">
+                ${doc.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+              </div>
+            </div>
+            <a class="pdf-link" href="${doc.url}" target="_blank" rel="noopener">Abrir PDF</a>
+          </article>
+        `).join("");
+        empty.style.display = visible.length ? "none" : "block";
+        renderFilters();
+      };
+
+      searchInput.addEventListener("input", (event) => {
+        state.query = event.target.value;
+        render();
+      });
+
+      clearSearch.addEventListener("click", () => {
+        state.query = "";
+        searchInput.value = "";
+        render();
+        searchInput.focus();
+      });
+
+      filters.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-category]");
+        if (!button) return;
+        state.category = button.dataset.category;
+        render();
+      });
+
+      render();
+      if (sessionStorage.getItem("lie-systems-access") === "true") {
+        unlock();
+      }
+    </script>
+  </body>
+</html>
